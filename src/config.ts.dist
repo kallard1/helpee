@@ -1,24 +1,27 @@
-export default {
+const config: any =  {
     production: {
         bdd: {
-            user: '',
-            password: '',
-            database: '',
-            host: 'pg'
+            user: "",
+            password: "",
+            database: "",
+            host: "pg"
         },
         depot: {
-            rootPath : '/helpee'
+            rootPath : "/helpee"
         }
     },
     development : {
         bdd: {
-            user: '',
-            password: '',
-            database: '',
-            host: '127.0.0.1'
+            user: "helpee",
+            password: "687mvmKhhm5mV5VH89JFynMzqnzbWq",
+            database: "helpee",
+            host: "127.0.0.1",
+            port: "5490"
         },
         depot: {
-            rootPath : '/tmp'
+            rootPath : "/tmp"
         }
     }
-}
+};
+
+export default config;
