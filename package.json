@@ -1,13 +1,25 @@
 {
   "name": "client",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "scripts": {
+    "prestart": "tsc",
     "start": "cross-env NODE_ENV=production concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"red,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/server.js\"",
     "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"red,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/server.js\"",
     "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
     "webpack:prod": "cross-env NODE_ENV=production webpack --progress",
     "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
+  },
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:kallard1/helpee.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kallard1/helpee/issues"
   },
   "dependencies": {
     "@types/compression": "0.0.36",
