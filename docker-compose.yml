@@ -1,0 +1,9 @@
+postgres:
+  build: ./docker/postgres
+  container_name: helpee_postgres
+  ports:
+    - "5490:5432"
+  volumes:
+    - ./docker/postgres/data:/var/lib/postgresql/data
+  working_dir: /var/lib/postgresql/
+  restart: unless-stopped

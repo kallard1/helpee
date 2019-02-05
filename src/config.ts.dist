@@ -1,0 +1,24 @@
+export default {
+    production: {
+        bdd: {
+            user: '',
+            password: '',
+            database: '',
+            host: 'pg'
+        },
+        depot: {
+            rootPath : '/helpee'
+        }
+    },
+    development : {
+        bdd: {
+            user: '',
+            password: '',
+            database: '',
+            host: '127.0.0.1'
+        },
+        depot: {
+            rootPath : '/tmp'
+        }
+    }
+}
