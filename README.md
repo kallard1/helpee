@@ -17,4 +17,4 @@ docker, laisser la configuration par défaut)
 Lorsque vous effectuerez la moindre modification (assets/fichier typescript) la compilation s'effectuera et le serveur
 se relancera automatiquement
 
-Pour quitter le serveur faites `CTRL + c` dans votre terminalt
+Pour quitter le serveur faites `CTRL + c` dans votre terminal
