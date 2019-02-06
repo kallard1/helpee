@@ -1,10 +1,10 @@
-import storage from 'local-storage-fallback';
+import storage from "local-storage-fallback";
 
-export default class storageUtils {
+export default class StorageUtils {
     static getJsonItem(name: any) {
-        let value = storage.getItem(name);
-        if(!value) {
-            return null
+        const value = storage.getItem(name);
+        if (!value) {
+            return;
         }
 
         return JSON.parse(value);
