@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@types/compression": "0.0.36",
+    "@types/ejs-locals": "0.0.31",
     "@types/knex": "^0.15.1",
     "@types/pg": "^7.4.11",
     "app-root-path": "^2.1.0",
@@ -31,6 +32,7 @@
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.1",
     "ejs": "^2.6.1",
+    "ejs-locals": "^1.0.2",
     "express": "^4.16.4",
     "http-errors": "^1.7.1",
     "knex": "^0.16.3",

@@ -1,5 +1,6 @@
 import path from "path";
 import express, { Request, Response } from "express";
+import engine from "ejs-locals";
 import compression from "compression";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -13,6 +14,7 @@ const app = express();
 app.set("port", process.env.POST || 3000);
 app.use(logger("combined", {stream: winston.stream}));
 app.set("views", path.join(__dirname, "../views"));
+app.engine("ejs", engine);
 app.set("view engine", "ejs");
 app.use(compression());
 app.use(bodyParser.json());
