@@ -55,6 +55,7 @@
     "no-internal-module": true,
     "no-trailing-whitespace": true,
     "no-null-keyword": true,
+    "no-parameter-reassignment": false,
     "prefer-const": true,
     "jsdoc-format": true,
     "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)}"}]
