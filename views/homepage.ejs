@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <title>Helpee</title>
-    <link rel='stylesheet' href='build/css/app.css'/>
-</head>
-<body>
-<noscript>
-    You need to enable JavaScript to run this app.
-</noscript>
+<% layout('layout/layout') -%>
+
 <h1>Helpee</h1>
 <p>Welcome</p>
 
 <ul>
     <% users.forEach((user) => {%>
-    <li><%= user.firstname %> <%= user.lastname %></li>
+        <li><%= user.firstname %> <%= user.lastname %></li>
     <%})%>
 </ul>
-
-</body>
-</html>
