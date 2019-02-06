@@ -22,10 +22,6 @@
     "url": "https://github.com/kallard1/helpee/issues"
   },
   "dependencies": {
-    "@types/compression": "0.0.36",
-    "@types/ejs-locals": "0.0.31",
-    "@types/knex": "^0.15.1",
-    "@types/pg": "^7.4.11",
     "app-root-path": "^2.1.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
@@ -43,7 +39,11 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@types/compression": "0.0.36",
     "@babel/core": "^7.2.2",
+    "@types/ejs-locals": "0.0.31",
+    "@types/knex": "^0.15.1",
+    "@types/pg": "^7.4.11",
     "@babel/preset-env": "^7.3.1",
     "@types/app-root-path": "^1.2.4",
     "@types/body-parser": "^1.17.0",
