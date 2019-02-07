@@ -1,9 +1,16 @@
 language: node.js
 node_js:
   - "10"
+env:
+  - DATABASE_HOST="sql.area42.fr"
+  - DATABASE_PORT=5490
+  - DATABASE_USER="helpee"
+  - DATABASE_PASSWORD="NdxxStfUdVmUdZ4c9GmsQraPk9wwuu"
+  - DATABASE_NAME="helpee_test"
 before_script:
   - npm i -g npm@6.7.0
   - npm install
+  - ./node_modules/.bin/cross-env NODE_ENV=test knex migrate:latest
 script:
   - npm run webpack:prod
   - npm run prestart
