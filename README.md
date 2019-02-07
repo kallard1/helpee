@@ -8,7 +8,7 @@
 ## How to
 ### Installation
 - Installer les packages node `npm install`
-- **Copier** le fichier `src/config.ts.dist` en `src/config.ts` et modifier les paramètres si nécessaire (si utilisation
+- **Copier** le fichier `.env.dist` en `.env` et modifier les paramètres si nécessaire (si utilisation
 de docker, laisser la configuration par défaut)
 - Effectuer un pre-start `npm run prestart` (cela sera très utile pour utiliser _knex_ afin de créer les migrations)
 - Executer les migrations `./node_modules/.bin/cross-env NODE_ENV=development knex migrate:latest`
