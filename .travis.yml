@@ -5,10 +5,10 @@ before_script:
   - npm i -g npm@6.7.0
   - npm install
   - npm install knex -g
+  - npm run prestart
   - ./node_modules/.bin/cross-env NODE_ENV=test knex migrate:latest
 script:
   - npm run webpack:prod
-  - npm run prestart
   - npm run test
 cache:
   directories:
