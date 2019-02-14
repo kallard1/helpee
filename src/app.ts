@@ -21,6 +21,8 @@ const session: any = {
   cookie: {
     expires: new Date(Date.now() + 60 * 60 * 1000),
   },
+  resave: true,
+  saveUninitialized: true,
 };
 
 if (process.env.NODE_ENV === "production") {
