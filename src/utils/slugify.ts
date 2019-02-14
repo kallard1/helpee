@@ -1,4 +1,9 @@
 class Slugify {
+
+  /**
+   * Slugify string
+   * @param string
+   */
   public static replace(string: String) {
     string = string.toLocaleLowerCase();
     string = string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");

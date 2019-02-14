@@ -4,6 +4,7 @@ import ejsLocals from "ejs-locals";
 import compression from "compression";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import expressSession from "express-session";
 import morgan from "morgan";
 import winston from "./config/winston";
 import router from "./routes/router";
@@ -20,6 +21,17 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.set("trust proxy", 1);
+app.use(expressSession({
+  secret: (process.env.SECRET_KEY !== undefined ? process.env.SECRET_KEY : ""),
+  name: "helpee_session",
+  cookie: {
+    secure: true,
+    httpOnly: true,
+    domain: "helpee.fr",
+    expires: new Date(Date.now() + 60 * 60 * 1000),
+  },
+}));
 app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
 );
