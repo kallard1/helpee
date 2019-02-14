@@ -1,0 +1,88 @@
+$purple: (
+        "base": #A3418F,
+        "lighten-5": #D1A0C7,
+        "lighten-4": #C78DBB,
+        "lighten-3": #BE7AB0,
+        "lighten-2": #B566A5,
+        "lighten-1": #AC549A,
+        "darken-1": #923A80,
+        "darken-2": #823472,
+        "darken-3": #722D64,
+        "darken-4": #612755,
+);
+$orange: (
+        "base": #F1712A,
+        "lighten-5": #F8B894,
+        "lighten-4": #F6A97F,
+        "lighten-3": #F59B69,
+        "lighten-2": #F38D54,
+        "lighten-1": #F27F3F,
+        "darken-1": #D86525,
+        "darken-2": #C05A21,
+        "darken-3": #A84F1D,
+        "darken-4": #904319,
+);
+
+$amaranth: (
+        "base": #E93959,
+        "lighten-5": #F49CAC,
+        "lighten-4": #F1889B,
+        "lighten-3": #EF748A,
+        "lighten-2": #ED607A,
+        "lighten-1": #EB4C69,
+        "darken-1": #D13350,
+        "darken-2": #BA2D47,
+        "darken-3": #A3273E,
+        "darken-4": #8B2235,
+);
+
+$buttercup: (
+        "base": #F6BB0C,
+        "lighten-5": #fadd85,
+        "lighten-4": #f9d66d,
+        "lighten-3": #f8cf54,
+        "lighten-2": #f7c83c,
+        "lighten-1": #f6c124,
+        "darken-1": #dda80a,
+        "darken-2": #c49509,
+        "darken-3": #ac8208,
+        "darken-4": #937007,
+);
+
+$mine-shaft: (
+        "base": #3B3B3B,
+        "lighten-5": #9d9d9d,
+        "lighten-4": #898989,
+        "lighten-3": #757575,
+        "lighten-2": #626262,
+        "lighten-1": #4e4e4e,
+        "darken-1": #353535,
+        "darken-2": #2f2f2f,
+        "darken-3": #292929,
+        "darken-4": #232323,
+);
+
+$shades: (
+        "black": #000000,
+        "white": #FFFFFF,
+        "transparent": transparent
+);
+
+$colors: (
+        "purple": $purple,
+        "orange": $orange,
+        "amaranth": $amaranth,
+        "buttercup": $buttercup,
+        "mine-shaft": $mine-shaft
+) !default;
+
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+  @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
+  @return null;
+}
