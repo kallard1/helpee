@@ -5,6 +5,9 @@ export let index = async (request: Request, response: Response) => {
   response.render("homepage", { users: await getUsers() });
 };
 
+/**
+ * Return all users
+ */
 async function getUsers() {
   return await bdd.knex.select()
     .from("users");
