@@ -6,7 +6,7 @@
     "prestart": "tsc",
     "start": "cross-env NODE_ENV=production concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"red,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/server.js\"",
     "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"red,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/server.js\"",
-    "test": "cross-env NODE_ENV=development jest",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
     "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
     "webpack:prod": "cross-env NODE_ENV=production webpack --progress",
     "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
@@ -64,6 +64,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
+    "dotenv": "^6.2.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.16.0",
