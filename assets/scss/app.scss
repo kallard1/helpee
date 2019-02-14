@@ -1,4 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@charset "UTF-8";
+
+// Color
+@import "components/color-variables";
+@import "components/color-classes";
+
+// Variables
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// Componenents
+@import "components/grid";
