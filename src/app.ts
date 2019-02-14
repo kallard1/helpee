@@ -11,6 +11,25 @@ import router from "./routes/router";
 import bdd from "./config/bdd";
 
 const app = express();
+
+// Session configuration
+const session: any = {
+  secret: (process.env.SECRET_KEY !== undefined ? process.env.SECRET_KEY : ""),
+  name: "helpee_session",
+  cookie: {
+    expires: new Date(Date.now() + 60 * 60 * 1000),
+  },
+};
+
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+  session.cookie = {
+    secure: true,
+    httpOnly: true,
+    domain: "helpee.fr",
+  };
+}
+
 // Express configuration
 app.set("port", process.env.POST || 3000);
 app.use(morgan("combined", { stream: winston.stream }));
@@ -21,17 +40,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.set("trust proxy", 1);
-app.use(expressSession({
-  secret: (process.env.SECRET_KEY !== undefined ? process.env.SECRET_KEY : ""),
-  name: "helpee_session",
-  cookie: {
-    secure: true,
-    httpOnly: true,
-    domain: "helpee.fr",
-    expires: new Date(Date.now() + 60 * 60 * 1000),
-  },
-}));
+app.use(expressSession(session));
 app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
 );
@@ -47,6 +56,7 @@ app.use((err: any, req: Request, res: Response, next: any) => {
   res.render("error");
 });
 
+// Run migration on testing/production environment
 if (process.env.NODE_ENV !== "development") {
   bdd.init();
 }
