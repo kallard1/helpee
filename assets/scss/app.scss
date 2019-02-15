@@ -13,3 +13,14 @@
 // Componenents
 @import "components/grid";
 @import "components/form/form-input";
+@import "components/font";
+
+
+h1{
+    color: color("orange", "base");
+    text-transform: uppercase;
+    background: color("mine-shaft", "base");
+    text-align: center;
+    font-family:Montserrat-Regular;
+    
+}
