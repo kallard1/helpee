@@ -9,8 +9,10 @@ import bodyParser from "body-parser";
 import expressSession from "express-session";
 
 import winston from "./config/winston";
-import indexRouter from "./routes/index";
 import bdd from "./config/bdd";
+
+import indexRouter from "./routes/index";
+import authRouter from "./routes/auth";
 
 const app = express();
 
@@ -57,6 +59,7 @@ if (process.env.NODE_ENV !== "development") {
 }
 
 app.use("/", indexRouter);
+app.use("/auth/", authRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
