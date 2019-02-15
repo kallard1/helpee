@@ -24,9 +24,11 @@
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
     "debug": "^4.1.1",
     "ejs": "^2.6.1",
     "ejs-locals": "^1.0.2",
@@ -44,9 +46,11 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.1.0",
     "@types/app-root-path": "^1.2.4",
+    "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.0",
     "@types/compression": "0.0.36",
     "@types/cookie-parser": "^1.4.1",
+    "@types/csurf": "^1.9.35",
     "@types/ejs-locals": "0.0.31",
     "@types/express": "^4.16.1",
     "@types/express-session": "^1.15.11",
@@ -104,7 +108,7 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
     "testMatch": [
-      "**/tests/*.+(ts|tsx|js)"
+      "**/tests/**/*.+(ts|tsx|js)"
     ]
   },
   "moduleFileExtensions": [
