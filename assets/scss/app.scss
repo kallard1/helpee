@@ -15,7 +15,9 @@
 @import "components/form/form-input";
 @import "components/font";
 
-// Pages
-
-@import "header";
-
+.header-image {
+    margin: auto;
+    background: url("../images/header.jpg");
+    width: 1223px;
+    height: 387px;
+}
