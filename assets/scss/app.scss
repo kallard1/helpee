@@ -15,10 +15,7 @@
 @import "components/form/form-input";
 @import "components/font";
 
+// Pages
 
-h1{
-    color: color("orange", "base");
-    background: color("mine-shaft", "base");
-    text-align: center;
-    font-family: HoneyLips, sans-serif;
-}
+@import "header";
+
