@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const BundleAnalyzerPlugin = require(
   'webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : "production");
 const dev = ENV === 'development';
@@ -113,13 +114,6 @@ let config = {
       {
         test: /\.(png|jpe?g|gif|svg)?$/i,
         use: [
-          // {
-          //   loader: 'url-loader',
-          //   options: {
-          //     name: dev ? '[name].[ext]' : '[name].[hash:10].[ext]',
-          //     limit: 1024
-          //   }
-          // },
           {
             loader: 'img-loader',
             options: {
@@ -148,7 +142,10 @@ let config = {
       // filename: 'css/' + (dev ? '[name].css' : '[name].[hash:10].css')
       filename: 'css/[name].css'
     }),
-    new ManifestPlugin()
+    new ManifestPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'assets/images', to: 'images' }
+    ])
   ]
 };
 
