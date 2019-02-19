@@ -1,0 +1,15 @@
+.header-image {
+    margin:auto;
+    background: url("../images/header.jpg");
+    width:auto;
+    height:100%;
+    background-size:contain;
+    background-position:center;
+    background-repeat: no-repeat;
+  }
+
+.content-header{
+    height:65px;
+    background-color:color("orange", "base-logo");
+}
+

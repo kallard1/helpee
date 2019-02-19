@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+
+//Mixin
+@import "components/mixin.scss";
+
 // Color
 @import "components/color-variables";
 @import "components/color-classes";
@@ -12,9 +16,10 @@
 @import "components/form/form-input";
 @import "components/font";
 
-.header-image {
-  margin:     auto;
-  background: url("../images/header.jpg");
-  width:      1223px;
-  height:     387px;
+// Layout
+@import "components/header.scss";
+@import "components/homepage.scss";
+
+body{
+    background-color:color("mine-shaft","background");
 }
