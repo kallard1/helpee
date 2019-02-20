@@ -1,9 +1,26 @@
 .firstblock{
+    margin-top:65px;
     background-color: #FFF;
     width: 100%;
-    height: 200px;
+    height: 235px;
     margin-top: 5px;
     border-radius: 5px;
+}
+
+.secondblock{
+  background-color: #FFF;
+  width: 100%;
+  height: 105px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.thirdblock{
+  background-color: #FFF;
+  width: 100%;
+  height: 400px;
+  margin-top: 5px;
+  border-radius: 5px;
 }
 
 .button-fit{
@@ -21,7 +38,7 @@
     line-height: 20px;
 }
 
-.button-contener{
+.button-container{
     display: flex;
     flex-direction:row;
     justify-content: space-evenly;
@@ -46,7 +63,7 @@
     line-height: 20px;
 }
 
-.contener-list{
+.container-list{
     display: flex;
     justify-content: space-evenly;
 }
@@ -57,20 +74,25 @@
     list-style:none;
     width: 80%;
   }
-.drop_down{
+.drop-down{
   position: relative;
-
 }
 
-  .icon{
+.drop-down__button{
+  position: relative;
+}
+
+
+  .icon-arrow-down{
     position:absolute;
     background-image:url("../icons/arrow_down.svg");
     background-repeat: no-repeat;
     background-size:cover;
     width: 15px;
     height: 15px;
-    top: 2px;
+    top: 50%;
     right: 4px;
+    transform: translateY(-50%);
   }
 
   
@@ -84,13 +106,13 @@
     border-radius: 0 0 0 5px;
   }
 
-  .test::-webkit-scrollbar{
+  .drop-down__list::-webkit-scrollbar{
     width: 11px;
     background-color:color("amaranth","lighten-5");
     border-radius: 0 0 5px 0;    
   }
 
-  .test::-webkit-scrollbar-thumb {								/* Barre */
+  .drop-down__list::-webkit-scrollbar-thumb {								/* Barre */
     border: solid 3.5px transparent;
     border-right-width: 4px;
     -webkit-border-radius: 5px;
@@ -106,16 +128,20 @@
      background-color: #e93959; 
      border-radius: 5px;
      margin-bottom:2px;
+
+     &:hover li {
+      transition: all .7s;
+     }
   }
   #categ-list li li {
      max-height:0;
      overflow: hidden;
-     transition: all .7s;
+     transition: all 0s;
      border-radius:0;
      background:color("amaranth","lighten-5");
      box-shadow: none;
      border:none;
-     margin:0
+     margin:0;
   }
 
 
@@ -127,10 +153,7 @@
     line-height: 20px;
     font-family: Montserrat-Regular;
     font-size:13px;
-    padding-left: 2%;
-  }
-  .test{
-    
+    padding-left: 5px;
   }
   #categ-list ul li a, #categ-list li:hover li a {
     font-size:13px;

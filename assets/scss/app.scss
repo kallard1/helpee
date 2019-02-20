@@ -18,8 +18,13 @@
 
 // Layout
 @import "components/header.scss";
+@import "components/navbar.scss";
 @import "components/homepage.scss";
 
 body{
     background-color:color("mine-shaft","background");
+}
+
+.marge-header{
+    margin-top:70px;
 }
