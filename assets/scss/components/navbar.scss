@@ -28,12 +28,10 @@
 }
 
 .navbar__button .icon{
-  margin-bottom: 5px;
   height: 65px;
-  line-height: 65px;
-}
-.icon{
-  width: 65px;
+  align-items: center;
+  display:flex;
+  justify-content: center;
 }
 
 .icon-actu:before{
