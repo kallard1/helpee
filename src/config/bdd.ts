@@ -11,7 +11,6 @@ const port: string = (process.env.DATABASE_PORT !== undefined ? process.env.DATA
 const username: string = (process.env.DATABASE_USER !== undefined ? process.env.DATABASE_USER : "");
 const password: string = (process.env.DATABASE_PASSWORD !== undefined ? process.env.DATABASE_PASSWORD : "");
 const name: string = (process.env.DATABASE_NAME !== undefined ? process.env.DATABASE_NAME : "");
-console.log(host);
 
 class Bdd {
   public pool: Pool;
