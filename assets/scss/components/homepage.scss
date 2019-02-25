@@ -196,6 +196,71 @@
   height: 105px;
   margin-top: 5px;
   border-radius: 5px;
+
+  .chiffres-container{
+    display: flex;
+    align-content: center;
+    flex-direction:row;
+    height: 105px;
+    
+  }
+
+  .chiffres-container__commun{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    text-align:center;
+    align-items: center;
+
+    .violet{
+      color:#a3418f;
+    }
+    .yellow{
+      color:#f6bb0c;
+    }
+    .corail{
+      color:#e93959;        
+    }
+    .chiffres-commun{
+      margin-top:5px;
+      font-family: Montserrat-Bold;
+      font-size: 18px;
+    }
+
+    .chiffres-commun__text{
+      margin-top:10px;
+      font-family: Montserrat-Regular;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    p{
+      display: flex;
+      margin: 0;
+    }
+
+    i{
+      padding-top: 21px;
+    }
+  }
+
+  .icon-chiffres{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+  }
+  .icon-communautés:before{
+    content:url("../icons/group.svg");
+  }
+  .icon-argent:before{
+    content:url("../icons/coin-stack.svg");
+  }
+  .icon-membres:before{
+    content:url("../icons/users-group.svg");
+  }  
+
 }
 
 .thirdblock{
