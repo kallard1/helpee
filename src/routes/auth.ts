@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request } from "express";
 import csrf from "csurf";
 
 import * as registerController from "../controllers/auth/register";

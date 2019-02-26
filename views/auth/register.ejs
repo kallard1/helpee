@@ -7,39 +7,40 @@
 
     <div class="row">
         <div class="col s12">
-            <label for="firstname">Firstname :</label>
-            <input type="text" required id="firstname" name="firstname">
+            <label for="firstname">Firstname* :</label>
+            <input type="text" autofocus required id="firstname" name="firstname">
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <label for="lastname">Lastname :</label>
+            <label for="lastname">Lastname* :</label>
             <input type="text" required id="lastname" name="lastname">
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <label for="email">E-mail :</label>
+            <label for="email">E-mail* :</label>
             <input type="email" required id="email" name="email">
         </div>
     </div>
 
     <div class="row">
         <div class="col s6">
-            <label for="password">Password :</label>
-            <input type="password" required id="password" name="password">
+            <label for="password">Password* :</label>
+            <input type="password" minlength="8" required id="password" name="password">
+            (8 character min)
         </div>
         <div class="col s6">
-            <label for="password-confirmation">Password confirmation :</label>
+            <label for="password-confirmation">Password confirmation* :</label>
             <input type="password" required id="password-confirmation" name="password-confirmation">
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <label for="address">Address :</label>
+            <label for="address">Address* :</label>
             <input type="text" id="address" name="address">
         </div>
     </div>
@@ -53,12 +54,12 @@
 
     <div class="row">
         <div class="col s6">
-            <label for="zip-code">Zip code :</label>
-            <input type="text" id="zip-code" name="zip-code">
+            <label for="zip-code">Zip code* :</label>
+            <input type="text" id="zip-code" minlength="5" name="zip-code">
         </div>
 
         <div class="col s6">
-            <label for="city">City :</label>
+            <label for="city">City* :</label>
             <input type="text" id="city" name="city">
         </div>
     </div>
@@ -66,7 +67,7 @@
     <div class="row">
         <div class="col s12">
             <label for="phone">Phone :</label>
-            <input type="tel" id="phone" name="phone">
+            <input type="tel" maxlength="10" minlength="10" id="phone" name="phone">
         </div>
     </div>
 

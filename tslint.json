@@ -2,6 +2,7 @@
   "extends": "tslint-config-airbnb",
   "rules": {
     "class-name": true,
+    "no-shadowed-variable": false,
     "comment-format": [
       true,
       "check-space"

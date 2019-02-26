@@ -9,6 +9,12 @@
     You need to enable JavaScript to run this app.
 </noscript>
 <div class="container">
+    <% if (locals.flash && locals.flash.error) { %>
+        <div class="message-error">
+            <%= flash.error %>
+        </div>
+    <% } %>
+
     <%- body %>
 </div>
 </body>
