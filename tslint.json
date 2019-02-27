@@ -60,6 +60,8 @@
     "prefer-const": true,
     "jsdoc-format": true,
     "import-name": false,
+    "ordered-imports": true,
+    "import-sources-order": "case-insensitive",
     "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)}"}]
   }
 }
