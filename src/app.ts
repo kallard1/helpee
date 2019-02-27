@@ -1,18 +1,18 @@
-import createError from "http-errors";
-import express, { NextFunction, Request, Response } from "express";
-import path from "path";
-import cookieParser from "cookie-parser";
-import logger from "morgan";
-import ejsLocals from "ejs-locals";
-import compression from "compression";
 import bodyParser from "body-parser";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import ejsLocals from "ejs-locals";
+import express, { NextFunction, Request, Response } from "express";
 import expressSession from "express-session";
+import createError from "http-errors";
+import logger from "morgan";
+import path from "path";
 
-import winston from "./config/winston";
 import bdd from "./config/bdd";
+import winston from "./config/winston";
 
-import indexRouter from "./routes/index";
 import authRouter from "./routes/auth";
+import indexRouter from "./routes/index";
 
 const app = express();
 
@@ -52,7 +52,7 @@ app.use(expressSession(session));
 app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
 );
-app.use(require("./middlewares/flash"));
+// app.use(require("./middlewares/flash"));
 
 // Run migration on testing/production environment
 if (process.env.NODE_ENV !== "development") {
