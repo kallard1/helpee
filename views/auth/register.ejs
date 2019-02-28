@@ -1,5 +1,4 @@
-<% layout('../layout/layout') -%>
-
+<%- include('../layouts/header'); -%>
 <h1>Helpee</h1>
 
 <form action="/auth/registration" method="POST">
@@ -73,3 +72,4 @@
 
     <button type="submit">Submit</button>
 </form>
+<%- include('../layouts/footer'); -%>
