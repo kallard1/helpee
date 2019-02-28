@@ -1,4 +1,4 @@
-<% layout('layout/layout') -%>
+<%- include('layouts/header'); -%>
 
 <h1>Helpee</h1>
 <p>Welcome</p>
@@ -8,3 +8,5 @@
         <li><%= user.firstname %> <%= user.lastname %></li>
     <%})%>
 </ul>
+
+<%- include('layouts/footer'); -%>

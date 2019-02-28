@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-import ejsLocals from "ejs-locals";
 import express, { NextFunction, Request, Response } from "express";
 import expressSession from "express-session";
 import createError from "http-errors";
@@ -24,7 +23,7 @@ const session: any = {
   cookie: {
     expires: new Date(Date.now() + 60 * 60 * 1000),
   },
-  resave: true,
+  resave: false,
   saveUninitialized: true,
 };
 
@@ -41,7 +40,6 @@ if (process.env.NODE_ENV === "production") {
 app.set("port", process.env.PORT || 3000);
 
 app.set("views", path.join(__dirname, "../views"));
-app.engine("ejs", ejsLocals);
 app.set("view engine", "ejs");
 
 app.use(logger("combined", { stream: winston.stream }));
