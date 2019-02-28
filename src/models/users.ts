@@ -2,7 +2,7 @@ import bdd from "../config/bdd";
 import { UserInterface } from "../Interfaces/UserInterface";
 
 export default class User {
-  static async setUser(user: UserInterface) {
+  static async setUser(user: UserInterface): Promise<Object> {
     return await bdd.knex("users")
       .returning(["uuid"])
       .insert({
@@ -14,20 +14,18 @@ export default class User {
       });
   }
 
-  static async getAllUsers() {
+  static async getAllUsers(): Promise<Object> {
     return await bdd.knex
       .select()
       .from("users")
       .leftJoin("informations_users", "informations_users.user_uuid", "users.uuid")
-      .leftJoin("hobbies_users", "hobbies_users.user_uuid", "users.uuid")
-      .leftJoin("hobbies", "hobbies.uuid", "hobbies_users.hobby_uuid")
       .catch((error) => {
         console.error(`Error: ${error}`);
       })
       ;
   }
 
-  static async setInformationsUser(informationsUser: any) {
+  static async setInformationsUser(informationsUser: any): Promise<Object> {
     return await bdd.knex("informations_users")
       .insert({
         user_uuid: informationsUser.userUUID,
