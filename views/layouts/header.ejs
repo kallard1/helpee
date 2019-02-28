@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Helpee</title>
+    <link rel='stylesheet' href='/build/css/app.css'/>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<div class="container">
+    <% if(locals.flash) { %>
+    <div class="alert alert-<%= flash.type %>">
+        <%= flash.message %>
+    </div>
+    <% } %>

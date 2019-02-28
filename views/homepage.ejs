@@ -1,4 +1,4 @@
-<% layout('layout/layout') -%>
+<%- include('layouts/header'); -%>
 
 <div class="container homepage">
   <div class="firstblock">
@@ -31,14 +31,14 @@
     </div>
 
     <div class="input-container">
-      <div class="ville-container">  
-        <div class="container-input">  
+      <div class="ville-container">
+        <div class="container-input">
           <input type="text" class="hompepage-input__text input__ville" name="name" placeholder="Renseignez votre ville">
         </div>
       </div>
 
-      <div class="ville-container">  
-        <div class="container-input input__jesaispas">  
+      <div class="ville-container">
+        <div class="container-input input__jesaispas">
           <input type="text" class="hompepage-input__text" name="name" placeholder="Je sais pas à quoi ça sert">
         </div>
       </div>
@@ -84,3 +84,5 @@
         <li><%= user.firstname %> <%= user.lastname %></li>
     <%})%>
 </ul>
+
+<%- include('layouts/footer'); -%>
