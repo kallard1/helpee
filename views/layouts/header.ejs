@@ -8,9 +8,18 @@
 <noscript>
     You need to enable JavaScript to run this app.
 </noscript>
-<div class="container">
-    <% if(locals.flash) { %>
-    <div class="alert alert-<%= flash.type %>">
-        <%= flash.message %>
+<header>
+    <div class="content-header">
+        <div class="header-image"></div>
     </div>
+</header>
+<div class="container marge-header">
+    <% if(locals.flash) { %>
+        <div class="alert alert-<%= flash.type %>">
+            <%= flash.message %>
+        </div>
     <% } %>
+
+    <div class="navbar-container">
+        <% include('navbar'); %>
+    </div>
