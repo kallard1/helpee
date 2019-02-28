@@ -45,7 +45,7 @@ export let registration = async (request: Request, response: Response) => {
     city: request.body.city,
   });
 
-  // request.flash("success", "Votre compte a été créé avec succès !");
+  request.flash("success", "Votre compte a été créé avec succès !");
 
   response.redirect("/");
 };
