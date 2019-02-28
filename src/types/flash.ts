@@ -1,9 +1,11 @@
 declare namespace Express {
   export interface Request {
-    flash(): { [key: string]: string[] };
+    flash(type: string, content: string): any;
+  }
+}
 
-    flash(message: string): any;
+declare module "flash" {
+  interface IFlashOptions {
 
-    flash(event: string, message: string): any;
   }
 }
