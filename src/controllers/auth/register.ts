@@ -20,7 +20,7 @@ export let index = async (request: Request, response: Response) => {
     csrfToken: request.csrfToken(),
   });
 };
-\
+
 /**
  * Register treatment.
  *
