@@ -10,6 +10,7 @@ import path from "path";
 
 import bdd from "./config/bdd";
 import winston from "./config/winston";
+import flash from "./middlewares/flash";
 
 import authRouter from "./routes/auth";
 import indexRouter from "./routes/index";
@@ -48,11 +49,11 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(expressSession(session));
 app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
 );
-// app.use(require("./middlewares/flash"));
+app.use(expressSession(session));
+app.use(flash());
 
 // Run migration on testing/production environment
 if (process.env.NODE_ENV !== "development") {
