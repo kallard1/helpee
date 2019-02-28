@@ -1,14 +1,9 @@
 import { Request, Response } from "express";
-import bdd from "../config/bdd";
+import User from "../models/users";
 
 export let index = async (request: Request, response: Response) => {
-  response.render("homepage", { users: await getUsers() });
-};
 
-/**
- * Return all users
- */
-async function getUsers() {
-  return await bdd.knex.select()
-    .from("users");
-}
+  console.log(await User.getAllUsers());
+
+  response.render("homepage", { users: await User.getAllUsers() });
+};
