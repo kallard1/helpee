@@ -1,3 +1,18 @@
+// Common
+$border-radius: .25rem !default;
+
+$font-weight-bold: 700 !default;
+
+$border-width: 1px !default;
+
+$theme-color-interval:      8% !default;
+
+$body-bg:                   color("shades", "white") !default;
+
+// Options
+$enable-rounded: true !default;
+$enable-gradients: false !default;
+
 // 1. Global
 // Media Query Ranges
 $small-screen-up: 601px !default;
@@ -14,11 +29,20 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
-
 // 2. Grid
-// ==========================================================================
-
 $num-cols: 12 !default;
 $gutter-width: 1.5rem !default;
 $element-top-margin: $gutter-width/3 !default;
 $element-bottom-margin: ($gutter-width*2)/3 !default;
+
+// 3. Alert
+$alert-padding-y: .75rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-border-radius: $border-radius !default;
+$alert-link-font-weight: $font-weight-bold !default;
+$alert-border-width: $border-width !default;
+
+$alert-bg-level: -10 !default;
+$alert-border-level: -9 !default;
+$alert-color-level: 6 !default;

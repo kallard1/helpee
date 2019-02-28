@@ -1,80 +1,119 @@
 $purple: (
-        "base": #A3418F,
-        "lighten-5": #D1A0C7,
-        "lighten-4": #C78DBB,
-        "lighten-3": #BE7AB0,
-        "lighten-2": #B566A5,
-        "lighten-1": #AC549A,
-        "darken-1": #923A80,
-        "darken-2": #823472,
-        "darken-3": #722D64,
-        "darken-4": #612755,
-);
+                 "base": #A3418F,
+                 "lighten-5": #D1A0C7,
+                 "lighten-4": #C78DBB,
+                 "lighten-3": #BE7AB0,
+                 "lighten-2": #B566A5,
+                 "lighten-1": #AC549A,
+                 "darken-1": #923A80,
+                 "darken-2": #823472,
+                 "darken-3": #722D64,
+                 "darken-4": #612755,
+         );
+
 $orange: (
-        "base": #F1712A,
-        "lighten-5": #F8B894,
-        "lighten-4": #F6A97F,
-        "lighten-3": #F59B69,
-        "lighten-2": #F38D54,
-        "lighten-1": #F27F3F,
-        "darken-1": #D86525,
-        "darken-2": #C05A21,
-        "darken-3": #A84F1D,
-        "darken-4": #904319,
-);
+                 "base": #F1712A,
+                 "lighten-5": #F8B894,
+                 "lighten-4": #F6A97F,
+                 "lighten-3": #F59B69,
+                 "lighten-2": #F38D54,
+                 "lighten-1": #F27F3F,
+                 "darken-1": #D86525,
+                 "darken-2": #C05A21,
+                 "darken-3": #A84F1D,
+                 "darken-4": #904319,
+         );
 
 $amaranth: (
-        "base": #E93959,
-        "lighten-5": #F49CAC,
-        "lighten-4": #F1889B,
-        "lighten-3": #EF748A,
-        "lighten-2": #ED607A,
-        "lighten-1": #EB4C69,
-        "darken-1": #D13350,
-        "darken-2": #BA2D47,
-        "darken-3": #A3273E,
-        "darken-4": #8B2235,
-);
+                   "base": #E93959,
+                   "lighten-5": #F49CAC,
+                   "lighten-4": #F1889B,
+                   "lighten-3": #EF748A,
+                   "lighten-2": #ED607A,
+                   "lighten-1": #EB4C69,
+                   "darken-1": #D13350,
+                   "darken-2": #BA2D47,
+                   "darken-3": #A3273E,
+                   "darken-4": #8B2235,
+           );
 
 $buttercup: (
-        "base": #F6BB0C,
-        "lighten-5": #fadd85,
-        "lighten-4": #f9d66d,
-        "lighten-3": #f8cf54,
-        "lighten-2": #f7c83c,
-        "lighten-1": #f6c124,
-        "darken-1": #dda80a,
-        "darken-2": #c49509,
-        "darken-3": #ac8208,
-        "darken-4": #937007,
-);
+                    "base": #F6BB0C,
+                    "lighten-5": #FADD85,
+                    "lighten-4": #F9D66D,
+                    "lighten-3": #F8CF54,
+                    "lighten-2": #F7C83C,
+                    "lighten-1": #F6C124,
+                    "darken-1": #DDA80A,
+                    "darken-2": #C49509,
+                    "darken-3": #AC8208,
+                    "darken-4": #937007,
+            );
 
 $mine-shaft: (
-        "base": #3B3B3B,
-        "lighten-5": #9d9d9d,
-        "lighten-4": #898989,
-        "lighten-3": #757575,
-        "lighten-2": #626262,
-        "lighten-1": #4e4e4e,
-        "darken-1": #353535,
-        "darken-2": #2f2f2f,
-        "darken-3": #292929,
-        "darken-4": #232323,
-);
+                     "base": #3B3B3B,
+                     "lighten-5": #9D9D9D,
+                     "lighten-4": #898989,
+                     "lighten-3": #757575,
+                     "lighten-2": #626262,
+                     "lighten-1": #4E4E4E,
+                     "darken-1": #353535,
+                     "darken-2": #2F2F2F,
+                     "darken-3": #292929,
+                     "darken-4": #232323,
+             );
+
+$gray: (
+               "base": #9E9E9E,
+               "lighten-5": #FAFAFA,
+               "lighten-4": #F5F5F5,
+               "lighten-3": #EEEEEE,
+               "lighten-2": #E0E0E0,
+               "lighten-1": #BDBDBD,
+               "darken-1": #757575,
+               "darken-2": #616161,
+               "darken-3": #424242,
+               "darken-4": #212121,
+       );
+
+$red: (
+              "base": #F44336,
+              "lighten-5": #FFEBEE,
+              "lighten-4": #FFCDD2,
+              "lighten-3": #EF9A9A,
+              "lighten-2": #E57373,
+              "lighten-1": #EF5350,
+              "darken-1": #E53935,
+              "darken-2": #D32F2F,
+              "darken-3": #C62828,
+              "darken-4": #B71C1C,
+      );
 
 $shades: (
-        "black": #000000,
-        "white": #FFFFFF,
-        "transparent": transparent
-);
+                 "black": #000000,
+                 "white": #FFFFFF,
+                 "blue":#007B55,
+                 "indigo": #6610F2,
+                 "purple": #6F42C1,
+                 "pink": #E83E8C,
+                 "red": #DC3545,
+                 "orange": #FD7E14,
+                 "yellow": #FFC107,
+                 "green": #28A745,
+                 "teal": #20C997,
+                 "cyan": #17A2B8,
+                 "transparent": transparent
+         );
 
 $colors: (
-        "purple": $purple,
-        "orange": $orange,
-        "amaranth": $amaranth,
-        "buttercup": $buttercup,
-        "mine-shaft": $mine-shaft
-) !default;
+                 "amaranth": $amaranth,
+                 "buttercup": $buttercup,
+                 "gray": $gray,
+                 "mine-shaft": $mine-shaft,
+                 "orange": $orange,
+                 "purple": $purple,
+                 "red": $red,
+                 "shades": $shades) !default;
 
 @function color($color, $type) {
   @if map-has-key($colors, $color) {
@@ -86,3 +125,28 @@ $colors: (
   @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
   @return null;
 }
+
+$primary: color("shades", "blue") !default;
+$secondary: color("gray", "darken-1") !default;
+$success: color("shades", "green") !default;
+$info: color("shades", "cyan") !default;
+$warning: color("shades", "yellow") !default;
+$danger: color("shades", "red") !default;
+$light: color("gray", "lighten-1") !default;
+$dark: color("gray", "darken-3") !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+                               (
+                                       "primary": $primary,
+                                       "secondary": $secondary,
+                                       "success": $success,
+                                       "info": $info,
+                                       "warning": $warning,
+                                       "danger": $danger,
+                                       "light": $light,
+                                       "dark": $dark
+                               ),
+                               $theme-colors
+               );
