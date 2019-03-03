@@ -34,7 +34,7 @@ export let registration = async (request: Request, response: Response) => {
     user,
     address: request.body.address,
     address1: request.body.address1,
-    zipCode: request.body.zipCode,
+    zip_code: request.body.zipCode,
     city: request.body.city,
   });
 

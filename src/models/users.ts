@@ -33,7 +33,7 @@ export default class User {
         user_uuid: informationsUser.user.uuid,
         address: informationsUser.address,
         address_1: informationsUser.address1,
-        zip_code: informationsUser.zipCode,
+        zip_code: informationsUser.zip_code,
         city: informationsUser.city,
       });
   }
