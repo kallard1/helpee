@@ -1,5 +1,5 @@
 import bdd from "../config/bdd";
-import { UserInterface } from "../Interfaces/UserInterface";
+import { InformationsUserInterface, UserInterface } from "../Interfaces/UserInterface";
 
 export default class User {
   static async setUser(user: UserInterface): Promise<Object> {
@@ -27,7 +27,7 @@ export default class User {
       ;
   }
 
-  static async setInformationsUser(informationsUser: any): Promise<Object> {
+  static async setInformationsUser(informationsUser: InformationsUserInterface): Promise<Object> {
     return await bdd.knex("informations_users")
       .insert({
         user_uuid: informationsUser.user.uuid,
