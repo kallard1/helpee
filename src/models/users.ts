@@ -3,7 +3,7 @@ import { UserInterface } from "../Interfaces/UserInterface";
 
 export default class User {
   static async setUser(user: UserInterface): Promise<Object> {
-    return await bdd.knex("users")
+    const res: [Promise<Object>] = await bdd.knex("users")
       .returning(["uuid"])
       .insert({
         firstname: user.firstname,
@@ -12,6 +12,8 @@ export default class User {
         email: user.email,
         role: user.role,
       });
+
+    return res[0];
   }
 
   static async getAllUsers(): Promise<Object> {
@@ -28,7 +30,7 @@ export default class User {
   static async setInformationsUser(informationsUser: any): Promise<Object> {
     return await bdd.knex("informations_users")
       .insert({
-        user_uuid: informationsUser.userUUID,
+        user_uuid: informationsUser.user.uuid,
         address: informationsUser.address,
         address_1: informationsUser.address1,
         zip_code: informationsUser.zipCode,

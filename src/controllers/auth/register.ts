@@ -31,7 +31,7 @@ export let registration = async (request: Request, response: Response) => {
   });
 
   await User.setInformationsUser({
-    userUUID: user[0].uuid,
+    user,
     address: request.body.address,
     address1: request.body.address1,
     zipCode: request.body.zipCode,
