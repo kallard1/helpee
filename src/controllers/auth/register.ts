@@ -9,11 +9,6 @@ import User from "../../models/users";
  * @param response
  */
 export let index = async (request: Request, response: Response) => {
-
-  request.flash("error", "Votre compte a été créé avec succès !");
-
-  console.log(response);
-
   response.render("auth/register", {
     csrfToken: request.csrfToken(),
   });
