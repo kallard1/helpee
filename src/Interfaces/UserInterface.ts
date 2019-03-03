@@ -12,3 +12,15 @@ export interface UserInterface {
   updated_date?: Date;
   loggued_date?: Date;
 }
+
+export interface InformationsUserInterface {
+  user: {uuid?: string};
+  description?: string;
+  uev?: number;
+  address: string;
+  address1?: string;
+  zip_code: string;
+  city: string;
+  created_date?: Date;
+  updated_date?: Date;
+}
