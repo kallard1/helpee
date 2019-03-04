@@ -1,5 +1,5 @@
 import bdd from "../config/bdd";
-import { InformationsUserInterface, UserInterface } from "../Interfaces/UserInterface";
+import { InformationsUserInterface, UserInterface } from "../interfaces/UserInterface";
 
 export default class User {
   static async setUser(user: UserInterface): Promise<Object> {
