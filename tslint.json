@@ -57,6 +57,7 @@
     "no-trailing-whitespace": true,
     "no-null-keyword": true,
     "no-parameter-reassignment": false,
+    "no-unused-variable": true,
     "prefer-const": true,
     "jsdoc-format": true,
     "import-name": false,
