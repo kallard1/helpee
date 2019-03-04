@@ -9,7 +9,7 @@ import User from "../../models/users";
  * @param response
  */
 export let index = async (request: Request, response: Response) => {
-  response.render("auth/register", {
+  response.render("auth/register/registration", {
     csrfToken: request.csrfToken(),
   });
 };
