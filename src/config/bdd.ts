@@ -13,11 +13,11 @@ const password: string = (process.env.DATABASE_PASSWORD !== undefined ? process.
 const name: string = (process.env.DATABASE_NAME !== undefined ? process.env.DATABASE_NAME : "");
 
 class Bdd {
-  public pool: Pool;
+  public client: Client;
   public knex: knex;
 
   constructor() {
-    this.pool = new Pool();
+    this.client = new Client();
     this.knex = knex({
       client: "pg",
       connection: {
