@@ -3,8 +3,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const BundleAnalyzerPlugin = require(
-  'webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ENV = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : "production");
 const dev = ENV === 'development';
@@ -113,13 +111,6 @@ let config = {
       {
         test: /\.(png|jpe?g|gif|svg)?$/i,
         use: [
-          // {
-          //   loader: 'url-loader',
-          //   options: {
-          //     name: dev ? '[name].[ext]' : '[name].[hash:10].[ext]',
-          //     limit: 1024
-          //   }
-          // },
           {
             loader: 'img-loader',
             options: {
@@ -145,19 +136,10 @@ let config = {
       dry: false
     }),
     new ExtractTextPlugin({
-      // filename: 'css/' + (dev ? '[name].css' : '[name].[hash:10].css')
       filename: 'css/[name].css'
     }),
     new ManifestPlugin()
   ]
 };
-
-// if (dev) {
-//   config.plugins.push(
-//     new BundleAnalyzerPlugin({
-//       openAnalyzer: false,
-//     })
-//   )
-// }
 
 module.exports = config;
