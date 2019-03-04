@@ -54,7 +54,7 @@ app.use(expressSession(session));
 app.use(flash());
 
 // Run migration on testing/production environment
-if (process.env.NODE_ENV !== "development") {
+if (process.env.NODE_ENV === "production") {
   bdd.init();
 }
 
