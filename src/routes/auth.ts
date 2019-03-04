@@ -1,5 +1,5 @@
-import express, { Request } from "express";
 import csrf from "csurf";
+import express, { Request } from "express";
 
 import * as registerController from "../controllers/auth/register";
 
