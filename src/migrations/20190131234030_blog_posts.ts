@@ -48,7 +48,7 @@ export let down = async (knex: any) => {
 
   await knex.schema.table("blog_comments", (table: any) => {
     table.dropForeign("user_uuid");
-    table.dropForeign("blog_posts_uuid");
+    table.dropForeign("blog_post_uuid");
   });
 
   await knex.schema.dropTable("blog_categories");
