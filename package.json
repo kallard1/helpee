@@ -110,12 +110,10 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
     "testMatch": [
-      "**/tests/**/*.+(ts|tsx|js)"
+      "**/tests/**/*.+(js)"
     ]
   },
   "moduleFileExtensions": [
-    "ts",
-    "tsx",
     "js"
   ],
   "globals": {
