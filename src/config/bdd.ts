@@ -1,6 +1,6 @@
-import { Pool } from "pg";
-import path from "path";
 import knex from "knex";
+import path from "path";
+import { Client } from "pg";
 
 if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
