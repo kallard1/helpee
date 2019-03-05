@@ -5,12 +5,18 @@ import bdd from "../config/bdd";
 
 describe("GET /", () => {
 
-  beforeAll((done) => {
-    bdd.knex.migrate.rollback()
-      .then(() => {
-        bdd.knex.migrate.latest()
-          .then(() => {
-            done();
+  beforeAll(async (done) => {
+    await bdd.knex.raw("SELECT truncate_tables('helpee')")
+      .then(async () => {
+        await bdd.knex.migrate.rollback()
+          .then(async () => {
+            await bdd.knex.migrate.latest()
+              .then(async () => {
+                return await bdd.knex.seed.run()
+                  .then(() => {
+                    done();
+                  });
+              });
           });
       });
   });
