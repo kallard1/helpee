@@ -21,6 +21,9 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations',
       directory: path.join(__dirname, '/dist/migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, '/dist/seeds/development')
     }
   },
 
@@ -40,6 +43,9 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations',
       directory: path.join(__dirname, '/dist/migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, '/dist/seeds/production')
     }
   },
 
@@ -59,6 +65,9 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations',
       directory: path.join(__dirname, '/dist/migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, '/dist/seeds/production')
     }
   }
 }

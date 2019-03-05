@@ -26,6 +26,10 @@ class Bdd {
         tableName: "knex_migrations",
         directory: path.join(__dirname, "../migrations"),
       },
+      seeds: {
+        directory: path.join(__dirname, `../seeds/${process.env.NODE_ENV === "production" ?
+          "production" : "development"}`),
+      },
     });
   }
 
