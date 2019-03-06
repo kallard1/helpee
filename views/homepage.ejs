@@ -4,9 +4,11 @@
 <p>Welcome</p>
 
 <ul>
-    <% users.forEach((user) => {%>
-        <li><%= user.firstname %> <%= user.lastname %></li>
-    <%})%>
+    <% if (users) { %>
+        <% users.forEach((user) => { %>
+            <li><%= user.firstname %> <%= user.lastname %></li>
+        <% }) %>
+    <% } %>
 </ul>
 
 <%- include('layouts/footer'); -%>
