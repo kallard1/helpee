@@ -8,7 +8,15 @@
 
   function active() {
     var burgercontainer = document.getElementById("burgercont");
-    burgercontainer.classList.remove("inactive");
+    const element = document.querySelector("#burgercont")
+    if(element.classList.contains("active")) {
+      burgercontainer.classList.remove("active");
+      burgercontainer.classList.add("inactive");
+    }
+    else {
+      burgercontainer.classList.remove("inactive");
+      burgercontainer.classList.add("active");
+    }
   }
 
 </script>

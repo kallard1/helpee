@@ -10,3 +10,11 @@
 .inactive {
     display:none;
 }
+
+#burgercont > nav > ul {
+    list-style-type: none;
+    top: 100px;
+    position: relative;
+    color:white;
+    font-family:'Montserrat-Regular';
+}
