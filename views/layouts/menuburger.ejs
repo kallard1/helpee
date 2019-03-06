@@ -1,1 +1,14 @@
-<%- include('layouts/header'); -%>
+<div id="burgercont" class="menuburger-container inactive">
+
+</div>
+
+<script type="text/javascript">
+  var buttonburger = document.getElementById("icon-burger");
+  buttonburger.onclick = active;
+
+  function active() {
+    var burgercontainer = document.getElementById("burgercont");
+    burgercontainer.classList.remove("inactive");
+  }
+
+</script>

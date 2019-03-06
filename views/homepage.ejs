@@ -1,16 +1,17 @@
 <%- include('layouts/header'); -%>
+<%- include('layouts/menuburger'); -%>
 
 <div class="container homepage">
   <div class="firstblock">
     <div class="button-container">
-      <button class="button-fit"><i >je propose</i></button>
-      <button class="button-fit"><i >je recherche</i></button>
+      <button id="button-prop" class="button-fit but_propose inactive_propose"><i >je propose</i></button>
+      <button id="button-rech" class="button-fit but_recherche inactive_recherche"><i >je recherche</i></button>
     </div>
 
     <div class="select-container">
       <form class='form-cat'>
         <SELECT class='select-button' name="Catégorie" size="1">
-        <OPTION>catégorie
+        <OPTION>Catégorie
         <OPTION>test1
         <OPTION>test2
         <OPTION>test3
@@ -23,19 +24,19 @@
     <div class="input-container">
       <div class="ville-container">
         <div class="container-input">
-          <input type="text" class="hompepage-input__text input__ville" name="name" placeholder="Renseignez votre ville">
+          <input type="text" class="hompepage-input__text input__ville" name="name" placeholder="Mot(s)-clé(s)">
         </div>
       </div>
 
       <div class="ville-container">
         <div class="container-input input__jesaispas">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Je sais pas à quoi ça sert">
+          <input type="text" class="hompepage-input__text" name="name" placeholder="Ville">
         </div>
       </div>
     </div>
 
     <div class="button-container container__button-rechercher">
-      <button class="button-fit button-rechercher"><i >rechercher</i></button>
+      <button class="button-fit  button-rechercher"><i >rechercher</i></button>
     </div>
 
   </div>
@@ -62,8 +63,35 @@
   </div>
 
   <div class="thirdblock">
+    <h3>Comment ça marche ?</h3>
+    <table>
+      <tr class="li1">
+        <td class="nb">1.</td>
+        <td class="list">Inscrivez-vous et devenez membre</td>
+      </tr>
+      <tr class="li2">
+        <td class="nb">2.</td>
+        <td class="list">Rejoignez des communautés près de chez vous</td>
+      </tr>
+      <tr class="li3">
+        <td class="nb">3.</td>
+        <td class="list">Recherchez et/ou proposez des services</td>
+      </tr>
+    </table>
   </div>
 
 </div>
+
+<!--
+<script type="text/javascript">
+  var buttonRech = document.getElementById("button-rech");
+  buttonRech.onclick = active;
+
+  function active() {
+    var buttonRech = document.getElementById("button-rech");
+    buttonRech.classList.remove("inactive_recherche");
+  }
+</script>
+-->
 
 <%- include('layouts/footer'); -%>
