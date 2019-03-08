@@ -7,7 +7,6 @@ import createError from "http-errors";
 import logger from "morgan";
 import path from "path";
 
-import bdd from "./config/bdd";
 import winston from "./config/winston";
 import flash from "./middlewares/flash";
 

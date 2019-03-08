@@ -1,5 +1,6 @@
 import debug0 from "debug";
 import http from "http";
+import mongoose from "mongoose";
 
 import app from "./app";
 
@@ -10,9 +11,20 @@ app.set("port", port);
 
 const server = http.createServer(app);
 
-server.listen(port);
-server.on("error", onError);
-server.on("listening", onListening);
+const connectDb = () => {
+  return mongoose.connect(process.env.DATABASE_URL || "mongodb://localhost:27017/database", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  });
+};
+
+connectDb().then(async () => {
+  server.listen(port);
+  server.on("listening", onListening);
+  server.on("error", onError);
+}).catch((err) => {
+  console.error(err);
+});
 
 /**
  * Event listener for HTTP server "error" event.
