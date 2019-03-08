@@ -1,8 +1,21 @@
-<div id="burgercont" class="menuburger-container inactive">
+<!--<div id="burgercont" class="menuburger-container inactive">
 
-</div>
 
-<script type="text/javascript">
+<div class="block-nav">
+    <ul class="block-nav-ul">
+      <li>Poster une annonce</li>
+      <li>Gérer les annonces</li>
+      <li>Annonces favorites</li>
+      <li>Ma communauté</li>
+      <li>Mes Amis</li>
+      <li>Réglages</li>
+      <li>Se déconnecter</li>
+    <ul> 
+  </div>
+
+</div>-->
+
+<!--<script type="text/javascript">
   var buttonburger = document.getElementById("icon-burger");
   buttonburger.onclick = active;
 
@@ -19,4 +32,37 @@
     }
   }
 
+</script>-->
+
+
+<div class="nav-toggle">
+  <div class="nav-toggle-bar"></div>
+</div>
+<nav class="nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+(function() {
+
+  var hamburger = {
+    navToggle: document.querySelector('.nav-toggle'),
+    nav: document.querySelector('nav'),
+
+    doToggle: function(e) {
+      e.preventDefault();
+      this.navToggle.classList.toggle('expanded');
+      this.nav.classList.toggle('expanded');
+    }
+  };
+
+  hamburger.navToggle.addEventListener('click', function(e) { hamburger.doToggle(e); });
+  hamburger.nav.addEventListener('click', function(e) { hamburger.doToggle(e); });
+
+}());
 </script>
