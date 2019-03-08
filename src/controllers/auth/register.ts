@@ -8,10 +8,8 @@ import User from "../../models/users";
  * @param request
  * @param response
  */
-export let index = async (request: Request, response: Response) => {
-  response.render("auth/register/registration", {
-    csrfToken: request.csrfToken(),
-  });
+export let index = async (req: Request, res: Response, next: NextFunction) => {
+  res.render("auth/register/registration", {});
 };
 
 /**

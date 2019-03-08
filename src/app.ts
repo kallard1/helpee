@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
+import csurf from "csurf";
 import express, { NextFunction, Request, Response } from "express";
 import expressSession from "express-session";
 import createError from "http-errors";
@@ -50,12 +51,18 @@ app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
 );
 app.use(expressSession(session));
+
+if (process.env.NODE_ENV === "test") {
+  app.use(csurf({ ignoreMethods: ["GET", "HEAD", "OPTIONS", "POST", "PUT" /* etc */] }));
+} else {
+  app.use(csurf({ cookie: true }));
+}
 app.use(flash());
 
-// Run migration on testing/production environment
-if (process.env.NODE_ENV === "production") {
-  bdd.init();
-}
+app.get("*", (req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 app.use("/", indexRouter);
 app.use("/auth/", authRouter);
@@ -66,6 +73,15 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  if (err.code !== "EBADCSRFTOKEN") return next(err);
+
+  // handle CSRF token errors here
+  res.status(403);
+  res.render("error", {
+    message: "CODE RED - NO CSRF TOKEN",
+    error: {},
+  });
+
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
