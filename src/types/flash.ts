@@ -1,6 +1,6 @@
 declare namespace Express {
   export interface Request {
-    flash(type: string, content: string): any;
+    flash(type: string, content: any): any;
   }
 }
 
