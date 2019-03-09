@@ -1,42 +1,44 @@
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
-import User from "../../models/users";
+import { validationResult } from "express-validator/check";
+
+import { default as InformationsUser } from "../../models/informations_user";
+import { default as User } from "../../models/user";
 
 /**
  * Register page.
  *
- * @param request
- * @param response
+ * @param req
+ * @param res
  */
-export let index = async (req: Request, res: Response, next: NextFunction) => {
+export let index = async (req: Request, res: Response) => {
   res.render("auth/register/registration", {});
 };
 
 /**
  * Register treatment.
  *
- * @param request
- * @param response
+ * @param req
+ * @param res
  */
-export let registration = async (request: Request, response: Response) => {
+export let registration = async (req: Request, res: Response) => {
+  console.log("registration");
+  const errors = validationResult(req);
+  console.log(errors.isEmpty(), errors.array());
+  if (!errors.isEmpty()) {
+    req.flash("warning", errors.array());
+    // return res.redirect("/auth/register");
+  }
 
-  const user = await User.setUser({
-    firstname: request.body.firstname,
-    lastname: request.body.lastname,
-    password: bcrypt.hashSync(request.body.password, 10),
-    email: request.body.email,
-    role: "ROLE_USER",
-  });
+  const { firstname, lastname, password: clearPassword, email, address, address1, zip_code, city, phone } = req.body;
+  const password = await bcrypt.hash(clearPassword, 10);
 
-  await User.setInformationsUser({
-    user,
-    address: request.body.address,
-    address1: request.body.address1,
-    zip_code: request.body.zipCode,
-    city: request.body.city,
-  });
+  const user = new User({ firstname, lastname, email, password });
+  const informationsUser = new InformationsUser({ user, address, address1, zip_code, city, phone });
 
-  request.flash("success", "Votre compte a été créé avec succès !");
+  user.save();
+  informationsUser.save();
 
-  response.redirect("/");
+  res.end();
+  res.redirect("/");
 };
