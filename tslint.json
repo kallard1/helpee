@@ -53,16 +53,40 @@
         "variable-declaration": "onespace"
       }
     ],
+    "align": [
+      true,
+      "parameters",
+      "statements"
+    ],
     "no-internal-module": true,
     "no-trailing-whitespace": true,
     "no-null-keyword": true,
     "no-parameter-reassignment": false,
-    "no-unused-variable": true,
+    "no-unused-variable": [
+      true,
+      {
+        "ignore-pattern": "^_"
+      }
+    ],
+    "no-this-assignment": [
+      true,
+      {
+        "allowed-names": [
+          "^self$"
+        ],
+        "allow-destructuring": true
+      }
+    ],
     "prefer-const": true,
     "jsdoc-format": true,
     "import-name": false,
     "ordered-imports": true,
-    "import-sources-order": "case-insensitive",
-    "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)}"}]
+    "max-line-length": [
+      true,
+      {
+        "limit": 120,
+        "ignore-pattern": "^import |^export {(.*?)}"
+      }
+    ]
   }
 }
