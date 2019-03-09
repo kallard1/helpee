@@ -9,7 +9,7 @@ export default function flash() {
       }
     }
 
-    request.flash = (type: string, content: string) => {
+    request.flash = (type: string, content: any) => {
       if (request.session) {
         if (request.session.flash === undefined) {
           request.session.flash = {};
