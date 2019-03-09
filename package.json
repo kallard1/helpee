@@ -57,7 +57,7 @@
     "@types/mongoose": "^5.3.20",
     "@types/morgan": "^1.7.35",
     "@types/node": "^10.12.21",
-    "@types/pg": "^7.4.11",
+    "@types/shelljs": "^0.8.3",
     "@types/uglify-js": "^3.0.4",
     "@types/webpack": "^4.4.24",
     "@types/winston": "^2.4.4",
