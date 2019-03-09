@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import csurf from "csurf";
 import express, { NextFunction, Request, Response } from "express";
 import expressSession from "express-session";
+import expressValidator from "express-validator";
 import createError from "http-errors";
 import logger from "morgan";
 import path from "path";
@@ -46,6 +47,7 @@ app.use(logger("combined", { stream: winston.stream }));
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(
   express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }),
