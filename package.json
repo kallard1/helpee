@@ -4,9 +4,12 @@
   "description": "",
   "private": true,
   "scripts": {
-    "prestart": "tsc",
+    "prestart": "ts-node build.ts && tsc",
+    "pretest": "tslint --config tslint.json --project tsconfig.json",
     "start": "node dist/server.js",
     "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"yellow,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/server.js\"",
+    "start:dev:debug": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"yellow,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon --exec -r ts-node/register --inspect-brk dist/server.js\"",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
     "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
     "webpack:prod": "cross-env NODE_ENV=production webpack --progress",
     "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
@@ -61,6 +64,7 @@
     "@types/uglify-js": "^3.0.4",
     "@types/webpack": "^4.4.24",
     "@types/winston": "^2.4.4",
+    "acorn": "^6.1.1",
     "autoprefixer": "^9.4.7",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "clean-webpack-plugin": "^1.0.1",
@@ -87,8 +91,10 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.5.0",
     "sass-loader": "^7.1.0",
+    "shelljs": "^0.8.3",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
+    "ts-node": "^8.0.3",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.3",
@@ -98,26 +104,5 @@
     "webpack-cli": "^3.2",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.1"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "testMatch": [
-      "**/tests/**/*.+(js)"
-    ]
-  },
-  "moduleFileExtensions": [
-    "js"
-  ],
-  "globals": {
-    "ts-jest": {
-      "tsConfigFile": "tsconfig.json"
-    }
-  },
-  "testPathIgnorePatterns": [
-    "<rootDir>/node_modules/"
-  ],
-  "preset": "ts-jest",
-  "testEnvironment": "node"
+  }
 }
