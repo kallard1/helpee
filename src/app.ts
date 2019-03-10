@@ -6,6 +6,7 @@ import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
 import createError from "http-errors";
+import lusca from "lusca";
 import mongoose from "mongoose";
 import logger from "morgan";
 import path from "path";
@@ -56,6 +57,8 @@ class App {
     }));
 
     this.express.use(flash());
+    this.express.use(lusca.xframe("SAMEORIGIN"));
+    this.express.use(lusca.xssProtection(true));
     this.express.use(csurf({ cookie: true }));
 
     this.express.use("*", (req, res, next) => {
