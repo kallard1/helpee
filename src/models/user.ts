@@ -16,8 +16,6 @@ export type UserModel = mongoose.Document & {
   role: [],
 
   loggued_at: Date,
-
-  comparePassword: (candidatePassword: string, cb: (err: any, isMatch: any) => {}) => void,
 };
 
 const userSchema = new mongoose.Schema(
@@ -75,17 +73,5 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
   });
-
-userSchema.pre("remove", function (next) {
-  this.model("informationsUser").deleteOne({ user: this._id }, next);
-  mongoose.connection.close();
-});
-
-userSchema.methods.comparePassword = (candidatePassword: string, cb: (err: any, isMatch: any) => {}) => {
-  // @ts-ignore
-  bcrypt.compare(candidatePassword, this.password, (err: mongoose.Error, isMatch: boolean) => {
-    cb(err, isMatch);
-  });
-};
 
 export default mongoose.model<UserModel>("User", userSchema);
