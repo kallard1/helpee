@@ -2,6 +2,7 @@ import { Router } from "express";
 import { check } from "express-validator/check";
 
 import * as registerController from "../controllers/auth/register";
+import * as securityController from "../controllers/auth/security";
 import { default as User } from "../models/user";
 
 class Auth {
@@ -57,6 +58,8 @@ class Auth {
           .matches(/((\+?)(33|0)?([0-9]{9}))/g).withMessage("Invalid format for phone number."),
       ],
       registerController.registration);
+
+    this.router.get("/login", securityController.index);
   }
 }
 
