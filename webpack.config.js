@@ -3,8 +3,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const BundleAnalyzerPlugin = require(
-  'webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : "production");
@@ -139,7 +137,6 @@ let config = {
       dry: false
     }),
     new ExtractTextPlugin({
-      // filename: 'css/' + (dev ? '[name].css' : '[name].[hash:10].css')
       filename: 'css/[name].css'
     }),
     new ManifestPlugin(),
@@ -148,13 +145,5 @@ let config = {
     ])
   ]
 };
-
-// if (dev) {
-//   config.plugins.push(
-//     new BundleAnalyzerPlugin({
-//       openAnalyzer: false,
-//     })
-//   )
-// }
 
 module.exports = config;

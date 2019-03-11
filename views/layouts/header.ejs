@@ -16,9 +16,17 @@
 </header>
 <div class="container marge-header">
     <% if(locals.flash) { %>
-        <div class="alert alert-<%= flash.type %>">
+    <div class="alert alert-<%= flash.type %>">
+        <% if (typeof flash.message === "object") {%>
+        <ul>
+            <% flash.message.forEach((message) => {%>
+                <li><%= message.msg %></li>
+            <% }) %>
+        </ul>
+        <% } else { %>
             <%= flash.message %>
-        </div>
+        <% }%>
+    </div>
     <% } %>
 
     <div class="navbar-container">

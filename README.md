@@ -8,6 +8,7 @@
 ## How to
 ### Installation
 - Installer les packages node `npm install`
+- Installer knex `npm i -g knex`
 - **Copier** le fichier `.env.dist` en `.env` et modifier les paramètres si nécessaire (si utilisation
 de docker, laisser la configuration par défaut)
 - Effectuer un pre-start `npm run prestart` (cela sera très utile pour utiliser _knex_ afin de créer les migrations)
