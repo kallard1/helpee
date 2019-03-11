@@ -3,16 +3,14 @@
 ## Pré-requis
 - Node >= 10
 - NPM >= 6
-- Docker
+- Docker ou MongoDB
 
 ## How to
 ### Installation
 - Installer les packages node `npm install`
-- Installer knex `npm i -g knex`
 - **Copier** le fichier `.env.dist` en `.env` et modifier les paramètres si nécessaire (si utilisation
 de docker, laisser la configuration par défaut)
-- Effectuer un pre-start `npm run prestart` (cela sera très utile pour utiliser _knex_ afin de créer les migrations)
-- Executer les migrations `./node_modules/.bin/cross-env NODE_ENV=development knex migrate:latest`
+- Effectuer un pre-start `npm run prestart`
 - Lancer le serveur `npm run start:dev`.
 
 Lorsque des modifications seront effectuées (assets/typescript) la compilation s'effectuera et le serveur
@@ -20,13 +18,36 @@ se relancera automatiquement
 
 Pour quitter le serveur faites `CTRL + c` dans votre terminal
 
-## Normes
+## Normes de codage
 1. 120 caractères maximum sur une seule ligne
-2. Une indentation de 2 espaces
-3. Les variables utilisent le camelCase pour les variables
-4. Les classes utilisent le PascalCase
-5. Les classes et id css utilisent le snake-case
+2. Une indentation de 2 espaces pour le javascript/typescript, 4 pour le (s)css/ejs
+3. Les variables utilisent le camelCase (la variable commence par une minuscule ex: unSuperbeVariable)
+4. Les classes utilisent le PascalCase (le nom de la classe commence par une majuscule)
+5. Les classes et id css utilisent le snake-case (on met un tiret _-_ #ma-variable, .ma-variable)
 6. Pensez à laisser une ligne vide en fin de fichier
 7. Penser à commiter a chaque modification et utilisez une description claire de ce que vous avez fait.
 Conseil pour nommer vos commits : https://www.grafikart.fr/tutoriels/nommage-commit-1009
 8. Quoi que dise le linter, il a **toujours** raison (sauf quand il a tort ce qui est rare).
+9. Les imports sont classés par ordre alphabétique
+10. Les variables non utilisées doivent être retirées
+11. Les variables doivent être systématiquement typées
+
+## Créer un controleur et sa route associée
+Creez le fichier controlleur dans le dossier `/src/controllers/{subfolder}/{filename}.ts`
+Exemple : `/src/controllers/ad/new`, `/src/controllers/ad/read`
+
+Si la route va être par exemple : `/home`, il faut modifier le fichier `/src/routes/root.ts`
+Si la route va être par exemple : `/ad/new`, il faut créer un nouveau fichier dans `/src/routes/ad.ts`
+
+Le nom de la classe aura le meme nom que le fichier exemple si le fichier est `ad.ts`
+
+```typescript
+class Ad {
+  // ...
+}
+``` 
+Vous avez la possiblité de prendre exemple sur le fichier `/src/routes/roots.ts` ou `/src/routes/auth.ts`
+
+Pour terminer, il faut le déclarer dans le fichier `app.ts` dans la méthode `routes()`
+(ne pas oublier l'import en haut du fichier)
+
