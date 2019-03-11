@@ -15,6 +15,7 @@ import winston from "./config/winston";
 import flash from "./middlewares/flash";
 
 // Routes
+import adRouter from "./routes/ad";
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
 
@@ -72,6 +73,7 @@ class App {
 
   private routes(): void {
     this.express.use("/", rootRouter);
+    this.express.use("/ad", adRouter);
     this.express.use("/auth/", authRouter);
   }
 
