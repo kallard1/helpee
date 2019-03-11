@@ -29,6 +29,7 @@ let config = {
   devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
   entry: {
     app: [resolve('./assets/scss/app.scss')],
+    homepage: [resolve('./assets/scss/homepage.scss')],
   },
   output: {
     path: resolve('./public/build'),
