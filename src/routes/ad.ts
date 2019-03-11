@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import * as homepageController from "../controllers/ad/new";
+import * as newController from "../controllers/ad/new";
 
 class Ad {
   public router: Router;
@@ -11,7 +11,7 @@ class Ad {
   }
 
   private init() {
-    this.router.get("/", homepageController.index);
+    this.router.get("/", newController.index);
   }
 }
 
