@@ -14,6 +14,7 @@ import path from "path";
 import winston from "./config/winston";
 import flash from "./middlewares/flash";
 
+// Routes
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
 
@@ -67,7 +68,6 @@ class App {
     });
 
     this.express.use(express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }));
-
   }
 
   private routes(): void {
