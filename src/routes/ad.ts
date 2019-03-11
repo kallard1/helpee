@@ -11,7 +11,7 @@ class Ad {
   }
 
   private init() {
-    this.router.get("/", newController.index);
+    this.router.get("/new", newController.index);
   }
 }
 
