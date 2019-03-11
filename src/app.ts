@@ -44,7 +44,7 @@ class App {
     this.express.use(expressValidator());
     this.express.use(cookieParser());
     this.express.use(session({
-      secret: process.env.SECRET_KEY || "",
+      secret: process.env.SECRET_KEY || "secret",
       name: "helpee_session",
       cookie: {
         expires: new Date(Date.now() + 60 * 60 * 1000),
@@ -79,13 +79,13 @@ class App {
     mongoose.connect(process.env.DATABASE_URL || "mongodb://localhost:27017/database", {
       useNewUrlParser: true,
       useCreateIndex: true,
-    });
-
-    mongoose.connection.on("error", () => {
-      // tslint:disable-next-line:no-console
-      console.log("MongoDB connection error. Please make sure MongoDB is running.");
-      process.exit();
-    });
+    })
+      .then(() => console.log("MongoDB connected..."))
+      .catch((err) => {
+        console.log("MongoDB connection error.");
+        console.log(err);
+        process.exit();
+      });
 
     this.express.use((req: Request, res: Response, next: NextFunction) => {
       next(createError(404));
