@@ -11,6 +11,14 @@
 <div class="container">
     <% if(locals.flash) { %>
     <div class="alert alert-<%= flash.type %>">
-        <%= flash.message %>
+        <% if (typeof flash.message === "object") {%>
+        <ul>
+            <% flash.message.forEach((message) => {%>
+                <li><%= message.msg %></li>
+            <% }) %>
+        </ul>
+        <% } else { %>
+            <%= flash.message %>
+        <% }%>
     </div>
     <% } %>

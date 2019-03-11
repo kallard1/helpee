@@ -1,9 +1,32 @@
-postgres:
-  build: ./docker/postgres
-  container_name: helpee_postgres
-  ports:
-    - "5490:5432"
-  volumes:
-    - ./docker/postgres/data:/var/lib/postgresql/data
-  working_dir: /var/lib/postgresql/
-  restart: unless-stopped
+version: "3"
+
+services:
+  node:
+    image: node:lts-jessie
+    container_name: helpee_node
+    volumes:
+      - ./:/app
+    working_dir: /app
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    command:
+      sh -c 'npm install && npm run start'
+
+  mongo:
+    image: mongo:latest
+    container_name: helpee_mongo
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/null
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 939Q2JA7Mxb4VTBpDRJW5CMkq
+      MONGO_INITDB_DATABASE: helpee
+    volumes:
+      - ./docker/mongodb/data/db:/data/db
+      - ./docker/mongodb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 27017:27017
