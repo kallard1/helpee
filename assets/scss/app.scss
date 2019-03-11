@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+//Mixin
+@import "components/mixin.scss";
+
 // Color
 @import "components/color-variables";
 @import "components/color-classes";
@@ -14,6 +17,7 @@
 
 // Reset
 @import "components/normalize";
+// Componenents
 
 // Functions
 @import "components/functions";
@@ -22,3 +26,19 @@
 @import "components/alerts";
 @import "components/grid";
 @import "components/form/form-input";
+@import "components/font";
+
+// Layout
+@import "components/header.scss";
+@import "components/navbar.scss";
+@import "components/homepage.scss";
+@import "components/menuburger.scss";
+@import "components/submit.scss";
+
+body{
+    background-color:color("mine-shaft","background");
+}
+
+.marge-header{
+    margin-top:70px;
+}

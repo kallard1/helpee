@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale=1.0,user-scalable = no">
     <title>Helpee</title>
     <link rel='stylesheet' href='/build/css/app.css'/>
 </head>
@@ -8,7 +9,12 @@
 <noscript>
     You need to enable JavaScript to run this app.
 </noscript>
-<div class="container">
+<header>
+    <div class="content-header">
+        <div class="header-image"></div>
+    </div>
+</header>
+<div class="container marge-header">
     <% if(locals.flash) { %>
     <div class="alert alert-<%= flash.type %>">
         <% if (typeof flash.message === "object") {%>
@@ -22,3 +28,7 @@
         <% }%>
     </div>
     <% } %>
+
+    <div class="navbar-container">
+        <%- include('navbar'); -%>
+    </div>

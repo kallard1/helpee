@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : "production");
 const dev = ENV === 'development';
@@ -138,7 +139,10 @@ let config = {
     new ExtractTextPlugin({
       filename: 'css/[name].css'
     }),
-    new ManifestPlugin()
+    new ManifestPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'assets/images', to: 'images' }
+    ])
   ]
 };
 
