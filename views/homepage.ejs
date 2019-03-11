@@ -4,8 +4,8 @@
 <div class="container homepage">
   <div class="firstblock">
     <div class="button-container">
-      <button id="button-prop" class="button-fit but_propose inactive_propose"><i >je propose</i></button>
-      <button id="button-rech" class="button-fit but_recherche inactive_recherche"><i >je recherche</i></button>
+      <a id="button-prop" class='button-fit but_propose inactive_propose' href="/submit.ejs">je propose</a>
+      <a id="button-rech" class='button-fit but_recherche inactive_recherche'>je recherche</a>
     </div>
 
     <div class="select-container">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="button-container container__button-rechercher">
-      <button class="button-fit  button-rechercher"><i >rechercher</i></button>
+      <a class='button-fit button-rechercher' href="">Rechercher</a>
     </div>
 
   </div>
@@ -81,17 +81,5 @@
   </div>
 
 </div>
-
-<!--
-<script type="text/javascript">
-  var buttonRech = document.getElementById("button-rech");
-  buttonRech.onclick = active;
-
-  function active() {
-    var buttonRech = document.getElementById("button-rech");
-    buttonRech.classList.remove("inactive_recherche");
-  }
-</script>
--->
 
 <%- include('layouts/footer'); -%>
