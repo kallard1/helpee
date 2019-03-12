@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import { validationResult } from "express-validator/check";
 
-import { default as InformationsUser } from "../../models/informations_user";
 import { default as User } from "../../models/user";
 
 /**
@@ -33,12 +32,18 @@ export let registration = async (req: Request, res: Response) => {
   const { firstname, lastname, password: clearPassword, email, address, address1, zip_code, city, phone } = req.body;
   const password = await bcrypt.hash(clearPassword, 10);
 
-  const user = new User({ firstname, lastname, email, password });
-  const informationsUser = new InformationsUser({ user, address, address1, zip_code, city, phone });
+  const user = new User({
+    firstname,
+    lastname,
+    email,
+    password,
+    informations: { address, address1, zip_code, city, phone },
+  });
 
-  user.save();
-  informationsUser.save();
-
-  res.end();
-  res.redirect("/");
+  user.save().then(() => {
+    res.end();
+    res.redirect("/");
+  }).catch((err) => {
+    console.log(err);
+  });
 };
