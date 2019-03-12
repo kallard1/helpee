@@ -93,7 +93,10 @@ class App {
     });
 
     this.express.use((req: Request, res: Response, next: NextFunction) => {
-      next(createError(404));
+      res.render("error", {
+        message: "404 - Page not found",
+        error: {},
+      });
     });
 
     this.express.use((err: any, req: Request, res: Response, next: NextFunction) => {
