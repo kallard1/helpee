@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import { validationResult } from "express-validator/check";
 
+import { newUserEmail } from "../../config/email";
+import { default as InformationsUser } from "../../models/informations_user";
 import { default as User } from "../../models/user";
 
 /**
