@@ -1,17 +1,18 @@
 import bodyParser from "body-parser";
 import compression from "compression";
+import RedisStore from "connect-redis";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
 import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
-import createError from "http-errors";
 import lusca from "lusca";
 import mongoose from "mongoose";
 import logger from "morgan";
 import passport from "passport";
 import path from "path";
+import redis from "redis";
 
 import winston from "./config/winston";
 import flash from "./middlewares/flash";
@@ -29,9 +30,17 @@ config(passport);
 
 class App {
   public express: express.Application;
+  private redisStore = RedisStore(session);
+  private readonly redis = redis.createClient({
+    host: "sql.area42.fr",
+  });
 
   constructor() {
     this.express = express();
+
+    this.redis.on("error", (err: any) => {
+      console.log(err);
+    });
     this.middleware();
     this.routes();
     this.launchConf();
@@ -54,6 +63,12 @@ class App {
     this.express.use(expressValidator());
     this.express.use(cookieParser());
     this.express.use(session({
+      store: new this.redisStore({
+        client: this.redis,
+        host: "sql.area42.fr",
+        port: 6379,
+        ttl: 260,
+      }),
       secret: process.env.SECRET_KEY || "",
       name: "helpee_session",
       cookie: {
@@ -98,7 +113,7 @@ class App {
       process.exit();
     });
 
-    this.express.use((req: Request, res: Response, next: NextFunction) => {
+    this.express.use((req: Request, res: Response) => {
       res.render("error", {
         message: "404 - Page not found",
         error: {},
