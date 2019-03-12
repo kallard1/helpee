@@ -60,6 +60,9 @@ class Auth {
       registerController.registration);
 
     this.router.get("/login", securityController.index);
+    this.router.post("/login", securityController.login);
+
+    this.router.get("/logout", securityController.logout);
   }
 }
 
