@@ -8,6 +8,5 @@ import { Request, Response } from "express";
  * @param res
  */
 export let index = async (req: Request, res: Response) => {
-  console.log(req.user);
   res.render("homepage");
 };
