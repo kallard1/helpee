@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 
+import { default as User } from "../models/user";
+
 /**
  * GET /
  * Home page.
@@ -8,5 +10,11 @@ import { Request, Response } from "express";
  * @param res
  */
 export let index = async (req: Request, res: Response) => {
-  res.render("homepage");
+
+  const userCount = await User.estimatedDocumentCount();
+
+  console.log(userCount);
+  res.render("homepage", {
+    userCount,
+  });
 };

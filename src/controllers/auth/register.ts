@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import { validationResult } from "express-validator/check";
 
-import { default as InformationsUser } from "../../models/informations_user";
+import { newUserEmail } from "../../config/email";
 import { default as User } from "../../models/user";
 
 /**
@@ -12,6 +12,12 @@ import { default as User } from "../../models/user";
  * @param res
  */
 export let index = async (req: Request, res: Response) => {
+  if (req.user) {
+    req.flash("warning", "You are already logged in!");
+    res.end();
+    res.redirect("/");
+  }
+
   res.render("auth/register/registration", {});
 };
 
@@ -33,12 +39,19 @@ export let registration = async (req: Request, res: Response) => {
   const { firstname, lastname, password: clearPassword, email, address, address1, zip_code, city, phone } = req.body;
   const password = await bcrypt.hash(clearPassword, 10);
 
-  const user = new User({ firstname, lastname, email, password });
-  const informationsUser = new InformationsUser({ user, address, address1, zip_code, city, phone });
+  const user = new User({
+    firstname,
+    lastname,
+    email,
+    password,
+    informations: { address, address1, zip_code, city, phone },
+  });
 
-  user.save();
-  informationsUser.save();
-
-  res.end();
-  res.redirect("/");
+  user.save().then(() => {
+    newUserEmail(user);
+    req.flash("success", "Congratulation, your account was created with success. We sent a confirmation email.");
+    res.redirect("/");
+  }).catch((err) => {
+    console.log(err);
+  });
 };

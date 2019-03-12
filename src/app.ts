@@ -1,15 +1,18 @@
 import bodyParser from "body-parser";
 import compression from "compression";
+import RedisStore from "connect-redis";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
+import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
-import createError from "http-errors";
 import lusca from "lusca";
 import mongoose from "mongoose";
 import logger from "morgan";
+import passport from "passport";
 import path from "path";
+import redis from "redis";
 
 import winston from "./config/winston";
 import flash from "./middlewares/flash";
@@ -19,11 +22,27 @@ import adRouter from "./routes/ad";
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
 
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: ".env" });
+}
+
+import config from "./config/passport";
+
+config(passport);
+
 class App {
   public express: express.Application;
+  private redisStore = RedisStore(session);
+  private readonly redis = redis.createClient({
+    host: "sql.area42.fr",
+  });
 
   constructor() {
     this.express = express();
+
+    this.redis.on("error", (err: any) => {
+      console.log(err);
+    });
     this.middleware();
     this.routes();
     this.launchConf();
@@ -46,7 +65,13 @@ class App {
     this.express.use(expressValidator());
     this.express.use(cookieParser());
     this.express.use(session({
-      secret: process.env.SECRET_KEY || "secret",
+      store: new this.redisStore({
+        client: this.redis,
+        host: "sql.area42.fr",
+        port: 6379,
+        ttl: 260,
+      }),
+      secret: process.env.SECRET_KEY || "",
       name: "helpee_session",
       cookie: {
         expires: new Date(Date.now() + 60 * 60 * 1000),
@@ -57,7 +82,8 @@ class App {
       resave: false,
       saveUninitialized: true,
     }));
-
+    this.express.use(passport.initialize());
+    this.express.use(passport.session());
     this.express.use(flash());
     this.express.use(lusca.xframe("SAMEORIGIN"));
     this.express.use(lusca.xssProtection(true));
@@ -89,8 +115,11 @@ class App {
         process.exit();
       });
 
-    this.express.use((req: Request, res: Response, next: NextFunction) => {
-      next(createError(404));
+    this.express.use((req: Request, res: Response) => {
+      res.render("error", {
+        message: "404 - Page not found",
+        error: {},
+      });
     });
 
     this.express.use((err: any, req: Request, res: Response, next: NextFunction) => {
