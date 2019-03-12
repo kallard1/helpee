@@ -24,7 +24,7 @@ export default function (passport: any) {
           }
 
           // Match password
-          bcrypt.compare(password, user.password, (err, isMatch) => {
+          user.comparePassword(password, (err: Error, isMatch: boolean) => {
             if (err) throw err;
 
             if (isMatch) {
