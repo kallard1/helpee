@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
+import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
@@ -16,6 +17,10 @@ import flash from "./middlewares/flash";
 
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
+
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: ".env" });
+}
 
 class App {
   public express: express.Application;
