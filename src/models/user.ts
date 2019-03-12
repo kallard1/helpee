@@ -24,6 +24,8 @@ export type UserModel = mongoose.Document & {
   phone: string,
 
   loggued_at: Date,
+
+  comparePassword: (candidatePassword: string, cb: (err: Error, isMatch: boolean) => void) => void,
 };
 
 const userSchema = new mongoose.Schema(
@@ -44,6 +46,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
     email: {
       type: String,
       required: true,
