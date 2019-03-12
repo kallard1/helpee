@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
 export type UserModel = mongoose.Document & {
@@ -116,5 +117,26 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
   });
+
+userSchema.pre("save", (function (next) {
+  const self: any = this;
+
+  if (!self.isModified("password")) return next();
+  bcrypt.genSalt(10, (function (err, salt) {
+    if (err) return next(err);
+    bcrypt.hash(self.password, salt, (function (err, hash) {
+      if (err) return next(err);
+
+      self.password = hash;
+      next();
+    }));
+  }));
+}));
+
+userSchema.methods.comparePassword = function (candidatePassword: string, cb: (err: Error, isMatch: boolean) => void) {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    return cb(err, isMatch);
+  });
+};
 
 export default mongoose.model<UserModel>("User", userSchema);
