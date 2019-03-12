@@ -27,6 +27,7 @@
     "url": "https://github.com/kallard1/helpee/issues"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "app-root-path": "^2.1.0",
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
