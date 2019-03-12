@@ -43,7 +43,8 @@ export let registration = async (req: Request, res: Response) => {
   });
 
   user.save().then(() => {
-    res.end();
+    newUserEmail(user);
+    req.flash("success", "Congratulation, your account was created with success. We sent a confirmation email.");
     res.redirect("/");
   }).catch((err) => {
     console.log(err);
