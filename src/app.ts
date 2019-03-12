@@ -9,6 +9,7 @@ import createError from "http-errors";
 import lusca from "lusca";
 import mongoose from "mongoose";
 import logger from "morgan";
+import passport from "passport";
 import path from "path";
 
 import winston from "./config/winston";
@@ -16,6 +17,10 @@ import flash from "./middlewares/flash";
 
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
+
+import config from "./config/passport";
+
+config(passport);
 
 class App {
   public express: express.Application;
@@ -55,7 +60,8 @@ class App {
       resave: false,
       saveUninitialized: true,
     }));
-
+    this.express.use(passport.initialize());
+    this.express.use(passport.session());
     this.express.use(flash());
     this.express.use(lusca.xframe("SAMEORIGIN"));
     this.express.use(lusca.xssProtection(true));
