@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
-import createError from "http-errors";
 import lusca from "lusca";
 import mongoose from "mongoose";
 import logger from "morgan";
@@ -100,7 +99,7 @@ class App {
         process.exit();
       });
 
-    this.express.use((req: Request, res: Response, next: NextFunction) => {
+    this.express.use((req: Request, res: Response) => {
       res.render("error", {
         message: "404 - Page not found",
         error: {},
