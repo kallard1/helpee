@@ -11,6 +11,7 @@ import passport from "passport";
 export let index = async (req: Request, res: Response) => {
   if (req.user) {
     req.flash("warning", "You are already logged in!");
+    res.end();
     res.redirect("/");
   }
   res.render("auth/security/login", {

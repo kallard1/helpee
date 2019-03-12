@@ -14,6 +14,7 @@ import { default as User } from "../../models/user";
 export let index = async (req: Request, res: Response) => {
   if (req.user) {
     req.flash("warning", "You are already logged in!");
+    res.end();
     res.redirect("/");
   }
 
