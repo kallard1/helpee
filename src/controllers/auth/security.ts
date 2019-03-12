@@ -80,7 +80,6 @@ export let generatePasswordToken = async (req: Request, res: Response, next: Nex
  *
  * @param req
  * @param res
- * @param next
  */
 export let logout = async (req: Request, res: Response) => {
   req.logout();
