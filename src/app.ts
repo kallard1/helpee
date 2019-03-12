@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
+import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import session from "express-session";
 import expressValidator from "express-validator";
@@ -17,6 +18,10 @@ import flash from "./middlewares/flash";
 
 import authRouter from "./routes/auth";
 import rootRouter from "./routes/root";
+
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: ".env" });
+}
 
 import config from "./config/passport";
 
@@ -94,7 +99,10 @@ class App {
     });
 
     this.express.use((req: Request, res: Response, next: NextFunction) => {
-      next(createError(404));
+      res.render("error", {
+        message: "404 - Page not found",
+        error: {},
+      });
     });
 
     this.express.use((err: any, req: Request, res: Response, next: NextFunction) => {
