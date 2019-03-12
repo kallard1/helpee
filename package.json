@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "clean": "ts-node build.ts",
     "prestart": "ts-node build.ts && tsc",
     "pretest": "tslint --config tslint.json --project tsconfig.json",
     "start": "node dist/app.js",
@@ -38,6 +39,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.1",
+    "fbgraph": "^1.4.4",
     "http-errors": "^1.7.1",
     "images-webpack-loader": "^2.1.0",
     "local-storage-fallback": "^4.1.1",
