@@ -5,6 +5,8 @@ export type UserModel = mongoose.Document & {
   firstname: string,
   lastname: string,
   password: string,
+  resetPasswordToken: string,
+  resetPasswordExpires: number,
   email: string,
 
   is_verified: boolean,
@@ -22,7 +24,6 @@ export type UserModel = mongoose.Document & {
   zip_code: string,
   city: string,
   phone: string,
-
   loggued_at: Date,
 
   comparePassword: (candidatePassword: string, cb: (err: Error, isMatch: boolean) => void) => void,
