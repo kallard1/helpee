@@ -9,3 +9,4 @@ npm-debug.log
 *.md
 .env
 .env.dist
+Dockerfile
