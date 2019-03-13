@@ -1,4 +1,3 @@
-import bcrypt from "bcrypt";
 import { Strategy as LocalStrategy } from "passport-local";
 
 import { default as User, UserModel } from "../models/user";
@@ -35,7 +34,7 @@ export default function (passport: any) {
           });
         })
         .catch((err) => {
-          return console.log("err");
+          return console.log(err);
         });
     }),
   );
