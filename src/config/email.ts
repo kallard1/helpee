@@ -32,12 +32,12 @@ export function forgotPassword(user: UserModel, done: any) {
     text: `Hi ${user.firstname} ${user.lastname},\n
     You are receiving this because you (or someone else) have requested the reset of the password for your account.\n
     Please click on the following link, or paste this into your browser to complete the process:\n\n
-    https://www.helpee.fr/auth/forgot-password/${user.resetPasswordToken}\n\n
+    https://www.helpee.fr/auth/reset-password/${user.resetPasswordToken}\n\n
     If you did not request this, please ignore this email and your password will remain unchanged.\n`,
     html: `Hi ${user.firstname} ${user.lastname},\n
     You are receiving this because you (or someone else) have requested the reset of the password for your account.\n
     Please click on the following link, or paste this into your browser to complete the process:\n\n
-    http://www.helpee.fr/auth/forgot-password/${user.resetPasswordToken}\n\n
+    http://www.helpee.fr/auth/reset-password/${user.resetPasswordToken}\n\n
     If you did not request this, please ignore this email and your password will remain unchanged.\n`,
   };
 
