@@ -39,10 +39,23 @@ export let login = async (req: Request, res: Response, next: NextFunction) => {
   })(req, res, next);
 };
 
+/**
+ * GET Forgot password page.
+ *
+ * @param req
+ * @param res
+ */
 export let forgot = async (req: Request, res: Response) => {
   res.render("auth/forgot/forgot");
 };
 
+/**
+ * POST Forgot password.
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 export let generatePasswordToken = async (req: Request, res: Response, next: NextFunction) => {
   async.waterfall([
     (done: any) => {
