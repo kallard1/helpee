@@ -1,9 +1,10 @@
 import async from "async";
 import { NextFunction, Request, Response } from "express";
+import { validationResult } from "express-validator/check";
 import passport from "passport";
 import { v4 as uuid } from "uuid";
 
-import { forgotPassword } from "../../config/email";
+import { editPasswordConfirmation, forgotPassword } from "../../config/email";
 import { default as User, UserModel } from "../../models/user";
 
 /**
@@ -105,6 +106,50 @@ export let resetPassword = async (req: Request, res: Response) => {
     }
 
     res.render("auth/forgot/reset");
+  });
+};
+
+/**
+ * Post /auth/reset-password.
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+export let resetingPassword = async (req: Request, res: Response, next: NextFunction) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    req.flash("warning", errors.array());
+    return res.redirect(`/auth/forgot-password/${req.params.token}`);
+  }
+
+  async.waterfall([
+    (done: any) => {
+      User.findOne({
+        resetPasswordToken: req.params.token,
+        resetPasswordExpires: { $gt: Date.now() },
+      }, (err, user) => {
+        if (!user) {
+          req.flash("danger", "Password reset token is invalid or has expired");
+          return res.redirect("/auth/forgot-password");
+        }
+
+        user.password = req.body.password;
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+
+        user.save(() => {
+          req.logIn(user, (err: Error) => {
+            done(err, user);
+          });
+        });
+      });
+    }, (user: UserModel, done: any) => {
+      editPasswordConfirmation(user, done);
+    }], (err) => {
+    if (err) return next(err);
+    res.redirect("/");
   });
 };
 
