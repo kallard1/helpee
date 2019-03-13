@@ -5,8 +5,8 @@ export type UserModel = mongoose.Document & {
   firstname: string,
   lastname: string,
   password: string,
-  resetPasswordToken: string,
-  resetPasswordExpires: number,
+  resetPasswordToken?: string,
+  resetPasswordExpires?: number,
   email: string,
 
   is_verified: boolean,
