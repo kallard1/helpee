@@ -65,6 +65,7 @@ class Auth {
 
     this.router.get("/forgot-password", securityController.forgot);
     this.router.post("/forgot-password", securityController.generatePasswordToken);
+    this.router.get("/reset-password/:token", securityController.resetPassword);
 
     this.router.get("/logout", securityController.logout);
   }

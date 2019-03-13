@@ -89,6 +89,26 @@ export let generatePasswordToken = async (req: Request, res: Response, next: Nex
 };
 
 /**
+ * GET reset password page.
+ *
+ * @param req
+ * @param res
+ */
+export let resetPassword = async (req: Request, res: Response) => {
+  User.findOne({
+    resetPasswordToken: req.params.token,
+    resetPasswordExpires: { $gt: Date.now() },
+  }, (err: Error, user: UserModel) => {
+    if (!user) {
+      req.flash("danger", "Password reset token is invalid or has expired");
+      return res.redirect("/auth/forgot-password");
+    }
+
+    res.render("auth/forgot/reset");
+  });
+};
+
+/**
  * GET Logout page.
  *
  * @param req
