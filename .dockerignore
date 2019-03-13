@@ -3,10 +3,11 @@ npm-debug.log
 .git
 .idea
 /dist/
-/public/build
-/docker
+/public/build/
+docker/
 .travis.yml
 *.md
 .env
 .env.dist
 Dockerfile
+.dockerignore
