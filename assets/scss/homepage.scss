@@ -1,6 +1,6 @@
 .firstblock {
   margin-top:       65px;
-  background-color: #FFFFFF;
+  background-color: #fff;
   width:            100%;
   border-radius:    5px;
   padding-bottom:   30px;
@@ -13,20 +13,26 @@
     padding-top:     10px;
   }
 
+#btncont-1 {
+  padding-bottom:20px;
+  border-bottom:solid 1px #bbb;
+  
+}
+
   .button-fit {
     display:          flex;
     justify-content:  center;
     width:            45%;
-    height:           20px;
+    height:           40px;
     color:            #FFFFFF;
     text-align:       center;
     background-color: #E93959;
     border-radius:    5px;
     font-family:      Montserrat-Regular;
-    font-size:        13px;
+    font-size:        16px;
     text-transform:   uppercase;
-    line-height:      19px;
-    border:           none;
+    line-height:      40px;
+    border:           solid 1px white;
     text-decoration:  none;
 
     i {
@@ -50,17 +56,17 @@
     -webkit-appearance: none;
     -moz-appearance:    none;
     appearance:         none;
-    background:         #E93959 url("../icons/arrow_down.svg") no-repeat 99% 50%;
+    background:         #fff url("../icons/arrow_down.svg") no-repeat 99% 50%;
     background-size:    15px;
-    border:             none;
+    border:             solid 1px #bbb;
     border-radius:      5px;
-    color:              white;
+    color:              black;
     margin-top:         20px;
     width:              100%;
     text-indent:        5px;
     font-family:        Montserrat-Regular;
     font-size:          13px;
-    height:             20px;
+    height:             40px;
   }
 
   .form-cat {
@@ -103,7 +109,7 @@
 
     .container-input {
       padding:    0;
-      height:     20px;
+      height:     44px;
       width:      80%;
       margin-top: 20px;
     }
@@ -111,25 +117,26 @@
     input {
       padding:          0;
       border-radius:    5px;
-      background-color: #E93959;
-      height:           20px;
+      background-color: #fff;
+      height:           44px;
+      border: solid 1px #bbb;
     }
 
     .hompepage-input__text {
       font-family: Montserrat-Regular;
       font-size:   13px;
       line-height: 20px;
-      color:       white;
+      color:       black;
       text-indent: 5px;
     }
 
     .hompepage-input__text::placeholder {
       display: block;
-      color:   white;
+      color:   black;
     }
 
     input[type=text] {
-      border: none;
+      /*border: none;*/
     }
 
     .input__ville {

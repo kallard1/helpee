@@ -91,6 +91,7 @@ class App {
 
     this.express.use("*", (req, res, next) => {
       res.locals.csrfToken = req.csrfToken();
+      res.locals.user = req.user;
       next();
     });
 
