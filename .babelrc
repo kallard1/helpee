@@ -5,8 +5,7 @@
       {
         "modules": false
       }
-    ],
-    "@babel/preset-typescript"
+    ]
   ],
   "plugins": [
     "syntax-dynamic-import"
