@@ -17,14 +17,14 @@
       display:          flex;
       justify-content:  center;
       width:            45%;
-      height:           20px;
+      height:           40px;
       color:            #FFFFFF;
       text-align:       center;
       border-radius:    5px;
       font-family:      Montserrat-Regular;
-      font-size:        13px;
+      font-size:        16px;
       text-transform:   uppercase;
-      line-height:      19px;
+      line-height:      40px;
       border:           none;
       text-decoration:  none;
   
@@ -55,17 +55,17 @@
       -webkit-appearance: none;
       -moz-appearance:    none;
       appearance:         none;
-      background:         #a3418f url("../icons/arrow_down.svg") no-repeat 99% 50%;
+      background:         #fff url("../icons/arrow_down.svg") no-repeat 99% 50%;
       background-size:    15px;
-      border:             none;
+      border:             solid 1px #bbb;
       border-radius:      5px;
-      color:              white;
+      color:              black;
       margin-top:         20px;
       width:              100%;
       text-indent:        5px;
       font-family:        Montserrat-Regular;
       font-size:          13px;
-      height:             20px;
+      height:             40px;
     }
   
     .form-cat {
@@ -108,7 +108,7 @@
   
       .container-input {
         padding:    0;
-        height:     20px;
+        height:     44px;
         width:      80%;
         margin-top: 20px;
       }
@@ -117,38 +117,40 @@
       input {
         padding:0;
         border-radius:5px;
-        background-color:rgba(#a3418f, 0.5) ;
-        height:20px;
+        background-color:#fff ;
+        height:44px;
         text-indent: 5px;
       }
-      input[type=text] {
+      /*input[type=text] {
         border: none;
-      }
+      }*/
       .hompepage-input__text {
         font-family: Montserrat-Regular;
         font-size:   13px;
         line-height: 20px;
-        color:       white;
+        color:       black;
         text-indent: 5px;
       }
   
       .hompepage-input__text::placeholder {
         display: block;
-        color:   white;
+        color:   black;
       }
 
       // text area = zone de texte multi ligne
       textarea {
         padding:0;
         border-radius:5px;
-        background-color:rgba(#a3418f, 0.5) ;
-        min-height:100px;
-        max-height: 100px;
+        background-color:#fff ;
+        border:1px solid #bbb;
+        min-height:150px;
+        max-height: 150px;
         min-width: 100%;
         max-width: 100%;
         border:none;
         resize: none;
         box-shadow: none;
+        border: solid 1px #bbb;
       }
 
       textarea:hover{
@@ -157,20 +159,21 @@
 
       textarea::placeholder{
         font-family: Montserrat-Regular;
-        color: white;
+        color: black;
       }
 
       .textarea_text{
         font-family: Montserrat-Regular;
         font-size:   13px;
         line-height: 20px;
-        color:white;
+        color:black;
         text-indent: 5px;
       }
       
       .textarea_bottom{
         margin-top:80px;
       }
+
       
     
           // style pour les inputs pour gerer les espaces 
@@ -192,7 +195,7 @@
       justify-content: space-evenly;
       flex: 1 1;
       align-items: center;
-      margin-top: 180px;
+      margin-top: 130px;
 
 
         a{
@@ -240,17 +243,18 @@
       .box-prix{
         font-family:Montserrat-SemiBold;
         font-size: 13px;
-        background-color: #a3418f;
+        background-color: #fff;
         //padding: 8px 8px;
-        color:white;
+        color:black;
         border-radius: 5px;
         text-align:center;
         width: 40%;
-        border: none;
+        height: 44px;
+        border: solid 1px #bbb;
       }
       // ajouté pour l'input à tester 
       .box-prix::placeholder{
-        color:rgba(white,0.5);
+        color:black;
       }
 
 

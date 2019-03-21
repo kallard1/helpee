@@ -16,7 +16,7 @@
 .block-nav{
 
     .block-nav-ul{
-        margin-top:50px;
+        margin-top:30px;
         font-family: Montserrat-SemiBold;
         color: #FFF;
         font-size: 13px;
@@ -30,8 +30,12 @@
 }
 
 .container-profil {
-  margin-top:140px;
+  margin-top:90px;
   padding-left:40px;
+}
+
+#img-profil > img {
+  border-radius:50%;
 }
 
 .user {
@@ -46,6 +50,7 @@
   color: #FFF;
   font-size: 20px;
   display:block;
+  padding-top:10px;
 }
 
 #img-profil {
