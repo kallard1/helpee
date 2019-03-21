@@ -4,16 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "clean": "ts-node build.ts",
-    "prestart": "ts-node build.ts && tsc",
-    "pretest": "tslint --config tslint.json --project tsconfig.json",
+    "build": "npm run clean && babel src --out-dir dist",
+    "clean": "node build.js",
+    "lint": "eslint -c .eslintrc src",
     "start": "node dist/app.js",
-    "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"yellow,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon dist/app.js\"",
-    "start:dev:debug": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Typescript,Node\" -p \"[{name}]\" -c \"yellow,blue,green\" \"webpack --watch --progress\" \"tsc --watch\" \"nodemon --exec -r ts-node/register --inspect-brk dist/app.js\"",
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
-    "webpack:prod": "cross-env NODE_ENV=production webpack --progress",
-    "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
+    "start:dev": "nodemon --exec babel-node src/app.js"
   },
   "engines": {
     "node": ">=10",
