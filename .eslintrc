@@ -3,7 +3,7 @@
     "ecmaVersion": 8,
     "ecmaFeatures": {
       "ecmaVersion": true,
-      "jsx": true
+      "jsx": false
     },
     "sourceType": "module"
   },
@@ -15,14 +15,12 @@
     "import",
     "node",
     "promise",
-    "standard",
-    "react",
-    "jsx-a11y"
+    "standard"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "eslint-config-airbnb"
+    "eslint-config-airbnb-base"
   ],
   "globals": {
     "document": false,
@@ -455,6 +453,20 @@
     "standard/object-curly-even-spacing": [
       "error",
       "either"
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
     ]
   }
 }
