@@ -7,12 +7,12 @@
   <% if (user) {%>
   <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
     <div class="user"><%=user.firstname%></div>
-    <div class="user"><%=user.lastname%></div>
+    <div class="user userlast"><%=user.lastname%></div>
   </div>
   <% } else { %>
   <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
-  <div class="log">Se connecter</div>
-  <div class="log">Créer un compte</div>
+  <div class="log"><a href="/auth/login">Se connecter</a></div>
+  <div class="log"><a href="/auth/register">Créer un compte</a></div>
 </div>
   <%}%>
     <ul class="block-nav-ul">
