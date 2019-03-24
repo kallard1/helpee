@@ -1,29 +1,4 @@
-import mongoose from "mongoose";
-
-export type UserModel = mongoose.Document & {
-  firstname: string,
-  lastname: string,
-  password: string,
-  email: string,
-
-  is_verified: boolean,
-  verification_token: string,
-
-  is_enabled: boolean,
-  is_banned: boolean,
-
-  role: [],
-
-  description: string,
-  uev: number,
-  address: string,
-  address1: string,
-  zip_code: string,
-  city: string,
-  phone: string,
-
-  loggued_at: Date,
-};
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
   {
@@ -31,90 +6,91 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: false,
       required: true,
-      maxlength: 25,
+      maxlength: 25
     },
     lastname: {
       type: String,
       unique: false,
       required: true,
-      maxlength: 50,
+      maxlength: 50
     },
     password: {
       type: String,
-      required: true,
+      required: true
     },
     email: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     is_verified: {
       type: Boolean,
       default: false,
-      required: false,
+      required: false
     },
     verification_token: {
       type: String,
-      required: false,
+      required: false
     },
     is_enabled: {
       type: Boolean,
       default: true,
-      required: false,
+      required: false
     },
     is_banned: {
       type: Boolean,
       default: false,
-      required: false,
+      required: false
     },
     role: {
       type: Array,
-      default: ["ROLE_USER"],
-      required: false,
+      default: ['ROLE_USER'],
+      required: false
     },
     loggued_at: {
       type: Date,
-      required: false,
+      required: false
     },
 
     informations: {
       description: {
         type: String,
-        required: false,
+        required: false
       },
       uev: {
         type: Number,
         required: true,
-        default: 0,
+        default: 0
       },
       address: {
         type: String,
         required: false,
-        maxlength: 75,
+        maxlength: 75
       },
       address1: {
         type: String,
         required: false,
-        maxlength: 75,
+        maxlength: 75
       },
       zip_code: {
         type: String,
         required: false,
-        maxlength: 5,
+        maxlength: 5
       },
       city: {
         type: String,
-        require: false,
+        require: false
       },
       phone: {
         type: String,
         required: false,
-        maxlength: 12,
-      },
-    },
+        maxlength: 12
+      }
+    }
   },
   {
-    timestamps: true,
-  });
+    timestamps: true
+  }
+);
 
-export default mongoose.model<UserModel>("User", userSchema);
+module.exports = mongoose.model('User', userSchema);
