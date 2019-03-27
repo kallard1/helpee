@@ -1,102 +1,70 @@
-const { resolve } = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const os = require('os');
 
-const ENV = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : "production");
-const dev = ENV === 'development';
+const devMode = process.env.NODE_ENV !== 'production';
 
-let cssLoaders = [
+const cssLoaders = [
   {
     loader: 'css-loader',
     options: {
+      sourceMap: true,
       importLoaders: 1
     }
   }
 ];
 
-if (!dev) {
+if (!devMode) {
   cssLoaders.push({
-    loader: 'postcss-loader',
+    loader: 'postcss-loader'
   });
 }
 
-let config = {
+module.exports = {
   target: 'web',
-  mode: ENV,
-  devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
+  mode: process.env.NODE_ENV || 'production',
+  devtool: 'sourceMap',
   entry: {
-    app: [resolve('./assets/scss/app.scss')],
+    app: [path.join(__dirname, '/assets/scss/app.scss')]
   },
   output: {
-    path: resolve('./public/build'),
-    filename: 'js/[name].js',
-    //filename: 'js/' + (dev ? '[name].js' : '[name].[hash:10].js'),
-    publicPath: '/build/'
+    path: path.resolve(__dirname, 'public')
   },
-  resolve: {
-    alias: {
-      '@': resolve('./assets'),
-      '@fonts': resolve('./assets/fonts/'),
-      '@images': resolve('./assets/images/'),
-      '@js': resolve('./assets/js/'),
-      '@scss': resolve('./assets/scss/')
-    },
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css']
-  },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        // cache: resolve('./var/cache/'),
-        extractComments: !dev,
-        parallel: 4,
-        sourceMap: true
-      })]
-  },
-  devServer: {
-    contentBase: resolve('./public'),
-    overlay: true,
-    port: 9000
-  },
-
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components|vendor)/,
-        use: {
-          loader: 'eslint-loader'
-        }
-      },
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components|vendor)/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
-      {
-        test: /\.ts$/,
-        exclude: /(node_modules|bower_components|vendor)/,
-        use: [
-          'babel-loader', 'ts-loader'
-        ]
-      },
       {
         test: /\.css$/,
         use: cssLoaders
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            ...cssLoaders, 'sass-loader'
-          ]
-        })
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devMode ? {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+              convertToAbsoluteUrls: true
+            }
+          } : MiniCssExtractPlugin.loader,
+          ...cssLoaders,
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
+              root: path.resolve(__dirname)
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
@@ -115,7 +83,7 @@ let config = {
           {
             loader: 'img-loader',
             options: {
-              enabled: !dev
+              enabled: !devMode
             }
           },
           {
@@ -129,21 +97,30 @@ let config = {
       }
     ]
   },
-
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss']
+  },
   plugins: [
-    new CleanWebpackPlugin(['build'], {
-      root: resolve('./public'),
-      verbose: true,
-      dry: false
+    new CleanWebpackPlugin(),
+    new UglifyJsPlugin({
+      cache: true,
+      extractComments: !devMode,
+      parallel: os.cpus().length - 1,
+      sourceMap: true
     }),
-    new ExtractTextPlugin({
-      filename: 'css/[name].css'
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: require('cssnano'),
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }]
+      },
+      canPrint: true
     }),
-    new ManifestPlugin(),
-    new CopyWebpackPlugin([
-      { from: 'assets/images', to: 'images' }
-    ])
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+    }),
+    new ManifestPlugin({
+      publicPath: '/'
+    })
   ]
 };
-
-module.exports = config;

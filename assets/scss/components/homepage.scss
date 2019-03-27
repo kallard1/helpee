@@ -50,7 +50,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background:#e93959 url("../icons/arrow_down.svg") no-repeat 99% 50%;
+    background:#e93959 url("../../icons/arrow_down.svg") no-repeat 99% 50%;
     background-size: 15px;
     border: none;
     border-radius: 5px;
@@ -198,13 +198,13 @@ select::-ms-expand {
     width: 24px;
   }
   .icon-communautés:before{
-    content:url("../icons/group.svg");
+    content:url("../../icons/group.svg");
   }
   .icon-argent:before{
-    content:url("../icons/coin-stack.svg");
+    content:url("../../icons/coin-stack.svg");
   }
   .icon-membres:before{
-    content:url("../icons/users-group.svg");
+    content:url("../../icons/users-group.svg");
   }  
 
 }
