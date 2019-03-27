@@ -72,7 +72,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(require('./middlewares/flash'));
+app.use(flash());
 
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
