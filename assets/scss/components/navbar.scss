@@ -35,35 +35,17 @@
 }
 
 .icon-actu:before{
-  content: url(../icons/actu.svg);
+  content: url('../../icons/actu.svg');
 }
 .icon-communaute:before{
-  content: url(../icons/communaute.svg);
+  content: url('../../icons/communaute.svg');
 }
 .icon-homepage:before{
-  content: url(../icons/home.svg);
+  content: url('../../icons/home.svg');
 }
 .icon-chat:before{
-  content: url(../icons/chat.svg);
+  content: url('../../icons/chat.svg');
 }
 .icon-menu-burger:before{
-  content: url(../icons/menu.svg);
+  content: url('../../icons/menu.svg');
 }
-
-/*
-[class^=icon-]:before {
-  font-style: normal;
-  font-weight: 400;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  text-align: center;
-  -webkit-font-feature-settings: normal;
-  font-feature-settings: normal;
-  font-variant: normal;
-  text-transform: none;
-  font-size: 120%;
-  -webkit-font-smoothing: antialiased;
-}
-*/

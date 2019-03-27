@@ -27,6 +27,5 @@ services:
       MONGO_INITDB_DATABASE: helpee
     volumes:
       - ./docker/mongodb/data/db:/data/db
-      - ./docker/mongodb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - 27017:27017

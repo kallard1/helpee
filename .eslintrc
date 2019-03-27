@@ -141,6 +141,17 @@
     "no-compare-neg-zero": "error",
     "no-cond-assign": "error",
     "no-const-assign": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info",
+          "debug"
+        ]
+      }
+    ],
     "no-constant-condition": [
       "error",
       {
@@ -441,6 +452,7 @@
     "node/no-deprecated-api": "error",
     "node/process-exit-as-throw": "error",
     "promise/param-names": "error",
+    "consistent-return": "off",
     "standard/array-bracket-even-spacing": [
       "error",
       "either"
@@ -457,7 +469,7 @@
     "sort-imports": [
       "error",
       {
-        "ignoreCase": false,
+        "ignoreCase": true,
         "ignoreDeclarationSort": false,
         "ignoreMemberSort": false,
         "memberSyntaxSortOrder": [
