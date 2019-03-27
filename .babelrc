@@ -3,10 +3,12 @@
     [
       "@babel/preset-env",
       {
-        "modules": false
+        "targets": {
+          "node": "6"
+        },
+        "useBuiltIns": false
       }
-    ],
-    "@babel/preset-typescript"
+    ]
   ],
   "plugins": [
     "syntax-dynamic-import"
