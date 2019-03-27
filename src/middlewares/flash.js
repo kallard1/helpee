@@ -1,20 +1,23 @@
-module.exports = (request, response, next) => {
-  if (request.session) {
-    if (request.session.flash) {
-      response.locals.flash = request.session.flash;
-      request.session.flash = undefined;
-    }
-  }
+module.exports = () => {
 
-  request.flash = (type, content) => {
-    if (request.session) {
-      if (request.session.flash === undefined) {
-        request.session.flash = {};
+  return (req, res, next) => {
+    if (req.session) {
+      if (req.session.flash) {
+        res.locals.flash = req.session.flash;
+        req.session.flash = undefined;
       }
-
-      request.session.flash = { type, message: content };
     }
-  };
 
-  next();
+    req.flash = (type, content) => {
+      if (req.session) {
+        if (req.session.flash === undefined) {
+          req.session.flash = {};
+        }
+
+        req.session.flash = { type, message: content };
+      }
+    };
+
+    next();
+  }
 };
