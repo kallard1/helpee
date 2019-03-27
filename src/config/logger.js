@@ -1,36 +1,36 @@
-import appRootPath from "app-root-path";
-import winston from "winston";
+import appRootPath from 'app-root-path';
+import winston from 'winston';
 
-const options: any = {
+const options = {
   file: {
-    level: "info",
+    level: 'info',
     filename: `${appRootPath}/logs/app.log`,
     handleExceptions: true,
     json: true,
     maxsize: 5242880,
     maxFiles: 10,
-    colorize: false,
+    colorize: false
   },
   console: {
-    level: "debug",
+    level: 'debug',
     handleExceptions: true,
     json: false,
-    colorize: true,
-  },
+    colorize: true
+  }
 };
 
-const logger: any = winston.createLogger({
+const logger = winston.createLogger({
   transports: [
     new winston.transports.File(options.file),
-    new winston.transports.Console(options.console),
+    new winston.transports.Console(options.console)
   ],
-  exitOnError: false,
+  exitOnError: false
 });
 
 logger.stream = {
-  write: (message: string, encoding: any) => {
+  write: (message) => {
     logger.info(message);
-  },
+  }
 };
 
 export default logger;
