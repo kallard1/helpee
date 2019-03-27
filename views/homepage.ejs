@@ -1,85 +1,83 @@
-<%- include('layouts/header'); -%>
-<%- include('layouts/menuburger'); -%>
-
+<%- include('layouts/header') -%>
 <div class="container homepage">
-  <div class="firstblock">
-    <div class="button-container">
-      <a id="button-prop" class='button-fit but_propose inactive_propose' href="/submit.ejs">je propose</a>
-      <a id="button-rech" class='button-fit but_recherche inactive_recherche'>je recherche</a>
-    </div>
-
-    <div class="select-container">
-      <form class='form-cat'>
-        <SELECT class='select-button' name="Catégorie" size="1">
-        <OPTION>Catégorie
-        <OPTION>test1
-        <OPTION>test2
-        <OPTION>test3
-        <OPTION>test4
-        <OPTION>test5
-        </SELECT>
-      </form>
-    </div>
-
-    <div class="input-container">
-      <div class="ville-container">
-        <div class="container-input">
-          <input type="text" class="hompepage-input__text input__ville" name="name" placeholder="Mot(s)-clé(s)">
+    <div class="firstblock">
+        <div class="button-container">
+            <a id="button-prop" class='button-fit but_propose inactive_propose' href="/submit.ejs">je propose</a>
+            <a id="button-rech" class='button-fit but_recherche inactive_recherche'>je recherche</a>
         </div>
-      </div>
 
-      <div class="ville-container">
-        <div class="container-input input__jesaispas">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Ville">
+        <div class="select-container">
+            <form class='form-cat'>
+                <SELECT class='select-button' name="Catégorie" size="1">
+                    <OPTION>Catégorie
+                    <OPTION>test1
+                    <OPTION>test2
+                    <OPTION>test3
+                    <OPTION>test4
+                    <OPTION>test5
+                </SELECT>
+            </form>
         </div>
-      </div>
+
+        <div class="input-container">
+            <div class="ville-container">
+                <div class="container-input">
+                    <input type="text" class="hompepage-input__text input__ville" name="name"
+                           placeholder="Mot(s)-clé(s)">
+                </div>
+            </div>
+
+            <div class="ville-container">
+                <div class="container-input input__jesaispas">
+                    <input type="text" class="hompepage-input__text" name="name" placeholder="Ville">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container container__button-rechercher">
+            <a class='button-fit button-rechercher' href="">Rechercher</a>
+        </div>
+
     </div>
 
-    <div class="button-container container__button-rechercher">
-      <a class='button-fit button-rechercher' href="">Rechercher</a>
+
+    <div class="secondblock">
+        <div class="chiffres-container">
+            <div class="chiffres-container__commun chiffres-container__communautés">
+                <i class="icon-chiffres icon-communautés"></i>
+                <p class="chiffres-commun chiffres__communautés violet">2576</p>
+                <p class="chiffres-commun__text violet">Communautés</p>
+            </div>
+            <div class="chiffres-container__commun chiffres-container__uev">
+                <i class="icon-chiffres icon-argent"></i>
+                <p class="chiffres-commun chiffres__uev yellow">2 576 257</p>
+                <p class="chiffres-commun__text yellow">UEV dépensés</p>
+            </div>
+            <div class="chiffres-container__commun chiffres-container__membres">
+                <i class="icon-chiffres icon-membres"></i>
+                <p class="chiffres-commun chiffres__membres corail">257 518</p>
+                <p class="chiffres-commun__text corail">Membres</p>
+            </div>
+        </div>
     </div>
 
-  </div>
-
-
-  <div class="secondblock">
-    <div class="chiffres-container">
-      <div class="chiffres-container__commun chiffres-container__communautés">
-        <i class="icon-chiffres icon-communautés"></i>
-        <p class="chiffres-commun chiffres__communautés violet">2576</p>
-        <p class="chiffres-commun__text violet">Communautés</p>
-      </div>
-      <div class="chiffres-container__commun chiffres-container__uev">
-        <i class="icon-chiffres icon-argent"></i>
-        <p class="chiffres-commun chiffres__uev yellow">2 576 257</p>
-        <p class="chiffres-commun__text yellow">UEV dépensés</p>
-      </div>
-      <div class="chiffres-container__commun chiffres-container__membres">
-        <i class="icon-chiffres icon-membres"></i>
-        <p class="chiffres-commun chiffres__membres corail">257 518</p>
-        <p class="chiffres-commun__text corail">Membres</p>
-      </div>
+    <div class="thirdblock">
+        <h3>Comment ça marche ?</h3>
+        <table>
+            <tr class="li1">
+                <td class="nb">1.</td>
+                <td class="list">Inscrivez-vous et devenez membre</td>
+            </tr>
+            <tr class="li2">
+                <td class="nb">2.</td>
+                <td class="list">Rejoignez des communautés près de chez vous</td>
+            </tr>
+            <tr class="li3">
+                <td class="nb">3.</td>
+                <td class="list">Recherchez et/ou proposez des services</td>
+            </tr>
+        </table>
     </div>
-  </div>
-
-  <div class="thirdblock">
-    <h3>Comment ça marche ?</h3>
-    <table>
-      <tr class="li1">
-        <td class="nb">1.</td>
-        <td class="list">Inscrivez-vous et devenez membre</td>
-      </tr>
-      <tr class="li2">
-        <td class="nb">2.</td>
-        <td class="list">Rejoignez des communautés près de chez vous</td>
-      </tr>
-      <tr class="li3">
-        <td class="nb">3.</td>
-        <td class="list">Recherchez et/ou proposez des services</td>
-      </tr>
-    </table>
-  </div>
-
 </div>
-
-<%- include('layouts/footer'); -%>
+<%- include('layouts/js_imports') -%>
+<%- include('layouts/footer') -%>
