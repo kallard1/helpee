@@ -10,7 +10,7 @@
     "build:assets:prod": "webpack --mode production",
     "clean": "node build.js",
     "lint": "eslint -c .eslintrc src",
-    "reinstall": "npm cache clean --force && npm run clean && rm -rf node_modules/ package-lock.json && npm install",
+    "reinstall": "npm cache clean --force && npm run clean && rm -rf node_modules/ && npm install",
     "start": "node bin/www",
     "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Babel,Node\" -p \"[{name}]\" -c \"yellow,green\" \"babel src --out-dir dist --watch\" \"nodemon bin/www\"",
     "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
