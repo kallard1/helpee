@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "",
   "private": true,
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
   "scripts": {
     "build": "npm run clean && babel src --out-dir dist",
-    "build:assets:dev": "webpack --mode development",
-    "build:assets:prod": "webpack --mode production",
     "clean": "node build.js",
     "lint": "eslint -c .eslintrc src",
     "reinstall": "npm cache clean --force && npm run clean && rm -rf node_modules/ && npm install",

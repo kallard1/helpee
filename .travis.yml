@@ -2,13 +2,13 @@ language: node.js
 node_js:
   - "10"
 before_script:
-  - npm i -g npm@6.7.0
+  - npm i -g npm@6.9.0
   - npm install
-  - npm run pretest
+  - npm run build
   - npm run prestart
 script:
   - npm run webpack:prod
-  - npm run test
+  - npm run lint
 cache:
   directories:
     - "node_modules"
