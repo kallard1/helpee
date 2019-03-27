@@ -119,6 +119,8 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     }),
-    new ManifestPlugin()
+    new ManifestPlugin({
+      publicPath: '/'
+    })
   ]
 };
