@@ -16,10 +16,13 @@ import redisStore from 'connect-redis';
 import session from 'express-session';
 import twig from 'twig';
 
+import flash from './middlewares/flash';
+
 import winston from './config/logger';
 
 import authRouter from './routes/auth';
 import rootRouter from './routes/root';
+
 import config from './config/passport';
 
 dotenv.config({ path: '.env' });
@@ -37,11 +40,7 @@ const redis = Redis.createClient({
  */
 app.set('views', join(__dirname, '../views'));
 twig.cache(process.env.NODE_ENV === 'production');
-app.set('view engine', 'twig');
-app.set('twig options', {
-  allow_async: true,
-  strict_variables: false
-});
+app.set('view engine', 'ejs');
 
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
