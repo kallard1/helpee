@@ -114,7 +114,7 @@ mongoose.connection.on('error', () => {
 });
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.render('error', {
     message: '404 - Page not found',
     error: {}
