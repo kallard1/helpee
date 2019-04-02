@@ -38,7 +38,6 @@ const redis = Redis.createClient({
  * Middleware config.
  */
 app.set('views', join(__dirname, '../views'));
-twig.cache(process.env.NODE_ENV === 'production');
 app.set('view engine', 'ejs');
 
 if (process.env.NODE_ENV === 'production') {
