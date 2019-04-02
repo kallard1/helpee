@@ -14,7 +14,6 @@ import passport from 'passport';
 import Redis from 'redis';
 import redisStore from 'connect-redis';
 import session from 'express-session';
-import twig from 'twig';
 
 import flash from './middlewares/flash';
 
