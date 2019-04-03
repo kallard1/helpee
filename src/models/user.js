@@ -46,8 +46,8 @@ const userSchema = new mongoose.Schema(
       required: false
     },
     role: {
-      type: Array,
-      default: ['ROLE_USER'],
+      type: String,
+      default: 'ROLE_USER',
       required: false
     },
     loggued_at: {
