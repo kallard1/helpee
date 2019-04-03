@@ -99,7 +99,7 @@ redis.on('error', err => console.error(err));
 /**
  * Mongoose config.
  */
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/database', {
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/helpee', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
