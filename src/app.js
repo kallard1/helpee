@@ -61,7 +61,7 @@ app.use(session({
   secret: process.env.SECRET_KEY || '',
   name: 'helpee_session',
   cookie: {
-    expires: new Date(Date.now() + 60 * 60 * 1000),
+    expires: new Date(Date.now() + 604800000),
     secure: process.env.NODE_ENV === 'production',
     httpOnly: process.env.NODE_ENV === 'production',
     domain: process.env.NODE_ENV === 'production' ? 'helpee.fr' : ''
