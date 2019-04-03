@@ -9,6 +9,7 @@ import { join } from 'path';
 import logger from 'morgan';
 import lusca from 'lusca';
 import manifestHelpers from 'express-manifest-helpers';
+import moment from 'moment';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import Redis from 'redis';
@@ -27,7 +28,7 @@ import config from './config/passport';
 dotenv.config({ path: '.env' });
 
 config(passport);
-
+import './config/moment.locale';
 const app = express();
 const RedisStore = redisStore(session);
 const redis = Redis.createClient({
@@ -82,6 +83,7 @@ app.use(manifestHelpers({
 
 app.use('*', (req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
+  res.locals.moment = moment;
   next();
 });
 
@@ -91,6 +93,7 @@ app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
  * Routes.
  */
 app.use('/', rootRouter);
+app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
