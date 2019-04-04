@@ -10,8 +10,7 @@ const schema = new mongoose.Schema(
     slug: {
       type: String,
       required: true,
-      maxlength: 75,
-      unique: true
+      maxlength: 75
     }
   },
   {
