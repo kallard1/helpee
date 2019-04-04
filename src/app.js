@@ -20,6 +20,7 @@ import flash from './middlewares/flash';
 import winston from './config/logger';
 
 import authRouter from './routes/auth';
+import communityRouter from './routes/community';
 import rootRouter from './routes/root';
 
 import config from './config/passport';
@@ -92,6 +93,7 @@ app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
  */
 app.use('/', rootRouter);
 app.use('/auth/', authRouter);
+app.use('/community/', communityRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
 redis.on('error', err => console.error(err));
