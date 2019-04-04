@@ -7,15 +7,13 @@
         </div>
 
         <div class="select-container">
-            <form class='form-cat'>
-                <SELECT class='select-button' name="Catégorie" size="1">
-                    <OPTION>Catégorie
-                    <OPTION>test1
-                    <OPTION>test2
-                    <OPTION>test3
-                    <OPTION>test4
-                    <OPTION>test5
-                </SELECT>
+            <form class="form-cat">
+                <select class='select-button' name="Catégorie" size="1">
+                    <option>Catégorie</option>
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% }); %>
+                </select>
             </form>
         </div>
 
