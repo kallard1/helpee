@@ -113,6 +113,7 @@ mongoose.connection.on('error', () => {
   console.error('MongoDB connection error. Please make sure MongoDB is running.');
   process.exit();
 });
+mongoose.set('useFindAndModify', false);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {
