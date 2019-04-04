@@ -96,7 +96,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.pre('save', (next) => {
+// eslint-disable-next-line func-names
+userSchema.pre('save', function(next) {
   const self = this;
 
   if (!self.isModified('password')) return next();
