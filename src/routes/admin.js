@@ -2,12 +2,9 @@ import { check } from 'express-validator/check';
 import express from 'express';
 
 import { isLoggedInAndAdmin } from '../middlewares/isLoggedIn';
-import slugify from '../utils/slugify';
 
 import * as adsCategoriesController from '../controllers/admin/ads/ads_categories';
 import * as dashboardController from '../controllers/admin/dashboard';
-
-import AdCategory from '../models/adCategory';
 
 const router = express.Router();
 
