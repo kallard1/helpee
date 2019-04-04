@@ -56,10 +56,10 @@ app.use(session({
     client: redis,
     host: 'sql.area42.fr',
     port: 6379,
-    ttl: 260
+    ttl: 604800
   }),
   secret: process.env.SECRET_KEY || '',
-  name: 'helpee_session',
+  name: '_helpee_session',
   cookie: {
     expires: new Date(Date.now() + 604800000),
     secure: process.env.NODE_ENV === 'production',
