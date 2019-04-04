@@ -20,6 +20,7 @@ import flash from './middlewares/flash';
 
 import winston from './config/logger';
 
+import adminRouter from './routes/admin';
 import authRouter from './routes/auth';
 import rootRouter from './routes/root';
 
