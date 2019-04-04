@@ -27,13 +27,13 @@ exports.save = async(req, res) => {
     return res.redirect('/admin/ads/categories');
   }
 
-  const { label } = req.body;
+  const { label, slug } = req.body;
   let category;
 
   if (req.params.id === undefined) {
     category = new AdCategory({
       label,
-      slug: slugify(label)
+      slug
     });
 
     AdCategory.create(category, (err, doc) => {
@@ -51,7 +51,7 @@ exports.save = async(req, res) => {
       {
         $set: {
           label,
-          slug: slugify(label)
+          slug
         }
       },
       {
