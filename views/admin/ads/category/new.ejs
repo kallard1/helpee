@@ -1,6 +1,6 @@
 <%- include('../../../layouts/header') -%>
 <form action="/admin/ads/category/save" method="POST">
-<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <%- include('./partials/form') -%>
     <button type="submit">create</button>
 </form>
