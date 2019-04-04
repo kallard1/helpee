@@ -20,11 +20,11 @@ const schema = new mongoose.Schema(
       trim: true
     },
     user: {
-      type: mongoose.Schema.User.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
     members: [{
-      type: mongoose.Schema.User.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }],
     is_enabled: {
