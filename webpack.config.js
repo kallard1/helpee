@@ -29,13 +29,25 @@ module.exports = {
   mode: process.env.NODE_ENV || 'production',
   devtool: 'sourceMap',
   entry: {
-    app: [path.join(__dirname, '/assets/scss/app.scss')]
+    app: [path.join(__dirname, '/assets/scss/app.scss')],
+    'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: cssLoaders
