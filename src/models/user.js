@@ -96,6 +96,16 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.virtual('community', {
+  ref: 'Community',
+  localField: '_id',
+  foreignField: 'user'
+}, {
+  ref: 'Community',
+  localField: '_id',
+  foreignField: 'members'
+});
+
 // eslint-disable-next-line func-names
 userSchema.pre('save', function(next) {
   const self = this;
