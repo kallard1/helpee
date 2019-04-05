@@ -1,6 +1,9 @@
 # HELPEE
 
 ## Pré-requis
+- Savoir lire
+- Avoir branché son cerveau
+- Savoir chercher sur google
 - Node >= 10
 - NPM >= 6
 - Docker ou MongoDB

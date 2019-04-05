@@ -8,13 +8,13 @@
     // display: flex;
     z-index:9;
 }
- 
+
 .inactive {
-    display:none;   
-    transition: ease-in-out 2s;
+  display:    none;
+  transition: ease-in-out 2s;
 }
 
-.block-nav{
+.block-nav {
 
     .block-nav-ul{
         margin-top:30px;
@@ -22,12 +22,12 @@
         color: #FFF;
         font-size: 13px;
         text-decoration: none;
-        list-style-type:none; 
+        list-style-type:none;
     }
 
-    li{
-        line-height: 40px;
-    }
+  li {
+    line-height: 40px;
+  }
 }
 
 .container-profil {
