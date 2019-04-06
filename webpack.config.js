@@ -107,7 +107,11 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss']
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      root: path.resolve('./public'),
+      verbose: true,
+      dry: false
+    }),
     new UglifyJsPlugin({
       cache: true,
       extractComments: !devMode,
