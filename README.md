@@ -34,23 +34,3 @@ Conseil pour nommer vos commits : https://www.grafikart.fr/tutoriels/nommage-com
 9. Les imports sont classés par ordre alphabétique
 10. Les variables non utilisées doivent être retirées
 11. Les variables doivent être systématiquement typées
-
-## Créer un controleur et sa route associée
-Creez le fichier controlleur dans le dossier `/src/controllers/{subfolder}/{filename}.ts`
-Exemple : `/src/controllers/ad/new`, `/src/controllers/ad/read`
-
-Si la route va être par exemple : `/home`, il faut modifier le fichier `/src/routes/root.ts`
-Si la route va être par exemple : `/ad/new`, il faut créer un nouveau fichier dans `/src/routes/ad.ts`
-
-Le nom de la classe aura le meme nom que le fichier exemple si le fichier est `ad.ts`
-
-```typescript
-class Ad {
-  // ...
-}
-``` 
-Vous avez la possiblité de prendre exemple sur le fichier `/src/routes/roots.ts` ou `/src/routes/auth.ts`
-
-Pour terminer, il faut le déclarer dans le fichier `app.ts` dans la méthode `routes()`
-(ne pas oublier l'import en haut du fichier)
-
