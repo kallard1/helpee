@@ -162,9 +162,6 @@
       text-indent:      5px;
     }
 
-    /*input[type=text] {
-      border: none;
-    }*/
     .hompepage-input__text {
       font-family: Montserrat-Regular, sans-serif;
       font-size:   13px;
@@ -212,19 +209,6 @@
     .textarea_bottom {
       margin-top: 80px;
     }
-
-    // style pour les inputs pour gerer les espaces
-    // .input__text {
-    //   margin-top: 20px;
-    // }
-    // .info__text > input{
-    //   margin-top: 80px;
-    // }
-
-    // .input__text > input {
-    //   height: 100px;
-    // }
-
   }
 
   .photo-container {
@@ -238,7 +222,6 @@
       background-color: rgba(#a3418f, 0.2);
       border-radius:    5px;
       padding:          6%;
-      //padding:2em;
       border:           #A3418F solid 1px;
       height:           24px;
       width:            24px;
@@ -281,7 +264,6 @@
       font-family:      Montserrat-SemiBold, sans-serif;
       font-size:        13px;
       background-color: #A3418F;
-      //padding: 8px 8px;
       color:            white;
       border-radius:    5px;
       text-align:       center;
