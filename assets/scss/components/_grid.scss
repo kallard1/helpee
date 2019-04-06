@@ -1,33 +1,38 @@
 .container {
-  margin: 0 auto;
+  margin:    0 auto;
   max-width: 1280px;
-  width: 95%;
+  width:     95%;
 }
+
 @media #{$medium-and-up} {
   .container {
     width: 85%;
   }
 }
+
 @media #{$large-and-up} {
   .container {
     width: 70%;
   }
 }
+
 .col .row {
-  margin-left: (-1 * $gutter-width / 2);
+  margin-left:  (-1 * $gutter-width / 2);
   margin-right: (-1 * $gutter-width / 2);
 }
 
 .section {
-  padding-top: 1rem;
+  padding-top:    1rem;
   padding-bottom: 1rem;
 
   &.no-pad {
     padding: 0;
   }
+
   &.no-pad-bot {
     padding-bottom: 0;
   }
+
   &.no-pad-top {
     padding-top: 0;
   }
@@ -37,9 +42,10 @@
 // Mixins to eliminate code repitition
 @mixin reset-offset {
   margin-left: auto;
-  left: auto;
-  right: auto;
+  left:        auto;
+  right:       auto;
 }
+
 @mixin grid-classes($size, $i, $perc) {
   &.offset-#{$size}#{$i} {
     margin-left: $perc;
@@ -54,21 +60,21 @@
 
 
 .row {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left:   auto;
+  margin-right:  auto;
   margin-bottom: 20px;
 
   // Clear floating children
   &:after {
     content: "";
     display: table;
-    clear: both;
+    clear:   both;
   }
 
   .col {
-    float: left;
+    float:      left;
     box-sizing: border-box;
-    padding: 0 $gutter-width / 2;
+    padding:    0 $gutter-width / 2;
     min-height: 1px;
 
     &[class*="push-"],
