@@ -63,7 +63,7 @@
       margin-top:         20px;
       width:              100%;
       text-indent:        5px;
-      font-family:        Montserrat-Regular;
+      font-family:        Montserrat-Regular, sans-serif;
       font-size:          13px;
       height:             40px;
     }
@@ -118,7 +118,7 @@
 
     .text_ville{
         line-height: 50px;
-        font-family:Montserrat-Regular;
+        font-family:Montserrat-Regular, sans-serif;
         font-size:13px;
     }
 
@@ -166,7 +166,7 @@
         border: none;
       }*/
       .hompepage-input__text {
-        font-family: Montserrat-Regular;
+        font-family: Montserrat-Regular, sans-serif;
         font-size:   13px;
         line-height: 20px;
         color:       black;
@@ -197,12 +197,12 @@
       }
 
       textarea::placeholder{
-        font-family: Montserrat-Regular;
+        font-family: Montserrat-Regular, sans-serif;
         color: white;
       }
 
       .textarea_text{
-        font-family: Montserrat-Regular;
+        font-family: Montserrat-Regular, sans-serif;
         font-size:   13px;
         line-height: 20px;
         color:white;
@@ -275,11 +275,11 @@
       }
 
       .text-ech{
-        font-family:Montserrat-SemiBold;
+        font-family:Montserrat-SemiBold, sans-serif;
         font-size: 13px;
       }
       .box-prix{
-        font-family:Montserrat-SemiBold;
+        font-family:Montserrat-SemiBold, sans-serif;
         font-size: 13px;
         background-color: #a3418f;
         //padding: 8px 8px;
