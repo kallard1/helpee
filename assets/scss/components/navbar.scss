@@ -1,51 +1,56 @@
-.container-navbar{
-  display: block;
+.container-navbar {
+  display:  block;
   position: fixed;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-}
-.navbar{
-  height:65px;
-  background-color:#DCDADA;
+  bottom:   0px;
+  left:     0;
+  width:    100%;
+  z-index:  10;
 }
 
-.navbar__button{
+.navbar {
+  height:           65px;
+  background-color: #DCDADA;
+}
+
+.navbar__button {
   display: flex;
 }
 
-.navbar__button button{
-  display: flex;
-  flex: 1 1;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  border: none;
-  height: 65px;
+.navbar__button button {
+  display:         flex;
+  flex:            1 1;
+  flex-direction:  column;
+  align-items:     center;
+  background:      none;
+  border:          none;
+  height:          65px;
   justify-content: space-between;
 
 }
 
-.navbar__button .icon{
-  height: 65px;
-  align-items: center;
-  display:flex;
+.navbar__button .icon {
+  height:          65px;
+  align-items:     center;
+  display:         flex;
   justify-content: center;
 }
 
-.icon-actu:before{
+.icon-actu:before {
   content: url('../../icons/actu.svg');
 }
-.icon-communaute:before{
+
+.icon-communaute:before {
   content: url('../../icons/communaute.svg');
 }
-.icon-homepage:before{
+
+.icon-homepage:before {
   content: url('../../icons/home.svg');
 }
-.icon-chat:before{
+
+.icon-chat:before {
   content: url('../../icons/chat.svg');
 }
-.icon-menu-burger:before{
+
+.icon-menu-burger:before {
   content: url('../../icons/menu.svg');
 }

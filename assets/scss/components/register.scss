@@ -1,47 +1,48 @@
-
 .row .col.s12 {
-    font-family:"Montserrat";
+  font-family: "Montserrat";
 }
-.test{
-    color:red;
-}
-.firstblock_register{
-    margin-top:       65px;
-    background-color: #fff;
-    width:            100%;
-    border-radius:    5px;
-    padding-bottom:   30px;
 
-.login {
-    font-family:'Montserrat';
+.test {
+  color: red;
+}
+
+.firstblock_register {
+  margin-top:       65px;
+  background-color: #FFFFFF;
+  width:            100%;
+  border-radius:    5px;
+  padding-bottom:   30px;
+
+  .login {
+    font-family:  'Montserrat';
     padding-left: 15px;
-    padding-top: 20px;
-}
+    padding-top:  20px;
+  }
 
-.button-submit {
-display: flex;
-justify-content: center;
-height: 40px;
-color: #FFFFFF;
-text-align: center;
-background-color: #E93959;
-border-radius: 5px;
-font-family: Montserrat-Regular;
-font-size: 16px;
-text-transform: uppercase;
-line-height: 40px;
-border: solid 1px white;
-text-decoration: none;
-padding-left: 10px;
-padding-right: 10px;
-}
-.button-container {
+  .button-submit {
+    display:          flex;
+    justify-content:  center;
+    height:           40px;
+    color:            #FFFFFF;
+    text-align:       center;
+    background-color: #E93959;
+    border-radius:    5px;
+    font-family:      Montserrat-Regular;
+    font-size:        16px;
+    text-transform:   uppercase;
+    line-height:      40px;
+    border:           solid 1px white;
+    text-decoration:  none;
+    padding-left:     10px;
+    padding-right:    10px;
+  }
+
+  .button-container {
     display:         flex;
     align-content:   center;
     flex-direction:  row;
     justify-content: space-evenly;
     padding-top:     10px;
-    width: 100%;
+    width:           100%;
   }
-
 }

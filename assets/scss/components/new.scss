@@ -4,7 +4,7 @@
     width:            100%;
     border-radius:    5px;
     padding-bottom:   30px;
-  
+
     .button-container {
       display:         flex;
       align-content:   center;
@@ -12,7 +12,7 @@
       justify-content: space-evenly;
       padding-top:     10px;
     }
-  
+
     .button-fit {
       display:          flex;
       justify-content:  center;
@@ -27,12 +27,12 @@
       line-height:      40px;
       border:           none;
       text-decoration:  none;
-  
+
       i {
         font-style: normal;
       }
     }
-  
+
     .but_propose {
       background-color: rgba(#a3418f, 1);
     }
@@ -40,22 +40,22 @@
     .but_recherche{
       background-color:rgba( #E93959, 0.5);
     }
-  
+
     .container__button-publier {
       padding-top: 0px;
     }
-  
+
     .button-publier {
       margin-top: 20px;
       margin-bottom:50px;
       background-color:rgba( #a3418f, 1)
     }
-  
+
     select {
       -webkit-appearance: none;
       -moz-appearance:    none;
       appearance:         none;
-      background:         #fff url("../icons/arrow_down.svg") no-repeat 99% 50%;
+      background:         #fff url("../../icons/arrow_down.svg") no-repeat 99% 50%;
       background-size:    15px;
       border:             solid 1px #bbb;
       border-radius:      5px;
@@ -67,20 +67,20 @@
       font-size:          13px;
       height:             40px;
     }
-  
+
     .form-cat {
       padding:    0;
       margin-top: 20;
       list-style: none;
       width:      80%;
     }
-  
+
     .select-container {
       display:         flex;
       justify-content: space-evenly;
       width:           100%
     }
-  
+
     .select-container:after {
       content:        "";
       width:          0;
@@ -88,7 +88,7 @@
       display:        none;
       pointer-events: none;
     }
-  
+
     .select-container:after {
       border-left:  5px solid transparent;
       border-right: 5px solid transparent;
@@ -97,23 +97,23 @@
       border-top:   8px solid black;
       opacity:      0.5;
     }
-  
+
     select::-ms-expand {
       display: none;
     }
-  
+
     .text-container {
       display:         flex;
       justify-content: space-evenly;
-  
+
       .container-input {
         padding:    0;
         height:     44px;
         width:      80%;
         margin-top: 20px;
       }
-  
- // input = zone de text mono ligne 
+
+ // input = zone de text mono ligne
       input {
         padding:0;
         border-radius:5px;
@@ -131,7 +131,7 @@
         color:       black;
         text-indent: 5px;
       }
-  
+
       .hompepage-input__text::placeholder {
         display: block;
         color:   black;
@@ -169,14 +169,14 @@
         color:black;
         text-indent: 5px;
       }
-      
+
       .textarea_bottom{
         margin-top:80px;
       }
 
-      
-    
-          // style pour les inputs pour gerer les espaces 
+
+
+          // style pour les inputs pour gerer les espaces
       // .input__text {
       //   margin-top: 20px;
       // }
@@ -203,7 +203,7 @@
           border-radius: 5px;
          padding: 6%;
          //padding:2em;
-         border: #a3418f solid 1px;   
+         border: #a3418f solid 1px;
          height: 24px;
          width: 24px;
         }
@@ -217,13 +217,13 @@
 
         .icon-camera{
           height: 24px;
-          width: 24px; 
+          width: 24px;
         }
 
         .icon-camera::before{
           height: 24px;
           width: 24px;
-          content: url(../icons/camera.svg);
+          content: url("../../icons/camera.svg");
         }
     }
 
@@ -252,7 +252,7 @@
         height: 44px;
         border: solid 1px #bbb;
       }
-      // ajouté pour l'input à tester 
+      // ajouté pour l'input à tester
       .box-prix::placeholder{
         color:black;
       }
@@ -262,5 +262,5 @@
 
     }
 
-    
+
 }
