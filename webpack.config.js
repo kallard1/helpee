@@ -29,7 +29,8 @@ module.exports = {
   mode: process.env.NODE_ENV || 'production',
   devtool: 'sourceMap',
   entry: {
-    app: [path.join(__dirname, '/assets/scss/app.scss')]
+    app: [path.join(__dirname, '/assets/scss/app.scss')],
+    homepage: [path.join(__dirname, '/assets/scss/homepage.scss')]
   },
   output: {
     path: path.resolve(__dirname, 'public')
