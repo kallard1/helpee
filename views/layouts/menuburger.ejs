@@ -1,30 +1,31 @@
- <div id="burgercont" class="menuburger-container inactive">
+<div id="burgercont" class="menuburger-container inactive">
+    <div class="block-nav">
 
-
-<div class="block-nav">
-
-  <div class="container-profil">
-  <% if (user) {%>
-  <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
-    <div class="user"><%=user.firstname%></div>
-    <div class="user userlast"><%=user.lastname%></div>
-  </div>
-  <% } else { %>
-  <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
-  <div class="log"><a href="/auth/login">Se connecter</a></div>
-  <div class="log"><a href="/auth/register">Créer un compte</a></div>
-</div>
-  <%}%>
+        <div class="container-profil">
+            <% if (locals.user) { %>
+                <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84">
+                </div>
+                <div class="user"><%= user.firstname %></div>
+                <div class="user userlast"><%= user.lastname %></div>
+        </div>
+        <% } else { %>
+            <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
+            <div class="log"><a href="/auth/login">Se connecter</a></div>
+            <div class="log"><a href="/auth/register">Créer un compte</a></div>
+    </div>
+    <% } %>
     <ul class="block-nav-ul">
-      <li>Poster une annonce</li>
-      <li>Gérer les annonces</li>
-      <li>Annonces favorites</li>
-      <li>Ma communauté</li>
-      <li>Mes Amis</li>
-      <li>Réglages</li>
-      <li>Se déconnecter</li>
-    <ul> 
-  </div>
+        <li>
+            <a href="/ad/new">Poster une annonce</a>
+        </li>
+        <li>Gérer les annonces</li>
+        <li>Annonces favorites</li>
+        <li>Ma communauté</li>
+        <li>Mes Amis</li>
+        <li>Réglages</li>
+        <li>Se déconnecter</li>
+    </ul>
+</div>
 
 </div>
 
@@ -35,48 +36,13 @@
   function active() {
     var burgercontainer = document.getElementById("burgercont");
     const element = document.querySelector("#burgercont")
-    if(element.classList.contains("active")) {
+    if (element.classList.contains("active")) {
       burgercontainer.classList.remove("active");
       burgercontainer.classList.add("inactive");
-    }
-    else {
+    } else {
       burgercontainer.classList.remove("inactive");
       burgercontainer.classList.add("active");
     }
   }
 
 </script>
-
-
-<!--<div class="nav-toggle">
-  <div class="nav-toggle-bar"></div>
-</div>
-<nav class="nav">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Portfolio</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
-
-<script>
-(function() {
-
-  var hamburger = {
-    navToggle: document.querySelector('.nav-toggle'),
-    nav: document.querySelector('nav'),
-
-    doToggle: function(e) {
-      e.preventDefault();
-      this.navToggle.classList.toggle('expanded');
-      this.nav.classList.toggle('expanded');
-    }
-  };
-
-  hamburger.navToggle.addEventListener('click', function(e) { hamburger.doToggle(e); });
-  hamburger.nav.addEventListener('click', function(e) { hamburger.doToggle(e); });
-
-}());
-</script>
--->
