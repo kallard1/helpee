@@ -55,7 +55,7 @@
       -webkit-appearance: none;
       -moz-appearance:    none;
       appearance:         none;
-      background:         #fff url("../../icons/arrow_down.svg") no-repeat 99% 50%;
+      background:         #fff url("../icons/arrow_down.svg") no-repeat 99% 50%;
       background-size:    15px;
       border:             solid 1px #bbb;
       border-radius:      5px;
@@ -223,7 +223,7 @@
         .icon-camera::before{
           height: 24px;
           width: 24px;
-          content: url("../../icons/camera.svg");
+          content: url("../icons/camera.svg");
         }
     }
 
