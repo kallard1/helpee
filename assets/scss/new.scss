@@ -156,12 +156,12 @@
     }
 
     textarea::placeholder {
-      font-family: Montserrat-Regular;
+      font-family: Montserrat-Regular, sans-serif;
       color:       black;
     }
 
     .textarea_text {
-      font-family: Montserrat-Regular;
+      font-family: Montserrat-Regular, sans-serif;
       font-size:   13px;
       line-height: 20px;
       color:       black;
@@ -234,12 +234,12 @@
     }
 
     .text-ech {
-      font-family: Montserrat-SemiBold;
+      font-family: Montserrat-SemiBold, sans-serif;
       font-size:   13px;
     }
 
     .box-prix {
-      font-family:      Montserrat-SemiBold;
+      font-family:      Montserrat-SemiBold, sans-serif;
       font-size:        13px;
       background-color: #FFFFFF;
       //padding: 8px 8px;
