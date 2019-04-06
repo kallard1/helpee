@@ -14,19 +14,19 @@
     }
 
     .button-fit {
-      display:          flex;
-      justify-content:  center;
-      width:            45%;
-      height:           40px;
-      color:            #FFFFFF;
-      text-align:       center;
-      border-radius:    5px;
-      font-family:      Montserrat-Regular;
-      font-size:        16px;
-      text-transform:   uppercase;
-      line-height:      40px;
-      border:           none;
-      text-decoration:  none;
+      display:         flex;
+      justify-content: center;
+      width:           45%;
+      height:          40px;
+      color:           #FFFFFF;
+      text-align:      center;
+      border-radius:   5px;
+      font-family:     Montserrat-Regular, sans-serif;
+      font-size:       16px;
+      text-transform:  uppercase;
+      line-height:     40px;
+      border:          none;
+      text-decoration: none;
 
       i {
         font-style: normal;
