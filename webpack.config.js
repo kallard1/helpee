@@ -135,7 +135,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: 'assets/images',
-        to: 'images',
+        to: devMode ? 'images/[name].[ext]' : 'images/[name].[hash].[ext]',
         ignore: ['.DS_Store']
       }
     ])
