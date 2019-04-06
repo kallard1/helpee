@@ -19,6 +19,7 @@ import flash from './middlewares/flash';
 
 import winston from './config/logger';
 
+import adRouter from './routes/ad';
 import authRouter from './routes/auth';
 import rootRouter from './routes/root';
 
@@ -92,6 +93,7 @@ app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
  * Routes.
  */
 app.use('/', rootRouter);
+app.use('/ad/', adRouter);
 app.use('/auth/', authRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
