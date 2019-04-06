@@ -3,32 +3,33 @@
 
         <div class="container-profil">
             <% if (locals.user) { %>
-                <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84">
+                <div id="img-profil">
+                    <%- imageTag('images/img-profile.png', { width: 84, height: 84, alt: "profil-img" }) -%>
                 </div>
                 <div class="user"><%= user.firstname %></div>
                 <div class="user userlast"><%= user.lastname %></div>
         </div>
         <% } else { %>
-            <div id="img-profil"><img src="/build/images/img-profile.png" alt="profil-img" height="84" width="84"></div>
             <div class="log"><a href="/auth/login">Se connecter</a></div>
             <div class="log"><a href="/auth/register">Créer un compte</a></div>
     </div>
     <% } %>
     <ul class="block-nav-ul">
-        <li>
-            <a href="/ad/new">Poster une annonce</a>
-        </li>
-        <li>Gérer les annonces</li>
-        <li>Annonces favorites</li>
-        <li>Ma communauté</li>
-        <li>Mes Amis</li>
-        <li>Réglages</li>
-        <li>
-            <a href="/auth/logout">Se déconnecter</a>
-        </li>
+        <% if (locals.user) { %>
+            <li>
+                <a href="/ad/new">Poster une annonce</a>
+            </li>
+            <li>Gérer les annonces</li>
+            <li>Annonces favorites</li>
+            <li>Ma communauté</li>
+            <li>Mes Amis</li>
+            <li>Réglages</li>
+            <li>
+                <a href="/auth/logout">Se déconnecter</a>
+            </li>
+        <% } %>
     </ul>
 </div>
-
 </div>
 
 <script type="text/javascript">
