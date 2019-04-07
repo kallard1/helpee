@@ -1,10 +1,10 @@
 <%- include('layouts/header'); -%>
-<link rel="stylesheet" href="/build/css/homepage.css" />
+<%- stylesheetTag('homepage.css') -%>
 <%- include('layouts/menuburger'); -%>
 
 <div class="container homepage">
     <div class="firstblock">
-        <div class="button-container">
+        <div class="button-container" id="btncont-1">
             <a id="button-prop" class="button-fit but_propose inactive_propose" href="/ad/new">je propose</a>
             <a id="button-rech" class="button-fit but_recherche inactive_recherche">je recherche</a>
         </div>
@@ -31,26 +31,27 @@
                 </div>
             </div>-->
 
-    <div class="input-container">
-      <div class="ville-container">
-        <div class="container-input">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Mot(s)-clé(s)">
+        <div class="input-container">
+            <div class="ville-container">
+                <div class="container-input">
+                    <input type="text" class="hompepage-input__text" name="name" placeholder="Mot(s)-clé(s)">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-      <div class="ville-container">
-        <div class="container-input input__ville">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Ville">
+        <div class="ville-container">
+            <div class="container-input input__ville">
+                <input type="text" class="hompepage-input__text" name="name" placeholder="Ville">
+            </div>
         </div>
-      </div>
 
         <div class="button-container container__button-rechercher">
-            <a class="button-fit button-rechercher" href="">Rechercher</a>
+            <a class="button-fit button-rechercher" href="/ad/search">Rechercher</a>
         </div>
     </div>
 
     <div class="secondblock">
+        <div><h3>Helpee en quelques chiffres</h3></div>
         <div class="chiffres-container">
             <div class="chiffres-container__commun chiffres-container__communautés">
                 <i class="icon-chiffres icon-communautés"></i>
@@ -72,21 +73,30 @@
 
     <div class="thirdblock">
         <h3>Comment ça marche ?</h3>
-        <table>
-            <tr class="li1">
-                <td class="nb">1.</td>
-                <td class="list">Inscrivez-vous et devenez membre</td>
-            </tr>
-            <tr class="li2">
-                <td class="nb">2.</td>
-                <td class="list">Rejoignez des communautés près de chez vous</td>
-            </tr>
-            <tr class="li3">
-                <td class="nb">3.</td>
-                <td class="list">Recherchez et/ou proposez des services</td>
-            </tr>
-        </table>
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+                <h2>1. Créez votre compte</h2>
+                <p></p>
+                <a class="arrow arrow-prev" href="#item-3"></a>
+                <a class="arrow arrow-next" href="#item-2"></a>
+            </div>
+
+            <div class="carousel-item item-2">
+                <h2>2. Rejoignez des communautés proches de vous</h2>
+                <a class="arrow arrow-prev" href="#item-1"></a>
+                <a class="arrow arrow-next" href="#item-3"></a>
+            </div>
+
+            <div class="carousel-item item-3">
+                <h2>3. Proposez ou bénéficiez des services</h2>
+                <a class="arrow arrow-prev" href="#item-2"></a>
+                <a class="arrow arrow-next" href="#item-1"></a>
+            </div>
+        </div>
     </div>
 </div>
-
-<%- include('layouts/footer'); -%>
+<%- include('layouts/js_imports') -%>
+<%- include('layouts/footer') -%>

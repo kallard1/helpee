@@ -3,7 +3,7 @@
     "ecmaVersion": 8,
     "ecmaFeatures": {
       "ecmaVersion": true,
-      "jsx": true
+      "jsx": false
     },
     "sourceType": "module"
   },
@@ -15,14 +15,12 @@
     "import",
     "node",
     "promise",
-    "standard",
-    "react",
-    "jsx-a11y"
+    "standard"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "eslint-config-airbnb"
+    "eslint-config-airbnb-base"
   ],
   "globals": {
     "document": false,
@@ -143,6 +141,17 @@
     "no-compare-neg-zero": "error",
     "no-cond-assign": "error",
     "no-const-assign": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info",
+          "debug"
+        ]
+      }
+    ],
     "no-constant-condition": [
       "error",
       {
@@ -443,6 +452,7 @@
     "node/no-deprecated-api": "error",
     "node/process-exit-as-throw": "error",
     "promise/param-names": "error",
+    "consistent-return": "off",
     "standard/array-bracket-even-spacing": [
       "error",
       "either"
@@ -455,6 +465,10 @@
     "standard/object-curly-even-spacing": [
       "error",
       "either"
-    ]
+    ],
+    "ordered-imports": [true, {
+      "import-sources-order": "any",
+      "named-imports-order": "case-insensitive"
+    }]
   }
 }

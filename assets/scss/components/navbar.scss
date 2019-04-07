@@ -1,69 +1,56 @@
-.container-navbar{
-  display: block;
+.container-navbar {
+  display:  block;
   position: fixed;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-}
-.navbar{
-  height:65px;
-  background-color:#DCDADA;
+  bottom:   0;
+  left:     0;
+  width:    100%;
+  z-index:  10;
 }
 
-.navbar__button{
+.navbar {
+  height:           65px;
+  background-color: #DCDADA;
+}
+
+.navbar__button {
   display: flex;
 }
 
-.navbar__button button{
-  display: flex;
-  flex: 1 1;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  border: none;
-  height: 65px;
+.navbar__button button {
+  display:         flex;
+  flex:            1 1;
+  flex-direction:  column;
+  align-items:     center;
+  background:      none;
+  border:          none;
+  height:          65px;
   justify-content: space-between;
-  
+
 }
 
-.navbar__button .icon{
-  height: 65px;
-  align-items: center;
-  display:flex;
+.navbar__button .icon {
+  height:          65px;
+  align-items:     center;
+  display:         flex;
   justify-content: center;
 }
 
-.icon-actu:before{
-  content: url(../icons/actu.svg);  
-}
-.icon-communaute:before{
-  content: url(../icons/communaute.svg);
-}
-.icon-homepage:before{
-  content: url(../icons/home.svg);
-}
-.icon-chat:before{
-  content: url(../icons/chat.svg);
-}
-.icon-menu-burger:before{
-  content: url(../icons/menu.svg);
+.icon-actu:before {
+  content: url('../../icons/actu.svg');
 }
 
-/*
-[class^=icon-]:before {
-  font-style: normal;
-  font-weight: 400;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  text-align: center;
-  -webkit-font-feature-settings: normal;
-  font-feature-settings: normal;
-  font-variant: normal;
-  text-transform: none;
-  font-size: 120%;
-  -webkit-font-smoothing: antialiased;
+.icon-communaute:before {
+  content: url('../../icons/communaute.svg');
 }
-*/
+
+.icon-homepage:before {
+  content: url('../../icons/home.svg');
+}
+
+.icon-chat:before {
+  content: url('../../icons/chat.svg');
+}
+
+.icon-menu-burger:before {
+  content: url('../../icons/menu.svg');
+}

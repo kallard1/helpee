@@ -1,8 +1,8 @@
 .alert {
-  position: relative;
-  padding: 10px 10px;
+  position:      relative;
+  padding:       10px 10px;
   margin-bottom: $alert-margin-bottom;
-  border: $alert-border-width solid transparent;
+  border:        $alert-border-width solid transparent;
   @include border-radius($alert-border-radius);
 }
 
