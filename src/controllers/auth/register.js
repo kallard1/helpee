@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { validationResult } from 'express-validator/check';
 
 import { newUserEmail } from '../../config/email';
+
 import User from '../../models/user';
 
 /**
@@ -49,7 +50,9 @@ exports.registration = async(req, res) => {
   });
 
   user.save().then(() => {
-    newUserEmail(user);
+    if (process.env.NODE_ENV === 'production') {
+      newUserEmail(user);
+    }
     req.flash('success', 'Congratulation, your account was created with success. We sent a confirmation email.');
     res.redirect('/');
   }).catch((err) => {
