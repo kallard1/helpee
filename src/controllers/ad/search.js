@@ -4,6 +4,4 @@
  * @param res
  * @returns {*}
  */
-exports.index = (req, res) => {
-  return res.render('ad/search');
-};
+exports.index = (req, res) => res.render('ad/search');
