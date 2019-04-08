@@ -66,9 +66,9 @@ router.post('/register',
 router.get('/login', securityController.index);
 router.post('/login', securityController.login);
 
-router.get("/forgot-password", securityController.forgot);
-router.post("/forgot-password", securityController.generateToken);
-router.get("/reset-password/:token", securityController.resetPassword);
+router.get('/forgot-password', securityController.forgot);
+router.post('/forgot-password', securityController.generateToken);
+router.get('/reset-password/:token', securityController.resetPassword);
 
 router.get('/logout', securityController.logout);
 
