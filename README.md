@@ -2,24 +2,33 @@
 
 ## Pré-requis
 - Savoir lire
-- Avoir branché son cerveau
 - Savoir chercher sur google
 - Node >= 10
 - NPM >= 6
 - Docker ou MongoDB
 
 ## How to
-### Installation
-- Installer les packages node `npm install`
-- **Copier** le fichier `.env.dist` en `.env` et modifier les paramètres si nécessaire (si utilisation
-de docker, laisser la configuration par défaut)
-- Effectuer un pre-start `npm run prestart`
+### Installation avec Docker
+- Installez les packages node `npm install`
+- Lancez le container `docker-compose up`
+- Entrez dans le container : `docker exec -it helpee_mongo mongo`
+- Accedez à la collection `use helpee` (confirmation par `switched to helpee`)
+- Copiez et collez le code suivant dans la console en modifiant le mot de passe (`pwd`) et validez : 
+```
+db.createUser({
+  user: "helpee",
+  pwd: "<CHANGE ME>",
+  roles: [{ role: "readWrite", db: "helpee" }]
+})
+```
+- Quittez le container en faisant `CTRL + C`
+- **Copiez/Collez** le fichier `.env.dist` en `.env` et remplacez le mot de passe `<CHANGE ME>` par celui saisi précédemment
 - Lancer le serveur `npm run start:dev`.
 
-Lorsque des modifications seront effectuées (assets/typescript) la compilation s'effectuera et le serveur
+Lorsque des modifications seront effectuées (assets/javascript) la compilation s'effectuera et le serveur local
 se relancera automatiquement
 
-Pour quitter le serveur faites `CTRL + c` dans votre terminal
+Pour arrêter le serveur faites `CTRL + C` dans votre terminal
 
 ## Normes de codage
 1. 120 caractères maximum sur une seule ligne
