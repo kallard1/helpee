@@ -1,21 +1,6 @@
 version: "3"
 
 services:
-  node:
-    image: node:lts-jessie
-    container_name: helpee_node
-    volumes:
-      - ./:/app
-    working_dir: /app
-    depends_on:
-      - mongo
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3000:3000
-    command:
-      sh -c 'npm install && npm run start'
-
   mongo:
     image: mongo:latest
     container_name: helpee_mongo

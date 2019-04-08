@@ -55,13 +55,7 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          devMode ? {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-              convertToAbsoluteUrls: true
-            }
-          } : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           ...cssLoaders,
           {
             loader: 'resolve-url-loader',
