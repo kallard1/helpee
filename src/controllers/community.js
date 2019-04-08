@@ -28,14 +28,14 @@ exports.save = async(req, res) => {
   }
 
   const {
-    name, zip_code, city, description
+    name, zipCode, city, description
   } = req.body;
 
   const community = new Community({
     name,
     slug: 'test-test',
     description,
-    zip_code,
+    zipCode,
     city,
     user: req.user,
     members: [req.user]
