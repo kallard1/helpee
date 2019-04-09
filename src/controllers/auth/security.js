@@ -154,7 +154,7 @@ exports.resetingPassword = async(req, res, next) => {
         });
       });
     }, (user, done) => {
-      editPasswordConfirmation(user, done);
+      forgotPassword(user, done);
     }], (err) => {
     if (err) return next(err);
     res.redirect('/');
