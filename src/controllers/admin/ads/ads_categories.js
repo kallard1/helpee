@@ -2,8 +2,6 @@ import { validationResult } from 'express-validator/check';
 
 import AdCategory from '../../../models/adCategory';
 
-import slugify from '../../../utils/slugify';
-
 exports.index = async(req, res) => {
   res.render('admin/ads/categories/index', {
     categories: await AdCategory.find()
