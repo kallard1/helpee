@@ -80,7 +80,8 @@ app.use(lusca.xssProtection(true));
 app.use(csurf({ cookie: true }));
 
 app.use(manifestHelpers({
-  manifestPath: join(__dirname, '../public/manifest.json')
+  manifestPath: join(__dirname, '../public/manifest.json'),
+  cache: process.env.NODE_ENV === 'production'
 }));
 
 app.use('*', (req, res, next) => {
