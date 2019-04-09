@@ -127,16 +127,22 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use(function (err, req, res, next) {
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
-  // handle CSRF token errors here
-  res.status(403);
-  res.render('error', {
-    message: 'CODE RED - NO CSRF TOKEN',
-    error: {}
-  });
+  winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
 
+  const error = req.app.get('env') === 'development' ? err : {}
+
+  // handle CSRF token errors here
+  res.status(403)
+  res.render('error', {
+    message: err.message,
+    error
+  });
+});
+
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
