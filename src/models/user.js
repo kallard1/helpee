@@ -57,7 +57,10 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: false
     },
-
+    imageName: {
+      type: String,
+      default: 'none'
+    },
     informations: {
       description: {
         type: String,

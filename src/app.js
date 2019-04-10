@@ -5,7 +5,8 @@ import csurf from 'csurf';
 import dotenv from 'dotenv';
 import express from 'express';
 import expressValidator from 'express-validator';
-import { join } from 'path';
+import fileUpload from 'express-fileupload';
+import { join, resolve } from 'path';
 import logger from 'morgan';
 import lusca from 'lusca';
 import manifestHelpers from 'express-manifest-helpers';
@@ -24,6 +25,7 @@ import adminRouter from './routes/admin';
 import authRouter from './routes/auth';
 import communityRouter from './routes/community';
 import rootRouter from './routes/root';
+import userRouter from './routes/user';
 
 import config from './config/passport';
 
@@ -53,6 +55,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
+
+app.use(fileUpload({
+  safeFileNames: true,
+  preserveExtension: true,
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
 app.use(session({
   store: new RedisStore({
     client: redis,
@@ -87,10 +97,12 @@ app.use(manifestHelpers({
 app.use('*', (req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
   res.locals.moment = moment;
+  res.locals.user = req.user;
   next();
 });
 
-app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
+app.use(express.static(join(__dirname, '../public')));
+app.use('/uploads', express.static(resolve(process.env.UPLOAD_PATH || '/uploads')));
 
 /**
  * Routes.
@@ -99,6 +111,7 @@ app.use('/', rootRouter);
 app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
 app.use('/community/', communityRouter);
+app.use('/user/', userRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
 redis.on('error', err => console.error(err));
