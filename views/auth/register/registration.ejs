@@ -2,9 +2,9 @@
 <%- stylesheetTag('register.css') -%>
 <%- include('../../layouts/menuburger'); -%>
 
-<h2 class="test">Créer un compte</h2>
-<div class="firstblock_register">
 
+<div class="firstblock_register">
+    <h2 class="title">Créer un compte</h2>
 <form action="/auth/register" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
@@ -77,7 +77,11 @@
         </div>
     </div>
 
-    <button type="submit">S'inscrire</button>
+    <div class="button-container">
+        <div>
+            <button class="button-submit" type="submit">S'inscrire</button>
+        </div>
+    </div>
 </form>
 
 </div>
