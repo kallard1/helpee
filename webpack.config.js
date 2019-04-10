@@ -30,7 +30,8 @@ module.exports = {
   devtool: 'sourceMap',
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss')],
-    'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
+    'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')],
+    checkout: [path.join(__dirname, '/assets/scss/checkout.scss')]
   },
   output: {
     filename: '[name].bundle.js',

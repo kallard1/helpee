@@ -23,6 +23,7 @@ import winston from './config/logger';
 import adminRouter from './routes/admin';
 import authRouter from './routes/auth';
 import communityRouter from './routes/community';
+import checkoutRouter from './routes/checkout';
 import rootRouter from './routes/root';
 
 import config from './config/passport';
@@ -98,6 +99,7 @@ app.use('/', rootRouter);
 app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
 app.use('/community/', communityRouter);
+app.use('/checkout/', checkoutRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
 redis.on('error', err => console.error(err));
