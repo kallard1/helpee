@@ -54,3 +54,15 @@
     width:           100%;
   }
 }
+
+.container-flex{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.container-input {
+  padding:    0;
+  height:     44px;
+  width:      80%;
+  margin-top: 20px;
+}

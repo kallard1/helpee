@@ -1,15 +1,22 @@
 <%- include('../../layouts/header'); -%>
 <%- include('../../layouts/menuburger'); -%>
+<div class="firstblock_register">
+        <h2 class="title">Vous avez oublié votre mot de passe ?</h2>
 <form action="/auth/forgot-password" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
     <div class="row">
         <div class="col s12">
-            <label for="email">E-mail :</label>
-            <input type="email" required id="email" name="email">
+            <div class="container-flex">
+                <div class="container-input">
+                    <label for="email">E-mail :</label>
+                    <input type="email" required id="email" name="email">
+                </div>
+            </div>
         </div>
     </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Envoyer</button>
 </form>
+</div>
 <%- include('../../layouts/footer'); -%>

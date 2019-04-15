@@ -207,7 +207,7 @@
 .thirdblock {
   background-color: #FFFFFF;
   width:            100%;
-  height:           310px;
+  height:           350px;
   margin-top:       5px;
   border-radius:    5px;
   font-family:      Montserrat-Regular, sans-serif;
@@ -253,7 +253,7 @@ h3 {
 }
 
 .carousel-wrapper {
-  height:   150px;
+  height:   200px;
   position: relative;
   width:    100%;
   margin:   0 auto;
@@ -273,7 +273,7 @@ h3 {
 .carousel-item h2 {
   font-size:   1em;
   text-align:  center;
-  padding-top: 30px;
+  padding-top: 60px;
 }
 
 .arrow {
@@ -316,18 +316,18 @@ h3 {
 .item-1 {
   z-index:         2;
   opacity:         1;
-  background:      url('../images/register.jpg');
-  background-size: cover;
+  background:      url('../images/comment-ca-marche-1.png');
+  background-size: 100% auto;
 }
 
 .item-2 {
-  background:      url('../images/community.jpg');
-  background-size: cover;
+  background:      url('../images/comment-ca-marche-2.png');
+  background-size: 100% auto;
 }
 
 .item-3 {
-  background:      url('../images/services.jpg');
-  background-size: cover;
+  background:      url('../images/comment-ca-marche-3.png');
+  background-size: 100% auto;
 }
 
 *:target ~ .item-1 {
