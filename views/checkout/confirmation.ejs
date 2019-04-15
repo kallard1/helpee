@@ -1,0 +1,46 @@
+<%- include('../layouts/header') %>
+
+   <div class="firstblock_confirmation">
+      <div class="text-container">
+         <h2 class="first-h2">Merci !</h2>
+         <br>
+         <h2>Votre paiement à bien été confirmé.</h2>
+         <br>
+         <p>Vous allez recevoir prochainement votre facture sur l'adresse email de votre inscription.</p>
+      </div>
+   </div>
+
+   <div class="secondblock_confirmation">
+      <div class="text-container">
+         <h2 class="first-h2">Personalisation de votre Helpee</h2>
+         <p>Afin de pouvoir vous proposer des communautés en accords avec vos intérêts, cochez les centres d'intérêt qui vous corresponde :</p>
+      </div>
+      <div class="flex-container">
+         <div class="container-interet">
+         <button class='button-interet violet-interet' onclick="ifActive(this)">Famille</button>
+         <button class='button-interet amaranth-interet' onclick="ifActive(this)">Bricolage</button>
+         <button class='button-interet orange-interet' onclick="ifActive(this)">Cuisine</button>
+         <button class='button-interet amaranth-interet' onclick="ifActive(this)">Sport</button>
+         <button class='button-interet orange-interet' onclick="ifActive(this)">Jardin</button>
+         <button class='button-interet violet-interet' onclick="ifActive(this)">Informatique</button>
+         <button class='button-interet orange-interet' onclick="ifActive(this)">Musique</button>
+         <button class='button-interet violet-interet' onclick="ifActive(this)">Voiture</button>
+         <button class='button-interet amaranth-interet' onclick="ifActive(this)">Garde d'enfant</button>
+         <button class='button-interet amaranth-interet' onclick="ifActive(this)">Photographique - Vidéo</button>
+         <button class='button-interet orange-interet' onclick="ifActive(this)">Animaux</button>
+         </div>
+      </div>
+
+      <div class="button-container container__button-rechercher">
+        <a class='button-fit button-rechercher' href="">Valider</a>
+      </div>
+   </div>
+
+<script>
+function ifActive(elmnt){
+	if(elmnt.style.opacity === '1'){
+    	elmnt.style.opacity = '0.4';
+        } else{elmnt.style.opacity = '1';}}
+</script>
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>

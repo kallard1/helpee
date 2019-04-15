@@ -1,0 +1,108 @@
+.firstblock_confirmation{
+    margin-top:65px;
+    background-color: #FFF;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding-bottom: 30px;
+
+    .text-container{
+        width: 90%;
+        .first-h2{
+            padding-top:20px;
+        }
+        H2{
+            font-family: Montserrat-Bold;  
+            padding-left: 20px;
+            font-size: 16px;
+        }
+
+        P{
+            font-family: Montserrat-SemiBold;  
+            padding-left: 20px;
+            color:#747474;
+            font-size: 10px;
+        }
+}
+}
+
+.secondblock_confirmation{
+    background-color: #FFF;
+    width: 100%;
+    height: 450px;
+    margin-top: 5px;
+    border-radius: 5px;
+
+    .text-container{
+        width: 90%;
+        padding-bottom: 20px;
+        
+        .first-h2{
+            padding-top:20px;
+        }
+        H2{
+            font-family: Montserrat-Bold;  
+            padding-left: 20px;
+            font-size: 16px;
+        }
+
+        P{
+            font-family: Montserrat-SemiBold;  
+            padding-left: 20px;
+            font-size: 10px;
+        }
+}
+
+.button-interet{
+    color:White;
+    border-radius:5px;
+    height:40px;
+    padding:0px 10px;
+    margin: 2px 0px;
+    text-align:center;
+    opacity:0.4;
+    border:none;
+    }
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.container-interet{
+    width:90%;
+}
+
+.button-container{
+    display: flex;
+    align-content: center;
+    flex-direction:row;
+    justify-content: space-evenly;
+    padding-top:10px;
+    }
+
+.container__button-rechercher{
+    padding-top:0px ;
+    }
+
+.button-fit{
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    height: 40px;
+    color: #FFF;
+    text-align: center;
+    background-color: #E93959;
+    border-radius: 5px;
+    font-family: Montserrat-Regular;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 40px;
+    border: none;
+    text-decoration: none;
+}
+.button-rechercher{
+    margin-top: 22px;
+  }
+}
+

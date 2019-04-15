@@ -4,7 +4,7 @@ import express from 'express';
 import { isLoggedInAndAdmin } from '../middlewares/isLoggedIn';
 
 import * as adsCategoriesController from '../controllers/admin/ads/ads_categories';
-import * as dashboardController from '../controllers/admin/dashboard';
+//import * as dashboardController from '../controllers/admin/dashboard';
 
 const router = express.Router();
 
