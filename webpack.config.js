@@ -30,6 +30,7 @@ module.exports = {
   devtool: 'sourceMap',
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss')],
+    'community/new': [path.join(__dirname, '/assets/scss/community/new.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
   output: {

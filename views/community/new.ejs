@@ -1,22 +1,26 @@
 <%- include('../layouts/header') -%>
+<%- stylesheetTag('community/new.css') -%>
+
+<div class="firstblock-community">
+    <h2 class="title">Créer une communauté</h2>
 <form action="/community/save" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
     <div class="row">
         <div class="col s12">
-            <label for="name">Name* :</label>
+            <label for="name">Nom de la communauté* :</label>
             <input type="text" maxlength="75" autofocus required id="name" name="name">
         </div>
     </div>
 
     <div class="row">
         <div class="col s4">
-            <label for="zip_code">Zip code* :</label>
+            <label for="zip_code">Code postal* :</label>
             <input type="text" maxlength="5" required id="zip_code" name="zip_code">
         </div>
 
         <div class="col s8">
-            <label for="city">City* :</label>
+            <label for="city">Ville* :</label>
             <input type="text" maxlength="100" required id="city" name="city">
         </div>
     </div>
@@ -24,10 +28,13 @@
     <div class="row">
         <div class="col s12">
             <label for="description">Description* :</label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Décrivez brièvement ici ce qui distingue votre communauté des autres"></textarea>
         </div>
     </div>
-    <button type="submit">Create new</button>
+    <div class="button-container">
+        <button class="button-submit" type="submit">Créer la communauté</button>
+    </div>
 </form>
+</div>
 <%- include('../layouts/js_imports') -%>
 <%- include('../layouts/footer') -%>
