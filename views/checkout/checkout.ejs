@@ -1,0 +1,48 @@
+<%- include('../layouts/header') %>
+
+ <div class="firstblock_checkout">
+    <div class="text-container">
+        <h2 class="first-h2">Pourquoi payer ?</h2>
+        <p>Lorem ipsum dolor sit amet, populo alienum indoctum nec in, eam ei illum falli. Per fugit ubique intellegebat at, id unum ubique impetus vel. Quot pertinax nec ad, qui meliore inciderint te. In detracto omnesque disputationi quo, malis tation sed cu. Dicant perfecto ne est, sit ornatus impedit luptatum ex.</p>
+    </div>
+    <form action="/auth/register" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <div class="row">
+        <div class="col s12">
+            <label for="titulaire">Titulaire de la carte</label>
+            <input type="text" autofocus required id="firstname" name="firstname">
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="col s12">
+            <label for="numero">Numéro de carte</label>
+            <input type="text" required id="lastname" name="lastname">
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="col s12">
+            <label for="mois">Mois</label>
+            <input type="text" required id="lastname" name="lastname">
+        </div>
+          <div class="col s12">
+            <label for="annee">Année</label>
+            <input type="text" required id="lastname" name="lastname">
+        </div>
+          <div class="col s12">
+            <label for="crypto">Crypto</label>
+            <input type="text" required id="lastname" name="lastname">
+        </div>
+    </div>
+    </form>
+
+     <div class="button-container container__button-rechercher">
+        <a class='button-fit button-rechercher' href="">S'inscrire</a>
+    </div>
+
+ </div>
+
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>
