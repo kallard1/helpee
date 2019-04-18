@@ -87,20 +87,21 @@
     }
 
 .button-fit{
-    display: flex;
-    justify-content: center;
-    width: 45%;
-    height: 40px;
-    color: #FFF;
-    text-align: center;
-    background-color: #E93959;
-    border-radius: 5px;
-    font-family: Montserrat-Regular;
-    font-size: 13px;
-    text-transform: uppercase;
-    line-height: 40px;
-    border: none;
+    display:flex;
+    justify-content:center;
+    width:45%;
+    height:40px;
+    color:white;
+    background-color: #e93959;
+    text-align:center;
+    border-radius:5px;
+    font-family:Montserrat-Regular, sans-serif;
+    font-size:16px;
+    text-transform:uppercase;
+    line-height:40px;
+    border:none;
     text-decoration: none;
+
 }
 .button-rechercher{
     margin-top: 22px;
@@ -109,7 +110,14 @@
     
 .row .col.s12 {
     font-family: Montserrat, sans-serif;
+    text-indent: 5px;
   }
+.row .col.s4 {
+    font-family: Montserrat, sans-serif;
+    text-indent: 5px;
+  }
+
+
 
 .firstblock_checkout{
     background-color: #FFF;
@@ -140,9 +148,12 @@
     input{
         padding: 0;
         border-radius: 5px;
-        background-color:#e93959;
+        background-color:#FFF;
         height: 44px;
+        text-indent:5px;
+        border:1px solid #BBBBBB;
       }
+
       .button-container{
         display: flex;
         align-content: center;
@@ -171,5 +182,29 @@
         border: none;
         text-decoration: none;
     }
+
+
+    .form-cat {
+        padding:    0;
+        list-style: none;
+        width:      80%;
+      }
+
+      select {
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+        background:         #FFFFFF url("../icons/arrow_down.svg") no-repeat 99% 50%;
+        background-size:    15px;
+        border:             solid 1px #BBBBBB;
+        border-radius:      5px;
+        color:              black;
+        margin-top:         20px;
+        width:              100%;
+        text-indent:        5px;
+        font-family:        Montserrat-Regular, sans-serif;
+        font-size:          13px;
+        height:             40px;
+      }
 }
 
