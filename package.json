@@ -14,7 +14,8 @@
     "reinstall": "npm cache clean --force && npm run clean && rm -rf node_modules/ && npm install",
     "sonar": "node sonar-project.js",
     "start": "node bin/www",
-    "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Babel,Node\" -p \"[{name}]\" -c \"purple,yellow,green\" \"webpack --watch\" \"babel src --out-dir dist --watch\" \"nodemon bin/www\"",      "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
+    "start:dev": "cross-env NODE_ENV=development concurrently -k -n \"Webpack,Babel,Node\" -p \"[{name}]\" -c \"purple,yellow,green\" \"webpack --watch\" \"babel src --out-dir dist --watch\" \"nodemon bin/www\"",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
     "webpack:prod": "cross-env NODE_ENV=production webpack --progress",
     "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
   },
