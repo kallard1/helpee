@@ -13,7 +13,7 @@
   .title {
     font-family:  Montserrat, sans-serif;
     padding-left: 15px;
-    padding-top:15px;
+    padding-top:  15px;
   }
 
   .button-submit {
@@ -43,8 +43,9 @@
     width:           100%;
   }
 }
-.container-flex{
-  display:flex;
+
+.container-flex {
+  display:         flex;
   justify-content: space-evenly;
 }
 
