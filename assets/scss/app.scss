@@ -19,10 +19,9 @@
 @import "components/form/form-input";
 @import "components/font";
 // Layout
-@import "components/header.scss";
-@import "components/navbar.scss";
-@import "components/menuburger.scss";
-@import "components/register.scss";
+@import "components/header";
+@import "components/navbar";
+@import "components/menuburger";
 
 body {
   background-color: color("mine-shaft", "background");
