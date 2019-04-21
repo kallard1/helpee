@@ -1,0 +1,20 @@
+select {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  background:         #FFFFFF url("../../../icons/arrow_down.svg") no-repeat 99% 50%;
+  background-size:    15px;
+  border:             solid 1px #BBBBBB;
+  border-radius:      5px;
+  color:              black;
+  margin-top:         20px;
+  width:              100%;
+  text-indent:        5px;
+  font-family:        Montserrat-Regular, sans-serif;
+  font-size:          13px;
+  height:             40px;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
