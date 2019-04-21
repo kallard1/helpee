@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator/check';
 
-import AdCategory from '../../../models/adCategory';
+import AdCategory from '../../../models/ad/category';
 
 exports.index = async(req, res) => {
   res.render('admin/ads/categories/index', {

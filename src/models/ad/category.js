@@ -19,6 +19,6 @@ const schema = new mongoose.Schema(
   }
 );
 
-const AdCategory = mongoose.model('AdCategory', schema);
+const Category = mongoose.model('Category', schema);
 
-module.exports = AdCategory;
+module.exports = Category;
