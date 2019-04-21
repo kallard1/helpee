@@ -28,12 +28,10 @@
             <div class="select-container">
                 <label for="categories"></label>
                 <select class="select-button" id="categories" name="category" size="1">
-                    <option>Catégorie</option>
-                    <option>test1</option>
-                    <option>test2</option>
-                    <option>test3</option>
-                    <option>test4</option>
-                    <option>test5</option>
+                    <option disabled selected>Catégories</option>
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% }); %>
                 </select>
             </div>
 
