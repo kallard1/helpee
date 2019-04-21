@@ -1,3 +1,5 @@
+import AdsCategories from '../../models/adCategory';
+
 /**
  * GET /ad/new
  * @param req
@@ -5,5 +7,7 @@
  * @returns {Promise<*>}
  */
 exports.index = async(req, res) => {
-  res.render('ad/new');
+  res.render('ad/new', {
+    categories: await AdsCategories.find()
+  });
 };

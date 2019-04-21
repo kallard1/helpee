@@ -1,3 +1,4 @@
+import AdsCategories from '../models/adCategory';
 import User from '../models/user';
 
 /**
@@ -10,6 +11,7 @@ import User from '../models/user';
  */
 exports.index = async(req, res) => {
   res.render('homepage', {
-    userCount: await User.estimatedDocumentCount()
+    userCount: await User.estimatedDocumentCount(),
+    categories: await AdsCategories.find()
   });
 };

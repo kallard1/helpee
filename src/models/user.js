@@ -7,13 +7,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: false,
       required: true,
-      maxlength: 25
+      maxlength: 25,
+      trim: true
     },
     lastname: {
       type: String,
       unique: false,
       required: true,
-      maxlength: 50
+      maxlength: 50,
+      trim: true
     },
     password: {
       type: String,
@@ -24,7 +26,8 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
+      trim: true
     },
     is_verified: {
       type: Boolean,
@@ -46,8 +49,8 @@ const userSchema = new mongoose.Schema(
       required: false
     },
     role: {
-      type: Array,
-      default: ['ROLE_USER'],
+      type: String,
+      default: 'ROLE_USER',
       required: false
     },
     loggued_at: {
@@ -58,7 +61,8 @@ const userSchema = new mongoose.Schema(
     informations: {
       description: {
         type: String,
-        required: false
+        required: false,
+        trim: true
       },
       uev: {
         type: Number,
@@ -68,26 +72,31 @@ const userSchema = new mongoose.Schema(
       address: {
         type: String,
         required: false,
-        maxlength: 75
+        maxlength: 75,
+        trim: true
       },
       address1: {
         type: String,
         required: false,
-        maxlength: 75
+        maxlength: 75,
+        trim: true
       },
       zip_code: {
         type: String,
         required: false,
-        maxlength: 5
+        maxlength: 5,
+        trim: true
       },
       city: {
         type: String,
-        require: false
+        require: false,
+        trim: true
       },
       phone: {
         type: String,
         required: false,
-        maxlength: 12
+        maxlength: 12,
+        trim: true
       }
     }
   },

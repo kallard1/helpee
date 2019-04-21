@@ -9,6 +9,7 @@ import { join } from 'path';
 import logger from 'morgan';
 import lusca from 'lusca';
 import manifestHelpers from 'express-manifest-helpers';
+import moment from 'moment';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import Redis from 'redis';
@@ -20,6 +21,7 @@ import flash from './middlewares/flash';
 import winston from './config/logger';
 
 import adRouter from './routes/ad';
+import adminRouter from './routes/admin';
 import authRouter from './routes/auth';
 import communityRouter from './routes/community';
 import rootRouter from './routes/root';
@@ -29,7 +31,7 @@ import config from './config/passport';
 dotenv.config({ path: '.env' });
 
 config(passport);
-
+import './config/moment.locale';
 const app = express();
 const RedisStore = redisStore(session);
 const redis = Redis.createClient({
@@ -57,12 +59,12 @@ app.use(session({
     client: redis,
     host: 'sql.area42.fr',
     port: 6379,
-    ttl: 260
+    ttl: 604800
   }),
   secret: process.env.SECRET_KEY || '',
-  name: 'helpee_session',
+  name: '_helpee_session',
   cookie: {
-    expires: new Date(Date.now() + 60 * 60 * 1000),
+    expires: new Date(Date.now() + 604800000),
     secure: process.env.NODE_ENV === 'production',
     httpOnly: process.env.NODE_ENV === 'production',
     domain: process.env.NODE_ENV === 'production' ? 'helpee.fr' : ''
@@ -84,6 +86,7 @@ app.use(manifestHelpers({
 
 app.use('*', (req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
+  res.locals.moment = moment;
   res.locals.user = req.user;
   next();
 });
@@ -95,6 +98,7 @@ app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
  */
 app.use('/', rootRouter);
 app.use('/ad/', adRouter);
+app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
 app.use('/community/', communityRouter);
 
@@ -104,7 +108,7 @@ redis.on('error', err => console.error(err));
 /**
  * Mongoose config.
  */
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/database', {
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/helpee', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
@@ -115,6 +119,7 @@ mongoose.connection.on('error', () => {
   console.error('MongoDB connection error. Please make sure MongoDB is running.');
   process.exit();
 });
+mongoose.set('useFindAndModify', false);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {

@@ -11,15 +11,12 @@
 
         <div class="select-container">
             <form class="form-cat">
-                <select class="select-button" id="categories" name="categories" size="1">
+                <select class='select-button' name="Catégorie" size="1">
                     <option>Catégorie</option>
-                    <option>test1</option>
-                    <option>test2</option>
-                    <option>test3</option>
-                    <option>test4</option>
-                    <option>test5</option>
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% }); %>
                 </select>
-                <label for="categories"></label>
             </form>
         </div>
 

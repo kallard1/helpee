@@ -35,13 +35,25 @@ module.exports = {
     login: [path.join(__dirname, '/assets/scss/login.scss')],
     new: [path.join(__dirname, '/assets/scss/new.scss')],
     register: [path.join(__dirname, '/assets/scss/register.scss')],
-    search: [path.join(__dirname, '/assets/scss/search.scss')]
+    search: [path.join(__dirname, '/assets/scss/search.scss')],
+    'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: cssLoaders

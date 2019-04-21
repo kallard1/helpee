@@ -3,129 +3,117 @@
 <%- include('../layouts/menuburger'); -%>
 
 <div class="container new">
-
-  <div class="firstblock_new">
-    <div class="button-container">
-      <a id="button-prop" class='button-fit but_propose inactive_propose' href="/ad/new">je propose</a>
-      <a id="button-rech" class='button-fit but_recherche inactive_recherche' href="/">je recherche</a>
-    </div>
-
-    <div class="input-container">
-      <div class="text-container">
-          <div class="container-input">
-            <input type="text" class="hompepage-input__text" name="name" placeholder="Titre">
-          </div>
-      </div>
-    </div>
-
-    <div class="select-container">
-      <form class='form-cat'>
-        <SELECT class='select-button' name="Catégorie" size="1">
-        <OPTION>Catégorie
-        <OPTION>test1
-        <OPTION>test2
-        <OPTION>test3
-        <OPTION>test4
-        <OPTION>test5
-        </SELECT>
-      </form>
-    </div>
-
-    <div class="select-container">
-      <form class='form-cat'>
-        <SELECT class='select-button' name="Catégorie" size="1">
-          <OPTION>Ville
-          <OPTION>test1
-          <OPTION>test2
-          <OPTION>test3
-          <OPTION>test4
-          <OPTION>test5
-        </SELECT>
-      </form>
-    </div>
-
-    <!-- Zone de texte avec input
-      <div class="text-container">
-        <div class="container-input input__text">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Écrivez votre description ...">
+    <div class="firstblock_new">
+        <div class="button-container">
+            <a id="button-prop" class='button-fit but_propose inactive_propose' href="/ad/new">je propose</a>
+            <a id="button-rech" class='button-fit but_recherche inactive_recherche' href="/">je recherche</a>
         </div>
-      </div>
+        <form method="POST" action="">
+            <div class="input-container">
+                <div class="text-container">
+                    <div class="container-input">
+                        <label for="title"></label>
+                        <input
+                                type="text"
+                                id="title"
+                                autofocus
+                                class="hompepage-input__text"
+                                name="title"
+                                placeholder="Titre"
+                        />
+                    </div>
+                </div>
+            </div>
 
+            <div class="select-container">
+                <label for="categories"></label>
+                <select class="select-button" id="categories" name="category" size="1">
+                    <option>Catégorie</option>
+                    <option>test1</option>
+                    <option>test2</option>
+                    <option>test3</option>
+                    <option>test4</option>
+                    <option>test5</option>
+                </select>
+            </div>
 
-    <div class="text-container">
-        <div class="container-input input__text info__text">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Écrivre les informations spécifiques ...">
-        </div>
-      </div>
-      -->
+            <div class="select-container">
+                <label for="cities"></label>
+                <select class="select-button" id="cities" name="city" size="1">
+                    <option>Ville</option>
+                    <option>test1</option>
+                    <option>test2</option>
+                    <option>test3</option>
+                    <option>test4</option>
+                    <option>test5</option>
+                </select>
+            </div>
 
-      <div class="text-container">
-        <div class="container-input">
-          <FORM>
-            <TEXTAREA class="textarea_text" name="nom" rows=2 cols=20 placeholder='Écrivez votre description ...'></TEXTAREA>
-          </FORM>
-        </div>
-      </div>
+            <div class="text-container">
+                <div class="container-input">
+                    <label for="description"></label>
+                    <textarea class="textarea_text" id="description" name="description" rows="2" cols="20"
+                              placeholder="Écrivez votre description..."></textarea>
+                </div>
+            </div>
 
-    <div class="photo-container">
-      <a href="#">
-        <div class="photo-bloc">
-          <div class="icon-camera"></div>
-        </div>
-      </a>
+            <div class="photo-container">
+                <a href="#">
+                    <div class="photo-bloc">
+                        <div class="icon-camera"></div>
+                    </div>
+                </a>
 
-      <a href="#">
-        <div class="photo-bloc">
-          <div class="icon-camera"></div>
-        </div>
-      </a>
+                <a href="#">
+                    <div class="photo-bloc">
+                        <div class="icon-camera"></div>
+                    </div>
+                </a>
 
-      <a href="#">
-        <div class="photo-bloc">
-          <div class="icon-camera"></div>
-        </div>
-      </a>
+                <a href="#">
+                    <div class="photo-bloc">
+                        <div class="icon-camera"></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="container-prix">
+                <div class="text-prix">
+                    <p class="text-ech">Valeur d'échange</p>
+                    <label for="uev"></label>
+                    <input type="text" id="uev" class="hompepage-input__text box-prix" name="uev" placeholder="UEV">
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="text-container">
+                    <div class="container-input">
+                        <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="text-container">
+                    <div class="container-input">
+                        <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="text-container">
+                    <div class="container-input">
+                        <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container container__button-publier">
+                <a class='button-fit button-publier' href="">Publier</a>
+            </div>
+        </form>
     </div>
-
-    <div class="container-prix">
-      <div class="text-prix">
-        <p class="text-ech">Valeur d'échange</p>
-        <input type="text" class="hompepage-input__text box-prix" name="name" placeholder="UEV">
-        <!--<p class="box-prix">10</p>-->
-      </div>
-    </div>
-
-    <div class="input-container">
-      <div class="text-container">
-          <div class="container-input">
-            <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 1">
-          </div>
-      </div>
-    </div>
-
-    <div class="input-container">
-      <div class="text-container">
-        <div class="container-input">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 2">
-        </div>
-      </div>
-    </div>
-
-    <div class="input-container">
-      <div class="text-container">
-        <div class="container-input">
-          <input type="text" class="hompepage-input__text" name="name" placeholder="Champ spécifique 3">
-        </div>
-      </div>
-    </div>
-
-    <div class="button-container container__button-publier">
-      <a class='button-fit button-publier' href="">Publier</a>
-    </div>
-
-  </div>
-
 </div>
-
 
 <%- include('../layouts/footer'); -%>
