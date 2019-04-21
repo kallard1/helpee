@@ -3,38 +3,31 @@
 // Color
 @import "components/color-variables";
 @import "components/color-classes";
-
 // Mixins
 @import "mixins/alert";
 @import "mixins/border-radius";
 @import "mixins/gradient";
-
 // Variables
 @import "components/variables";
-
 // Reset
 @import "components/normalize";
-// Componenents
-
 // Functions
 @import "components/functions";
-
 // Components
 @import "components/alerts";
 @import "components/grid";
 @import "components/form/form-input";
 @import "components/font";
-
 // Layout
 @import "components/header.scss";
 @import "components/navbar.scss";
 @import "components/menuburger.scss";
 @import "components/register.scss";
 
-body{
-    background-color:color("mine-shaft","background");
+body {
+  background-color: color("mine-shaft", "background");
 }
 
-.marge-header{
-    margin-top:70px;
+.marge-header {
+  margin-top: 70px;
 }
