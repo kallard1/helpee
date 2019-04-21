@@ -15,3 +15,54 @@ textarea {
   line-height: 1.75em;
   border:      1px solid #BBBBBB;
 }
+
+.container-input {
+  padding:    0;
+  height:     44px;
+  width:      80%;
+  margin-top: 20px;
+}
+
+input {
+  padding:          0;
+  border-radius:    5px;
+  background-color: #FFFFFF;
+  height:           44px;
+  text-indent:      5px;
+  font-family:      Montserrat-Regular, sans-serif;
+  font-size:        13px;
+  line-height:      20px;
+  color:            black;
+
+  &::placeholder {
+    display: block;
+    color:   black;
+  }
+}
+
+textarea {
+  padding:          0;
+  border-radius:    5px;
+  background-color: #FFFFFF;
+  min-height:       150px;
+  max-height:       150px;
+  min-width:        100%;
+  max-width:        100%;
+  resize:           none;
+  box-shadow:       none;
+  border:           solid 1px #BBBBBB;
+  font-family:      Montserrat-Regular, sans-serif;
+  font-size:        13px;
+  line-height:      20px;
+  color:            black;
+  text-indent:      5px;
+
+  &:hover {
+    border: #A3418F solid 1px;
+  }
+
+  &::placeholder {
+    font-family: Montserrat-Regular, sans-serif;
+    color:       black;
+  }
+}
