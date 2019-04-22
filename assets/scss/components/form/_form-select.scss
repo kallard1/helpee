@@ -17,4 +17,8 @@ select {
   &::-ms-expand {
     display: none;
   }
+
+  &:disabled {
+    background-color: $input-disabled-color;
+  }
 }

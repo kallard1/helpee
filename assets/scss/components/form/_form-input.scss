@@ -16,6 +16,7 @@ textarea {
   border:      1px solid #BBBBBB;
 }
 
+
 .container-input {
   padding:    0;
   height:     44px;
@@ -37,6 +38,10 @@ input {
   &::placeholder {
     display: block;
     color:   black;
+  }
+
+  &:disabled {
+    background-color: $input-disabled-color;
   }
 }
 
