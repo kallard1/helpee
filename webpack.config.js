@@ -33,7 +33,7 @@ module.exports = {
     app: [path.join(__dirname, '/assets/scss/app.scss')],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
     login: [path.join(__dirname, '/assets/scss/login.scss')],
-    new: [path.join(__dirname, '/assets/scss/new.scss')],
+    new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
     register: [path.join(__dirname, '/assets/scss/register.scss')],
     search: [path.join(__dirname, '/assets/scss/search.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
