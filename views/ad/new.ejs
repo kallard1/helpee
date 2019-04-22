@@ -8,7 +8,9 @@
             <a id="button-prop" class="button-fit propose-button inactive_propose" href="/ad/new">je propose</a>
             <a id="button-rech" class="button-fit search-button inactive_recherche" href="/">je recherche</a>
         </div>
-        <form method="POST" action="/">
+        <form method="POST" action="/ad/new">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
             <div class="input-container">
                 <div class="text-container">
                     <div class="container-input">
