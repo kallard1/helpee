@@ -40,6 +40,16 @@
             <div class="select-container">
                 <label for="cities"></label>
                 <select class="select-button" id="cities" name="city" size="1">
+                    <option disabled selected>Départements</option>
+                    <% departments.forEach((department) => { %>
+                        <option value="<%= department.code %>"><%= department.nom %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="select-container">
+                <label for="cities"></label>
+                <select class="select-button" id="cities" name="city" size="1">
                     <option>Ville</option>
                     <option>test1</option>
                     <option>test2</option>
