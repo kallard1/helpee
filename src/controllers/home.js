@@ -1,4 +1,4 @@
-import AdsCategories from '../models/adCategory';
+import AdsCategories from '../models/ad/category';
 import User from '../models/user';
 
 /**
