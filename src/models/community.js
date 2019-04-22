@@ -49,6 +49,12 @@ const schema = new mongoose.Schema(
   }
 );
 
+schema.virtual('ad', {
+  ref: 'Ad',
+  localField: '_id',
+  foreignField: 'community'
+});
+
 const Community = mongoose.model('Community', schema);
 
 module.exports = Community;

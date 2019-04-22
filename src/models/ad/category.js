@@ -19,6 +19,10 @@ const schema = new mongoose.Schema(
   }
 );
 
-const Category = mongoose.model('Category', schema);
+schema.virtual('AdCategory', {
+  ref: 'AdCategory',
+  localField: '_id',
+  foreignField: 'category'
+});
 
-module.exports = Category;
+module.exports = mongoose.model('AdCategory', schema);

@@ -6,7 +6,10 @@ const schema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
-    category: {},
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'AdCategory'
+    },
     title: {
       type: String,
       required: true,
@@ -37,7 +40,10 @@ const schema = new mongoose.Schema(
       type: Number,
       required: true
     },
-    community: {}
+    community: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Community'
+    }
   },
   {
     timestamps: true
