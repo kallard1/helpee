@@ -8,14 +8,6 @@ import AdsCategories from '../../models/ad/category';
  * @returns {Promise<*>}
  */
 exports.index = async(req, res) => {
-  let departments;
-
-  await axios.get('https://geo.api.gouv.fr/departements')
-    .then((data) => {
-      departments = data.data;
-    })
-    .catch(e => console.error(e));
-
   res.render('ad/new', {
     categories: await AdsCategories.find(),
     departments
