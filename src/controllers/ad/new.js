@@ -16,7 +16,7 @@ exports.index = async(req, res) => {
 };
 
 /**
- * GET /ad/cities
+ * GET /ad/get-cities
  * @param req
  * @param res
  * @returns {Promise<void>}
