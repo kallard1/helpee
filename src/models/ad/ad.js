@@ -43,6 +43,10 @@ const schema = new mongoose.Schema(
     community: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Community'
+    },
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'City'
     }
   },
   {
