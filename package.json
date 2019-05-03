@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.2.7",
+    "@mdi/font": "^3.6.95",
     "@sendgrid/mail": "^6.3.1",
     "app-root-path": "^2.1.0",
     "async": "^2.6.2",
