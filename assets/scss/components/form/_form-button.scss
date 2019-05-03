@@ -1,19 +1,43 @@
-.button-fit {
+.btn-container {
   display:         flex;
-  justify-content: center;
-  width:           45%;
-  height:          40px;
-  color:           #FFFFFF;
-  text-align:      center;
-  border-radius:   5px;
-  font-family:     Montserrat-Regular, sans-serif;
-  font-size:       16px;
-  text-transform:  uppercase;
-  line-height:     40px;
-  border:          none;
-  text-decoration: none;
+  align-content:   center;
+  flex-direction:  row;
+  justify-content: space-evenly;
+  padding-top:     10px;
+  margin-bottom:   20px;
+}
 
-  i {
-    font-style: normal;
+.btn {
+  &.btn-fit {
+    display:         flex;
+    justify-content: center;
+    width:           45%;
+    height:          40px;
+    color:           #FFFFFF;
+    text-align:      center;
+    border-radius:   5px;
+    font-family:     Montserrat-Regular, sans-serif;
+    font-size:       16px;
+    text-transform:  uppercase;
+    line-height:     40px;
+    border:          none;
+    text-decoration: none;
+
+    i {
+      font-style: normal;
+    }
+  }
+
+  &.btn-propose {
+    background-color: rgba(#a3418f, 1);
+  }
+
+  &.btn-search {
+    background-color: rgba(#E93959, 0.5);
+  }
+
+  &.btn-publish {
+    margin: 10px auto;
+    background-color: rgba(#a3418f, 1)
   }
 }

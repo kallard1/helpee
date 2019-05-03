@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// Fonts
+$mdi-font-path: "~@mdi/font/fonts" !default;
+@import "~@mdi/font/scss/materialdesignicons";
+
 // Color
 @import "components/color-variables";
 @import "components/color-classes";
@@ -31,4 +35,20 @@ body {
 
 .marge-header {
   margin-top: 70px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.container {
+  margin-top:       65px;
+  background-color: #FFFFFF;
+  width:            100%;
+  border-radius:    5px;
+  padding-bottom:   30px;
 }
