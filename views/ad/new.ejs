@@ -2,123 +2,114 @@
 <%- stylesheetTag('new_ad.css'); -%>
 <%- include('../layouts/menuburger'); -%>
 
+<!-- TODO:
+  --    Si l'utilisateur fait parti de plusieurs communautées, afficher un selecteur qui lui permettra
+  --    de lier son annonce à la communauté souhaitée.
+-->
+
 <div class="container">
-    <div class="new-ad-container">
-        <div class="button-container">
-            <a id="button-prop" class="button-fit propose-button inactive_propose" href="/ad/new">je propose</a>
-            <a id="button-rech" class="button-fit search-button inactive_recherche" href="/">je recherche</a>
-        </div>
-        <form method="POST" action="/ad/new">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-
-            <div class="input-container">
-                <div class="text-container">
-                    <div class="container-input">
-                        <label for="title"></label>
-                        <input
-                                type="text"
-                                id="title"
-                                autofocus
-                                class="hompepage-input__text"
-                                name="title"
-                                placeholder="Titre"
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div class="select-container">
-                <label for="categories"></label>
-                <select class="select-button" id="categories" name="category" size="1">
-                    <option disabled selected>Catégories</option>
-                    <% categories.forEach((category) => { %>
-                        <option value="<%= category.slug %>"><%= category.label %></option>
-                    <% }); %>
-                </select>
-            </div>
-
-            <div class="select-container">
-                <label for="departments"></label>
-                <select class="select-button" id="departments" name="departments" size="1">
-                    <option disabled selected>Départements</option>
-                    <% departments.forEach((department) => { %>
-                        <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
-                    <% }); %>
-                </select>
-            </div>
-
-            <div class="select-container">
-                <label for="cities"></label>
-                <select class="select-button" disabled id="cities" name="city" size="1">
-                    <option disabled selected>Villes</option>
-                </select>
-            </div>
-
-            <div class="text-container">
-                <div class="container-input">
-                    <label for="description"></label>
-                    <textarea id="description" name="description" rows="2" cols="20"
-                              placeholder="Écrivez votre description..."></textarea>
-                </div>
-            </div>
-
-            <div class="photo-container">
-                <a href="#">
-                    <div class="photo-bloc">
-                        <div class="icon-camera"></div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="photo-bloc">
-                        <div class="icon-camera"></div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="photo-bloc">
-                        <div class="icon-camera"></div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="container-prix">
-                <div class="text-prix">
-                    <p class="text-ech">Valeur d'échange</p>
-                    <label for="uev"></label>
-                    <input type="text" id="uev" class="box-prix" name="uev" placeholder="UEV">
-                </div>
-            </div>
-
-            <div class="input-container">
-                <div class="text-container">
-                    <div class="container-input">
-                        <input type="text" name="name" placeholder="Champ spécifique 1">
-                    </div>
-                </div>
-            </div>
-
-            <div class="input-container">
-                <div class="text-container">
-                    <div class="container-input">
-                        <input type="text" name="name" placeholder="Champ spécifique 2">
-                    </div>
-                </div>
-            </div>
-
-            <div class="input-container">
-                <div class="text-container">
-                    <div class="container-input">
-                        <input type="text" name="name" placeholder="Champ spécifique 3">
-                    </div>
-                </div>
-            </div>
-
-            <div class="button-container no-padding">
-                <button type="submit" class="button-fit publish-button">Publier</button>
-            </div>
-        </form>
+    <div class="btn-container">
+        <a id="button-prop" class="btn btn-fit btn-propose inactive_propose" href="/ad/new">je propose</a>
+        <a id="button-rech" class="btn btn-fit btn-search inactive_recherche" href="/">je recherche</a>
     </div>
+    <form method="POST" action="/ad/new">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="input-field">
+            <input type="text" id="title" name="title" placeholder="Titre" />
+            <label for="title"></label>
+
+            <div class="alert alert-info" data-for="title">
+                Info message
+            </div>
+        </div>
+
+        <div class="input-field">
+            <select class="select-button" id="categories" name="category" size="1">
+                <option disabled selected>Catégories</option>
+                <% categories.forEach((category) => { %>
+                    <option value="<%= category.slug %>"><%= category.label %></option>
+                <% }); %>
+            </select>
+            <label for="categories"></label>
+        </div>
+
+        <div class="input-field">
+            <label for="departments"></label>
+            <select class="select-button" id="departments" name="departments" size="1">
+                <option disabled selected>Départements</option>
+                <% departments.forEach((department) => { %>
+                    <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <div class="input-field">
+            <label for="cities"></label>
+            <select class="select-button" disabled id="cities" name="city" size="1">
+                <option disabled selected>Villes</option>
+            </select>
+        </div>
+
+        <div class="input-field">
+            <textarea id="description" name="description" rows="2" cols="20"
+                      placeholder="Écrivez votre description..."></textarea>
+            <label for="description"></label>
+            <div class="alert alert-info" data-for="description">
+                description
+            </div>
+        </div>
+
+        <div class="input-field picture-field">
+            <div class="picture-container mr-10" id="upload-photo-0">
+                <input type="file" class="picture"
+                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture0">
+                <p class="uppercase">Photo principale</p>
+                <i class="mdi mdi-camera mdi-36px"></i>
+            </div>
+
+            <div class="picture-container mr-10">
+                <input type="file" class="picture"
+                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture1">
+                <p class="uppercase">Photo 2</p>
+                <i class="mdi mdi-camera mdi-36px"></i>
+            </div>
+
+            <div class="picture-container">
+                <input type="file" class="picture"
+                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture2">
+                <p class="uppercase">Photo 3</p>
+                <i class="mdi mdi-camera mdi-36px"></i>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="input-field">
+            <input type="text" id="uev" name="uev" placeholder="UEV">
+            <label for="uev"></label>
+
+            <div class="alert alert-info" data-for="uev">
+                uev description
+            </div>
+        </div>
+
+        <!-- Affichage des champs en fonction de la catégorie choisie -->
+        <div class="input-field">
+            <input type="text" name="name" placeholder="Champ spécifique 1" />
+        </div>
+
+        <div class="input-field">
+            <input type="text" name="name" placeholder="Champ spécifique 2">
+        </div>
+
+        <div class="input-field">
+            <input type="text" name="name" placeholder="Champ spécifique 3">
+        </div>
+
+        <div class="btn-container no-padding">
+            <button type="submit" class="btn btn-fit btn-publish">Publier</button>
+        </div>
+    </form>
 </div>
 
 <%- include('../layouts/js_imports'); %>
