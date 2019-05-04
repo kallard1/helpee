@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * TODO: Affichage des champs spécifiques selon la catégorie choisie
    * @type {HTMLElement}
    */
-  const departmentsSelect = document.getElementById('departments');
+  const categoriesSelect = document.getElementById('categories');
   categoriesSelect.addEventListener('change', () => {
     console.log(categoriesSelect.value);
   });
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Affichage des villes par départements
    * @type {HTMLElement}
    */
-  const categoriesSelect = document.getElementById('categories');
+  const departmentsSelect = document.getElementById('departments');
   const citiesSelect = document.getElementById('cities');
 
   departmentsSelect.addEventListener('change', () => getCitiesByDepartments(), false);
