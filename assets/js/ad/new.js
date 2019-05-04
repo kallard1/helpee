@@ -54,8 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
    * @type {HTMLElement}
    */
   const photoUpload0Input = document.getElementById('picture0');
+  const photoUpload1Input = document.getElementById('picture1');
+  const photoUpload2Input = document.getElementById('picture2');
 
   photoUpload0Input.addEventListener('change', () => readURL(photoUpload0Input), false);
+  photoUpload1Input.addEventListener('change', () => readURL(photoUpload1Input), false);
+  photoUpload2Input.addEventListener('change', () => readURL(photoUpload2Input), false);
 
   function readURL(input) {
     if (input.files && input.files[0]) {
