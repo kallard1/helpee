@@ -3,10 +3,6 @@
 @import "components/color-classes";
 @import "components/variables";
 
-div.input-field {
-  padding: 0 10px;
-}
-
 @media #{$small-and-down} {
   .picture-container {
     position:         relative;
