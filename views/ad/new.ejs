@@ -9,8 +9,8 @@
 
 <div class="container">
     <div class="btn-container">
-        <a id="button-prop" class="btn btn-fit btn-propose inactive_propose" href="/ad/new">je propose</a>
-        <a id="button-rech" class="btn btn-fit btn-search inactive_recherche" href="/">je recherche</a>
+        <a class="btn btn-fit btn-propose active" href="/ad/new">je propose</a>
+        <a class="btn btn-fit btn-search" href="/">je recherche</a>
     </div>
     <form method="POST" action="/ad/new">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
