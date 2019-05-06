@@ -29,11 +29,17 @@
   }
 
   &.btn-propose {
-    background-color: rgba(#a3418f, 1);
+    background-color: rgba(#a3418f, 0.5);
+    &.active {
+      background-color: rgba(#a3418f, 1);
+    }
   }
 
   &.btn-search {
     background-color: rgba(#E93959, 0.5);
+    &.active {
+      background-color: rgba(#E93959, 1);
+    }
   }
 
   &.btn-publish {
