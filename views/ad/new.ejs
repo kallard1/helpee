@@ -61,27 +61,18 @@
         </div>
 
         <div class="input-field picture-field">
-            <div class="picture-container mr-10" id="upload-photo-0">
-                <input type="file" class="picture"
-                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture0">
-                <p class="uppercase">Photo principale</p>
-                <i class="mdi mdi-camera mdi-36px"></i>
-            </div>
-
-            <div class="picture-container mr-10">
-                <input type="file" class="picture"
-                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture1">
-                <p class="uppercase">Photo 2</p>
-                <i class="mdi mdi-camera mdi-36px"></i>
-            </div>
-
-            <div class="picture-container">
-                <input type="file" class="picture"
-                       accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture2">
-                <p class="uppercase">Photo 3</p>
-                <i class="mdi mdi-camera mdi-36px"></i>
-            </div>
-            <div class="clear"></div>
+            <% for (let i = 0; i < 3; i++) { %>
+                <div class="picture-container mr-10" id="upload-photo-<%= i %>" data-id="<%= i %>">
+                    <input type="file" class="picture"
+                           accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture-<%= i %>">
+                    <% if (i == 0) { %>
+                        <p class="uppercase">Photo principale</p>
+                    <% } else { %>
+                        <p class="uppercase">Photo <%= i %></p>
+                    <% } %>
+                    <i class="mdi mdi-camera mdi-36px"></i>
+                </div>
+            <% } %>
         </div>
 
         <div class="input-field">
