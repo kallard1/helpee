@@ -31,10 +31,7 @@ $mdi-font-path: "~@mdi/font/fonts" !default;
 
 body {
   background-color: color("mine-shaft", "background");
-}
-
-.marge-header {
-  margin-top: 70px;
+  margin-top:       65px;
 }
 
 .uppercase {
@@ -46,11 +43,10 @@ body {
 }
 
 .container {
-  margin-top:       65px;
   background-color: #FFFFFF;
   width:            100%;
-  border-radius:    5px;
   padding-bottom:   30px;
+  font-family:      Montserrat-Regular, sans-serif;
 }
 
 div.input-field {
