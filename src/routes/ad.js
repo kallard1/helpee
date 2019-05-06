@@ -1,11 +1,12 @@
 import express from 'express';
+import { isLoggedIn } from '../middlewares/isLoggedIn';
 
 import * as newController from '../controllers/ad/new';
 import * as searchController from '../controllers/ad/search';
 
 const router = express.Router();
 
-router.get('/new', newController.index);
+router.get('/new', isLoggedIn, newController.index);
 router.get('/get-cities', newController.cities);
 
 router.get('/search', searchController.index);
