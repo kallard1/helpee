@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
    * Prévisualisation des images a uploader
    * @type {HTMLElement}
    */
-  const photoUpload0Input = document.getElementById('picture0');
-  const photoUpload1Input = document.getElementById('picture1');
-  const photoUpload2Input = document.getElementById('picture2');
+  const photoUpload0Input = document.getElementById('picture-0');
+  const photoUpload1Input = document.getElementById('picture-1');
+  const photoUpload2Input = document.getElementById('picture-2');
 
   photoUpload0Input.addEventListener('change', () => readURL(photoUpload0Input), false);
   photoUpload1Input.addEventListener('change', () => readURL(photoUpload1Input), false);
@@ -67,10 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       reader.onload = (e) => {
         const parent = input.parentNode;
-        parent.innerHTML = '';
+
         const image = document.createElement('img');
         image.setAttribute('src', e.target.result);
-
         parent.appendChild(image);
       };
 
