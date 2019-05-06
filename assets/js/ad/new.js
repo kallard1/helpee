@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Prévisualisation des images uploadées
+   * Prévisualisation des images a uploader
    * @type {HTMLElement}
    */
   const photoUpload0Input = document.getElementById('picture0');
