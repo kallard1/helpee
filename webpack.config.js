@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 const os = require('os');
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -113,6 +114,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss']
   },
   plugins: [
+    new WebpackNotifierPlugin(),
     new CleanWebpackPlugin({
       root: path.resolve('./public'),
       verbose: true,
