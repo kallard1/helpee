@@ -1,56 +1,5 @@
-.row .col.s12 {
-  font-family: Montserrat, sans-serif;
-}
-
-.firstblock_register {
-  margin-top:       30px;
-  background-color: #FFFFFF;
-  width:            100%;
-  border-radius:    5px;
-  padding-bottom:   90px;
-
-  .title {
+ .title {
     font-family:  Montserrat, sans-serif;
     padding-left: 15px;
     padding-top:  15px;
   }
-
-  .button-submit {
-    display:          flex;
-    justify-content:  center;
-    height:           40px;
-    color:            #FFFFFF;
-    text-align:       center;
-    background-color: #E93959;
-    border-radius:    5px;
-    font-family:      Montserrat-Regular, sans-serif;
-    font-size:        16px;
-    text-transform:   uppercase;
-    line-height:      40px;
-    border:           solid 1px white;
-    text-decoration:  none;
-    padding-left:     10px;
-    padding-right:    10px;
-  }
-
-  .button-container {
-    display:         flex;
-    align-content:   center;
-    flex-direction:  row;
-    justify-content: space-evenly;
-    padding-top:     10px;
-    width:           100%;
-  }
-}
-
-.container-flex {
-  display:         flex;
-  justify-content: space-evenly;
-}
-
-.input-container {
-  padding:    0;
-  height:     44px;
-  width:      80%;
-  margin-top: 20px;
-}
