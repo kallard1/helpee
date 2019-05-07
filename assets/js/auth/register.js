@@ -2,6 +2,9 @@ const passwordVisibility = document.getElementById('password-visibility');
 const passwordInput = document.getElementById('password');
 const passwordConfirmationInput = document.getElementById('password-confirmation');
 
+/**
+ * Affiche ou non le mot de passe lors de la saisie
+ */
 passwordVisibility.addEventListener('click', () => {
   const classes = passwordVisibility.classList;
 
