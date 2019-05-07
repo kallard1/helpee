@@ -35,7 +35,7 @@
     }
   }
 
-  &.btn-search {
+  &.btn-search, &.btn-submit {
     background-color: rgba(#E93959, 0.5);
     &.active {
       background-color: rgba(#E93959, 1);
