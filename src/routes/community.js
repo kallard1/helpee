@@ -12,9 +12,6 @@ router.post('/save', [
     .withMessage('Name is too long')
     .exists()
     .withMessage('Name is required'),
-  check('zipCode')
-    .isPostalCode('FR')
-    .withMessage('Zip code is not valid'),
   check('city')
     .exists()
     .withMessage('City is required'),
