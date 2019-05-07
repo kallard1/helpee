@@ -3,126 +3,76 @@
 <%- include('../../layouts/menuburger'); -%>
 
 
-<div class="firstblock_register">
+<div class="container">
     <h2 class="title">Créer un compte</h2>
-<form action="/auth/register" method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <form action="/auth/register" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-    <div class="row">
-        <div class="col s12">
-                <div class="container-flex">
-                    <div class="input-container">
-                        <label for="firstname">Prénom* :</label>
-                        <input type="text" autofocus required id="firstname" name="firstname">
-                    </div>
-                </div>
+        <div class="input-field col s12">
+            <input type="text" autofocus required id="firstname" name="firstname">
+            <label for="firstname" class="active">Prénom*</label>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-                <div class="container-flex">
-                    <div class="input-container">
-                        <label for="lastname">Nom* :</label>
-                        <input type="text" required id="lastname" name="lastname">
-                    </div>
-                </div>
+        <div class="input-field col s12">
+            <input type="text" required id="lastname" name="lastname">
+            <label for="lastname" class="active">Nom*</label>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="email">E-mail* :</label>
-                    <input type="email" required id="email" name="email">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="password">Mot de passe* :</label>
-                    <input type="password" minlength="8" required id="password" name="password">
-                    (8 caractères min.)
-                </div>
-            </div>
+        <div class="input-field col s12">
+            <input type="email" required id="email" name="email">
+            <label for="email" class="active">E-mail*</label>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="password-confirmation">Confirmation de mot de passe* :</label>
-                    <input type="password" required id="password-confirmation" name="passwordConfirmation">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="address">Adresse* :</label>
-                    <input type="text" id="address" name="address">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="address-1">Adresse :</label>
-                    <input type="text" id="address-1" name="address1">
-                </div>
-            </div>
+        <div class="input-field col s12">
+            <input type="password" minlength="8" required id="password" name="password">
+            <label for="password" class="active">Mot de passe*</label>
+            <i class="mdi mdi-eye-off" id="password-visibility" data-visibility="off"></i>
+            <small>(8 caractères min.)</small>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="zip-code">Code postal* :</label>
-                    <input type="text" id="zip-code" minlength="5" name="zipCode">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="city">Ville* :</label>
-                    <input type="text" id="city" name="city">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-flex">
-                <div class="input-container">
-                    <label for="phone">N° de téléphone :</label>
-                    <input type="tel" maxlength="10" minlength="10" id="phone" name="phone">
-                </div>
-            </div>
+        <div class="input-field col s12">
+            <input type="password" required id="password-confirmation" name="passwordConfirmation">
+            <label for="password-confirmation" class="active">Confirmation de mot de passe*</label>
         </div>
-    </div>
 
-    <div class="button-container">
-        <div>
-            <button class="button-submit" type="submit">S'inscrire</button>
+        <div class="input-field col s12">
+            <input type="text" id="address" name="address">
+            <label for="address" class="active">Adresse*</label>
         </div>
-    </div>
-</form>
+
+
+        <div class="input-field col s12">
+            <input type="text" id="address-1" name="address1">
+            <label for="address-1" class="active">Adresse</label>
+        </div>
+
+
+        <div class="input-field col s12">
+            <input type="text" id="zip-code" minlength="5" name="zipCode">
+            <label for="zip-code" class="active">Code postal*</label>
+        </div>
+
+
+        <div class="input-field col s12">
+            <input type="text" id="city" name="city">
+            <label for="city" class="active">Ville*</label>
+        </div>
+
+
+        <div class="input-field col s12">
+            <input type="tel" maxlength="10" minlength="10" id="phone" name="phone">
+            <label for="phone" class="active">N° de téléphone</label>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn btn-fit btn-submit active" type="submit">S'inscrire</button>
+        </div>
+    </form>
 
 </div>
+<%- include('../../layouts/js_imports'); -%>
+<%- javascriptTag('register.js') -%>
 <%- include('../../layouts/footer'); -%>
