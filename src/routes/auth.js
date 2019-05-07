@@ -26,12 +26,6 @@ router.post('/register',
       .withMessage('Password is required')
       .isLength({ min: 8 })
       .withMessage('Password must need 8 characters min.')
-      .matches(/[0-9]/)
-      .withMessage('Password must contain at least 1 number.')
-      .matches(/[a-z]/)
-      .withMessage('Password must contain at least 1 lowercase letter.')
-      .matches(/[A-Z]/)
-      .withMessage('Password must contain at least 1 uppercase letter.'),
     check('passwordConfirmation')
       .exists()
       .withMessage('Password confirmation is required')
