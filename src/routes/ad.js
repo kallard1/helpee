@@ -7,7 +7,6 @@ import * as searchController from '../controllers/ad/search';
 const router = express.Router();
 
 router.get('/new', isLoggedIn, newController.index);
-router.get('/get-cities', newController.cities);
 
 router.get('/search', searchController.index);
 
