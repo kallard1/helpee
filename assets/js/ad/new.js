@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getCitiesByDepartments() {
     citiesSelect.disabled = true;
     clearSelect();
-    axios.get(`/ad/get-cities?department=${departmentsSelect.value}`)
+    axios.get(`/cities/get-by-department?department=${departmentsSelect.value}`)
       .then((response) => {
         _.chain(response.data)
           .sortBy(['zip_code', 'name'])
