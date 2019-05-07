@@ -244,8 +244,10 @@ textarea {
     transform:        translateY(12px);
 
     &:not(.label-icon).active {
-      transform:        translateY(-14px) scale(.8);
-      transform-origin: 0 0;
+      transform:        translateY(-7px) scale(.8);
+      transform-origin: 35px 0;
+      padding:          0 2px;
+      background-color: #FFFFFF;
     }
   }
 
