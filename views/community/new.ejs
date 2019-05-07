@@ -1,12 +1,12 @@
 <%- include('../layouts/header') -%>
 <form action="/community/save" method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-    <div class="row">
-        <div class="col s12">
-            <label for="name">Name* :</label>
-            <input type="text" maxlength="75" autofocus required id="name" name="name">
-        </div>
+    <h2 class="title">Nouvelle communauté</h2>
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div class="input-field col s12">
+        <input type="text" maxlength="75" autofocus required id="name" name="name">
+        <label for="name" class="active">Nom*</label>
     </div>
 
     <div class="input-field col s12">
@@ -26,13 +26,15 @@
         <label for="cities" class="active">Ville</label>
     </div>
 
-    <div class="row">
-        <div class="col s12">
-            <label for="description">Description* :</label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-        </div>
+    <div class="input-field col s12">
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <label for="description" class="active">Description*</label>
     </div>
-    <button type="submit">Create new</button>
+
+    <div class="btn-container">
+        <button type="submit" class="btn btn-fit btn-submit active">Create new</button>
+    </div>
 </form>
 <%- include('../layouts/js_imports') -%>
+<%- javascriptTag('community.js') -%>
 <%- include('../layouts/footer') -%>
