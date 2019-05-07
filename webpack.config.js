@@ -31,11 +31,11 @@ module.exports = {
   mode: process.env.NODE_ENV || 'production',
   devtool: 'sourceMap',
   entry: {
-    app: [path.join(__dirname, '/assets/scss/app.scss')],
+    app: [path.join(__dirname, '/assets/scss/app.scss'), path.join(__dirname, '/assets/js/app.js')],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
     login: [path.join(__dirname, '/assets/scss/login.scss')],
     new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
-    register: [path.join(__dirname, '/assets/scss/register.scss')],
+    register: [path.join(__dirname, '/assets/scss/register.scss'), path.join(__dirname, '/assets/js/auth/register.js')],
     search: [path.join(__dirname, '/assets/scss/search.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
@@ -115,11 +115,11 @@ module.exports = {
   },
   plugins: [
     new WebpackNotifierPlugin(),
-    new CleanWebpackPlugin({
-      root: path.resolve('./public'),
-      verbose: true,
-      dry: false
-    }),
+    // new CleanWebpackPlugin({
+    //   root: path.resolve('./public'),
+    //   verbose: true,
+    //   dry: false
+    // }),
     new UglifyJsPlugin({
       cache: true,
       extractComments: !devMode,
