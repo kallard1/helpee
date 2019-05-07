@@ -28,7 +28,6 @@ exports.index = async(req, res) => {
  * @param res
  */
 exports.registration = async(req, res) => {
-  console.log(req);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     req.flash('warning', errors.array());
