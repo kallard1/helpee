@@ -4,7 +4,7 @@
         <div class="container-profil">
             <% if (locals.user) { %>
                 <div id="img-profil">
-                    <%- imageTag('images/img-profile.png', { width: 84, height: 84, alt: "profil-img" }) -%>
+                    <img src="/images/img-profile.png" width="84" height="84" alt="image de profil de <%= user.firstname%> <%= user.lastname %>" />
                 </div>
                 <div class="user"><%= user.firstname %></div>
                 <div class="user userlast"><%= user.lastname %></div>
