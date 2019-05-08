@@ -36,5 +36,5 @@ function getCitiesByDepartments() {
  */
 function clearSelect() {
   citiesSelect.innerHTML = '';
-  citiesSelect.innerHTML = '<option disabled selected>Séléctionnez une ville</option>';
+  citiesSelect.innerHTML = '<option disabled selected>Sélectionnez une ville</option>';
 }

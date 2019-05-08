@@ -11,7 +11,7 @@
 
     <div class="input-field col s12">
         <select id="departments" name="departments" size="1">
-            <option disabled selected>Séléctionnez un département...</option>
+            <option disabled selected>Sélectionnez un département...</option>
             <% departments.forEach((department) => { %>
                 <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
             <% }); %>
@@ -21,7 +21,7 @@
 
     <div class="input-field col s12">
         <select disabled id="cities" name="city" size="1">
-            <option disabled selected>Séléctionnez une ville...</option>
+            <option disabled selected>Sélectionnez une ville...</option>
         </select>
         <label for="cities" class="active">Ville</label>
     </div>
