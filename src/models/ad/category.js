@@ -11,7 +11,21 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
       maxlength: 75
-    }
+    },
+    categories: [
+      {
+        label: {
+          type: String,
+          required: true,
+          maxlength: 75
+        },
+        slug: {
+          type: String,
+          required: true,
+          maxlength: 75
+        }
+      }
+    ]
   },
   {
     timestamps: true,
