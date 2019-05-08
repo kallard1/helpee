@@ -607,49 +607,49 @@ db.departments.insertMany([
     'slug': 'mayotte'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '975',
     'name': 'Saint-Pierre-et-Miquelon',
     'slug': 'saint pierre et miquelon'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '977',
     'name': 'Saint-Barth\u00e9lemy',
     'slug': 'saint barthelemy'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '978',
     'name': 'Saint-Martin',
     'slug': 'saint martin'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '984',
     'name': 'Terres australes et antarctiques fran\u00e7aises',
     'slug': 'terres australes et antarctiques francaises'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '986',
     'name': 'Wallis et Futuna',
     'slug': 'wallis et futuna'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '987',
     'name': 'Polyn\u00e9sie fran\u00e7aise',
     'slug': 'polynesie francaise'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '988',
     'name': 'Nouvelle-Cal\u00e9donie',
     'slug': 'nouvelle caledonie'
   }, {
 
-    'region': db.regions.findOne({ code: 'COM' }),
+    'region': db.regions.findOne({ code: 'COM' }, { _id: 1 })._id,
     'code': '989',
     'name': '\u00cele de Clipperton',
     'slug': 'ile de clipperton'
