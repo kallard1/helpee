@@ -15,9 +15,23 @@
     <form method="POST" action="/ad/new">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-        <div class="input-field">
-            <input type="text" id="title" name="title" placeholder="Titre" />
-            <label for="title"></label>
+        <div class="input-field col s12">
+            <% if(communities.length === 1) { %>
+                <input type="hidden" name="community" value="<%= communities[0]._id %>">
+            <% } else { %>
+                <select class="select-button" id="community" name="community" size="1">
+                    <option disabled selected>Sélectionnez une communauté</option>
+                    <% communities.forEach((community) => { %>
+                        <option value="<%= community._id %>"><%= community.name %></option>
+                    <% }); %>
+                </select>
+                <label for="community" class="active">Communautés</label>
+            <% } %>
+        </div>
+
+        <div class="input-field col s12">
+            <input type="text" id="title" name="title" />
+            <label for="title" class="active">Titre</label>
 
             <div class="alert alert-info" data-for="title">
                 Info message
