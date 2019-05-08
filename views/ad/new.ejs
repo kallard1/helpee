@@ -49,36 +49,35 @@
                     <% } %>
                 <% }); %>
             </select>
-            <label for="categories"></label>
+            <label for="categories" class="active">Catégories</label>
         </div>
 
-        <div class="input-field">
-            <label for="departments"></label>
-            <select class="select-button" id="departments" name="departments" size="1">
-                <option disabled selected>Départements</option>
+        <div class="input-field col s12">
+            <select id="departments" name="departments" size="1">
+                <option disabled selected>Sélectionnez un département...</option>
                 <% departments.forEach((department) => { %>
                     <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
                 <% }); %>
             </select>
+            <label for="departments" class="active">Départements</label>
         </div>
 
-        <div class="input-field">
-            <label for="cities"></label>
-            <select class="select-button" disabled id="cities" name="city" size="1">
-                <option disabled selected>Villes</option>
+        <div class="input-field col s12">
+            <select disabled id="cities" name="city" size="1">
+                <option disabled selected>Sélectionnez un département...</option>
             </select>
+            <label for="cities" class="active">Villes</label>
         </div>
 
-        <div class="input-field">
-            <textarea id="description" name="description" rows="2" cols="20"
-                      placeholder="Écrivez votre description..."></textarea>
-            <label for="description"></label>
+        <div class="input-field col s12">
+            <textarea id="description" name="description" rows="2" cols="20"></textarea>
+            <label for="description" class="active">Description</label>
             <div class="alert alert-info" data-for="description">
                 description
             </div>
         </div>
 
-        <div class="input-field picture-field">
+        <div class="input-field col s12 picture-field">
             <% for (let i = 0; i < 3; i++) { %>
                 <div class="picture-container mr-10" id="upload-photo-<%= i %>" data-id="<%= i %>">
                     <input type="file" class="picture"
@@ -93,9 +92,9 @@
             <% } %>
         </div>
 
-        <div class="input-field">
-            <input type="text" id="uev" name="uev" placeholder="UEV">
-            <label for="uev"></label>
+        <div class="input-field col s12">
+            <input type="text" id="uev" name="uev" />
+            <label for="uev" class="active">UEV</label>
 
             <div class="alert alert-info" data-for="uev">
                 uev description
