@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .sortBy(['zip_code', 'name'])
           .map((data) => {
             const opt = document.createElement('option');
-            opt.value = data._id;
+            opt.value = data.slug;
             opt.innerHTML = `${data.zip_code} - ${data.name}`;
             citiesSelect.appendChild(opt);
 
