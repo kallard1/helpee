@@ -47,7 +47,8 @@ const schema = new mongoose.Schema(
     location: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'City'
-    }
+    },
+    images: [String]
   },
   {
     timestamps: true
