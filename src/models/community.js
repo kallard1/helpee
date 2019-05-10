@@ -31,23 +31,21 @@ const schema = new mongoose.Schema(
       type: Boolean,
       default: true
     },
-    zip_code: {
-      type: String,
-      required: true,
-      maxlength: 5,
-      trim: true
-    },
-    city: {
-      type: String,
-      required: true,
-      maxlength: 75,
-      trim: true
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'City'
     }
   },
   {
     timestamps: true
   }
 );
+
+schema.virtual('ad', {
+  ref: 'Ad',
+  localField: '_id',
+  foreignField: 'community'
+});
 
 const Community = mongoose.model('Community', schema);
 

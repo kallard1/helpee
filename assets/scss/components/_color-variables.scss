@@ -65,7 +65,7 @@ $mine-shaft: (
                      "darken-4": #232323,
              );
 
-$gray: (
+$grey: (
                "base": #9E9E9E,
                "lighten-5": #FAFAFA,
                "lighten-4": #F5F5F5,
@@ -91,26 +91,80 @@ $red: (
               "darken-4": #B71C1C,
       );
 
+$teal: (
+               "base": #009688,
+               "lighten-5": #E0F2F1,
+               "lighten-4": #B2DFDB,
+               "lighten-3": #80CBC4,
+               "lighten-2": #4DB6AC,
+               "lighten-1": #26A69A,
+               "darken-1": #00897B,
+               "darken-2": #00796B,
+               "darken-3": #00695C,
+               "darken-4": #004D40,
+               "accent-1": #A7FFEB,
+               "accent-2": #64FFDA,
+               "accent-3": #1DE9B6,
+               "accent-4": #00BFA5
+       );
+
+$green: (
+                "base": #4CAF50,
+                "lighten-5": #E8F5E9,
+                "lighten-4": #C8E6C9,
+                "lighten-3": #A5D6A7,
+                "lighten-2": #81C784,
+                "lighten-1": #66BB6A,
+                "darken-1": #43A047,
+                "darken-2": #388E3C,
+                "darken-3": #2E7D32,
+                "darken-4": #1B5E20,
+                "accent-1": #B9F6CA,
+                "accent-2": #69F0AE,
+                "accent-3": #00E676,
+                "accent-4": #00C853
+        );
+
 $shades: (
                  "black": #000000,
                  "white": #FFFFFF,
                  "blue":#007B55,
                  "indigo": #6610F2,
-                 "purple": #6F42C1,
+                 "purple": #A3418F,
                  "pink": #E83E8C,
                  "red": #DC3545,
                  "orange": #FD7E14,
-                 "yellow": #FFC107,
+                 "yellow": #F6BB0C,
                  "green": #28A745,
                  "teal": #20C997,
                  "cyan": #17A2B8,
                  "transparent": transparent
          );
 
+$light-blue: (
+                     "base": #03A9F4,
+                     "lighten-5": #E1F5FE,
+                     "lighten-4": #B3E5FC,
+                     "lighten-3": #81D4FA,
+                     "lighten-2": #4FC3F7,
+                     "lighten-1": #29B6F6,
+                     "darken-1": #039BE5,
+                     "darken-2": #0288D1,
+                     "darken-3": #0277BD,
+                     "darken-4": #01579B,
+                     "accent-1": #80D8FF,
+                     "accent-2": #40C4FF,
+                     "accent-3": #00B0FF,
+                     "accent-4": #0091EA
+             );
+
 $colors: (
                  "amaranth": $amaranth,
                  "buttercup": $buttercup,
-                 "gray": $gray,
+                 "grey": $grey,
+                 "green": $green,
+                 "teal": $green,
+                 "light-blue": $light-blue,
                  "mine-shaft": $mine-shaft,
                  "orange": $orange,
                  "purple": $purple,
@@ -129,13 +183,13 @@ $colors: (
 }
 
 $primary: color("shades", "blue") !default;
-$secondary: color("gray", "darken-1") !default;
+$secondary: color("grey", "darken-1") !default;
 $success: color("shades", "green") !default;
 $info: color("shades", "cyan") !default;
 $warning: color("shades", "yellow") !default;
 $danger: color("shades", "red") !default;
-$light: color("gray", "lighten-1") !default;
-$dark: color("gray", "darken-3") !default;
+$light: color("grey", "lighten-1") !default;
+$dark: color("grey", "darken-3") !default;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

@@ -1,44 +1,60 @@
 @charset "UTF-8";
 
-//Mixin
-@import "components/mixin.scss";
+// Fonts
+$mdi-font-path: "~@mdi/font/fonts" !default;
+@import "~@mdi/font/scss/materialdesignicons";
 
 // Color
 @import "components/color-variables";
 @import "components/color-classes";
-
 // Mixins
 @import "mixins/alert";
 @import "mixins/border-radius";
 @import "mixins/gradient";
-
 // Variables
 @import "components/variables";
-
 // Reset
 @import "components/normalize";
-// Componenents
-
 // Functions
 @import "components/functions";
-
 // Components
 @import "components/alerts";
 @import "components/grid";
-@import "components/form/form-input";
+// Form components
+@import "components/form";
+
 @import "components/font";
-
 // Layout
-@import "components/header.scss";
-@import "components/navbar.scss";
-@import "components/homepage.scss";
-@import "components/menuburger.scss";
-@import "components/submit.scss";
+@import "components/header";
+@import "components/navbar";
+@import "components/menuburger";
 
-body{
-    background-color:color("mine-shaft","background");
+body {
+  background-color: color("mine-shaft", "background");
+  margin-top:       65px;
 }
 
-.marge-header{
-    margin-top:70px;
+.uppercase {
+  text-transform: uppercase;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.container {
+  background-color: #FFFFFF;
+  width:            100%;
+  padding-bottom:   30px;
+  font-family:      Montserrat-Regular, sans-serif;
+}
+
+div.input-field {
+  padding: 0 10px;
+}
+
+h2.title {
+  font-family:  Montserrat, sans-serif;
+  padding-left: 15px;
+  padding-top:  20px;
 }

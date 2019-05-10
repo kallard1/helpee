@@ -11,10 +11,10 @@
 </noscript>
 <header>
     <div class="content-header">
-        <div class="header-image"></div>
+    <a href='/'><div class="header-image"></div></a>
     </div>
 </header>
-<div class="container marge-header">
+<div class="container">
     <% if(locals.flash) { %>
     <div class="alert alert-<%= flash.type %>">
         <% if (typeof flash.message === "object") {%>
