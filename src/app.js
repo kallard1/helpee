@@ -5,7 +5,8 @@ import csurf from 'csurf';
 import dotenv from 'dotenv';
 import express from 'express';
 import expressValidator from 'express-validator';
-import { join } from 'path';
+import fileUpload from 'express-fileupload';
+import { join, resolve } from 'path';
 import logger from 'morgan';
 import lusca from 'lusca';
 import manifestHelpers from 'express-manifest-helpers';
@@ -26,6 +27,7 @@ import authRouter from './routes/auth';
 import communityRouter from './routes/community';
 import citiesRouter from './routes/cities';
 import rootRouter from './routes/root';
+import userRouter from './routes/user';
 
 import config from './config/passport';
 
@@ -55,6 +57,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
+
+app.use(fileUpload({
+  safeFileNames: true,
+  preserveExtension: true,
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
 app.use(session({
   store: new RedisStore({
     client: redis,
@@ -82,7 +92,8 @@ app.use(lusca.xssProtection(true));
 app.use(csurf({ cookie: true }));
 
 app.use(manifestHelpers({
-  manifestPath: join(__dirname, '../public/manifest.json')
+  manifestPath: join(__dirname, '../public/manifest.json'),
+  cache: process.env.NODE_ENV === 'production'
 }));
 
 app.use('*', (req, res, next) => {
@@ -92,7 +103,8 @@ app.use('*', (req, res, next) => {
   next();
 });
 
-app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
+app.use(express.static(join(__dirname, '../public')));
+app.use('/uploads', express.static(resolve(process.env.UPLOAD_PATH || '/uploads')));
 
 /**
  * Routes.
@@ -103,6 +115,7 @@ app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
 app.use('/cities/', citiesRouter);
 app.use('/community/', communityRouter);
+app.use('/user/', userRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));
 redis.on('error', err => console.error(err));
@@ -132,16 +145,22 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use(function (err, req, res, next) {
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
-  // handle CSRF token errors here
-  res.status(403);
-  res.render('error', {
-    message: 'CODE RED - NO CSRF TOKEN',
-    error: {}
-  });
+  winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
 
+  const error = req.app.get('env') === 'development' ? err : {}
+
+  // handle CSRF token errors here
+  res.status(403)
+  res.render('error', {
+    message: err.message,
+    error
+  });
+});
+
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

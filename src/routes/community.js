@@ -2,11 +2,12 @@ import { check } from 'express-validator/check';
 import express from 'express';
 
 import * as communityController from '../controllers/community';
+import { isLoggedIn } from '../middlewares/isLoggedIn';
 
 const router = express.Router();
 
-router.get('/new', communityController.new);
-router.post('/save', [
+router.get('/new', isLoggedIn, communityController.new);
+router.post('/save', isLoggedIn, [
   check('name')
     .isLength({ max: 75 })
     .withMessage('Name is too long')

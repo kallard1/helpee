@@ -1,6 +1,8 @@
 import async from 'async';
+import { validationResult } from 'express-validator/check';
 import passport from 'passport';
 import { v4 as uuid } from 'uuid';
+
 import { forgotPassword } from '../../config/email';
 
 import User from '../../models/user';
@@ -92,7 +94,10 @@ exports.generateToken = async(req, res, next) => {
 };
 
 /**
- * /auth/reset-password/:token
+ * GET /auth/reset-password/:token
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
  */
 exports.resetPassword = async(req, res) => {
   User.findOne({
@@ -109,6 +114,50 @@ exports.resetPassword = async(req, res) => {
     }
 
     res.render('auth/forgot/reset');
+  });
+};
+
+/**
+ * GET /auth/reset-password/:token
+ */
+exports.resetingPassword = async(req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    req.flash('warning', errors.array());
+    return res.redirect(`/auth/forgot-password/${req.params.token}`);
+  }
+
+  async.waterfall([
+    (done) => {
+      User.findOne({
+        resetPasswordToken: req.params.token,
+        resetPasswordExpires: { $gt: Date.now() }
+      }, (err, user) => {
+        const u = user;
+
+        if (!user) {
+          req.flash('danger', 'Password reset token is invalid or has expired');
+          return res.redirect('/auth/forgot-password');
+        }
+
+        if (err) console.error(err);
+
+        u.password = req.body.password;
+        u.resetPasswordToken = undefined;
+        u.resetPasswordExpires = undefined;
+
+        u.save(() => {
+          req.logIn(u, (error) => {
+            done(error, u);
+          });
+        });
+      });
+    }, (user, done) => {
+      forgotPassword(user, done);
+    }], (err) => {
+    if (err) return next(err);
+    res.redirect('/');
   });
 };
 
