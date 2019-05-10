@@ -20,9 +20,11 @@ import flash from './middlewares/flash';
 
 import winston from './config/logger';
 
+import adRouter from './routes/ad';
 import adminRouter from './routes/admin';
 import authRouter from './routes/auth';
 import communityRouter from './routes/community';
+import citiesRouter from './routes/cities';
 import rootRouter from './routes/root';
 
 import config from './config/passport';
@@ -86,6 +88,7 @@ app.use(manifestHelpers({
 app.use('*', (req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
   res.locals.moment = moment;
+  res.locals.user = req.user;
   next();
 });
 
@@ -95,8 +98,10 @@ app.use(express.static(join(__dirname, '../public'), { maxAge: 31557600000 }));
  * Routes.
  */
 app.use('/', rootRouter);
+app.use('/ad/', adRouter);
 app.use('/admin', adminRouter);
 app.use('/auth/', authRouter);
+app.use('/cities/', citiesRouter);
 app.use('/community/', communityRouter);
 
 redis.on('ready', () => console.info('Redis ready!'));

@@ -2,15 +2,14 @@ version: "3"
 
 services:
   mongo:
-    image: mongo:latest
+    image: mongo:4
     container_name: helpee_mongo
     environment:
       MONGO_DATA_DIR: /data/db
       MONGO_LOG_DIR: /dev/null
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: 939Q2JA7Mxb4VTBpDRJW5CMkq
-      MONGO_INITDB_DATABASE: helpee
+      MONGO_INITDB_DATABASE: 'helpee'
     volumes:
       - ./docker/mongodb/data/db:/data/db
+      - ./docker/mongodb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - 27017:27017

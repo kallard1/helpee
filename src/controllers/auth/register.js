@@ -35,17 +35,16 @@ exports.registration = async(req, res) => {
   }
 
   const {
-    firstname, lastname, password: clearPassword, email, address, address1, zip_code, city, phone
+    firstname, lastname, password: clearPassword, email, address, address1, zipCode, city, phone
   } = req.body;
-  const password = await bcrypt.hash(clearPassword, 10);
 
   const user = new User({
     firstname,
     lastname,
     email,
-    password,
+    password: clearPassword,
     informations: {
-      address, address1, zip_code, city, phone
+      address, address1, zipCode, city, phone
     }
   });
 

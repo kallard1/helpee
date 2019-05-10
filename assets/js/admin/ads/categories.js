@@ -1,7 +1,7 @@
 const label = document.getElementById('label');
 const slug = document.getElementById('slug');
 
-label.addEventListener('keyup', (event) => {
+label.addEventListener('keyup', () => {
   let { value } = label;
 
   value = value.toLowerCase()

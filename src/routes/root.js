@@ -1,8 +1,8 @@
 import express from 'express';
 
-const router = express.Router();
-
 import * as homepageController from '../controllers/home';
+
+const router = express.Router();
 
 router.get('/', homepageController.index);
 

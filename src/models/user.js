@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema(
+const schema = new mongoose.Schema(
   {
     firstname: {
       type: String,
@@ -105,25 +105,33 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.virtual('community', {
+schema.virtual('community_user', {
   ref: 'Community',
   localField: '_id',
   foreignField: 'user'
-}, {
+});
+
+schema.virtual('community_members', {
   ref: 'Community',
   localField: '_id',
   foreignField: 'members'
 });
 
+schema.virtual('ad_user', {
+  ref: 'Ad',
+  localField: '_id',
+  foreignField: 'user'
+});
+
 // eslint-disable-next-line func-names
-userSchema.pre('save', function(next) {
+schema.pre('save', function(next) {
   const self = this;
 
   if (!self.isModified('password')) return next();
   bcrypt.genSalt(10, (err, salt) => {
     if (err) return next(err);
-    bcrypt.hash(self.password, salt, (err, hash) => {
-      if (err) return next(err);
+    bcrypt.hash(self.password, salt, (error, hash) => {
+      if (error) return next(error);
 
       self.password = hash;
       next();
@@ -131,8 +139,8 @@ userSchema.pre('save', function(next) {
   });
 });
 
-userSchema.methods.comparePassword = (candidatePassword, cb) => {
+schema.methods.comparePassword = (candidatePassword, cb) => {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => cb(err, isMatch));
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', schema);

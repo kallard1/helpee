@@ -1,6 +1,7 @@
 import { validationResult } from 'express-validator/check';
 
 import Community from '../models/community';
+import Departments from '../models/department';
 
 /**
  * Affiche le formulaire de création d'une communauté
@@ -10,7 +11,9 @@ import Community from '../models/community';
  * @returns {Promise<void>}
  */
 exports.new = async(req, res) => {
-  res.render('community/new');
+  res.render('community/new', {
+    departments: await Departments.find()
+  });
 };
 
 /**
@@ -26,17 +29,15 @@ exports.save = async(req, res) => {
     req.flash('warning', errors.array());
     return res.redirect('/community/new');
   }
-
   const {
-    name, zip_code, city, description
+    name, city, description
   } = req.body;
 
   const community = new Community({
     name,
     slug: 'test-test',
     description,
-    zip_code,
-    city,
+    location: city,
     user: req.user,
     members: [req.user]
   });
