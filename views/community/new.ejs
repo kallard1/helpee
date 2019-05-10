@@ -1,40 +1,43 @@
 <%- include('../layouts/header') -%>
-<%- stylesheetTag('community/new.css') -%>
+<%- stylesheetTag('community.css') -%>
 
-<div class="firstblock-community">
+<div class="container">
     <h2 class="title">Créer une communauté</h2>
-<form action="/community/save" method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-
-    <div class="row">
-        <div class="col s12">
-            <label for="name">Nom de la communauté* :</label>
+    <form action="/community/save" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="input-field col s12">
             <input type="text" maxlength="75" autofocus required id="name" name="name">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col s4">
-            <label for="zip_code">Code postal* :</label>
-            <input type="text" maxlength="5" required id="zip_code" name="zip_code">
+            <label for="name" class="active">Nom de la communauté*</label>
         </div>
 
-        <div class="col s8">
-            <label for="city">Ville* :</label>
-            <input type="text" maxlength="100" required id="city" name="city">
+        <div class="input-field col s12">
+            <select id="departments" name="departments" size="1">
+                <option disabled selected>Sélectionnez un département...</option>
+                <% departments.forEach((department) => { %>
+                    <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
+                <% }); %>
+            </select>
+            <label for="departments" class="active">Département</label>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col s12">
-            <label for="description">Description* :</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Décrivez brièvement ici ce qui distingue votre communauté des autres"></textarea>
+        <div class="input-field col s12">
+            <select disabled id="cities" name="city" size="1">
+                <option disabled selected>Sélectionnez une ville...</option>
+            </select>
+            <label for="cities" class="active">Ville</label>
         </div>
-    </div>
-    <div class="button-container">
-        <button class="button-submit" type="submit">Créer la communauté</button>
-    </div>
-</form>
+
+        <div class="input-field col s12">
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <label for="description" class="active">Description*</label>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn btn-fit btn-submit active">Create new</button>
+        </div>
+        <button type="submit">Créer la communauté</button>
+    </form>
 </div>
 <%- include('../layouts/js_imports') -%>
+<%- javascriptTag('community.js') -%>
 <%- include('../layouts/footer') -%>

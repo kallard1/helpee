@@ -1,8 +1,6 @@
 import { validationResult } from 'express-validator/check';
 
-import AdCategory from '../../../models/adCategory';
-
-import slugify from '../../../utils/slugify';
+import AdCategory from '../../../models/ad/category';
 
 exports.index = async(req, res) => {
   res.render('admin/ads/categories/index', {
@@ -36,7 +34,7 @@ exports.save = async(req, res) => {
       slug
     });
 
-    AdCategory.create(category, (err, doc) => {
+    AdCategory.create(category, (err) => {
       if (err) {
         return res.status(500)
           .send({ error: err });
@@ -58,7 +56,7 @@ exports.save = async(req, res) => {
         upsert: true,
         setDefaultsOnInsert: true
       },
-      (err, doc) => {
+      (err) => {
         if (err) {
           return res.status(500)
             .send({ error: err });
@@ -72,7 +70,7 @@ exports.save = async(req, res) => {
 };
 
 exports.delete = async(req, res) => {
-  AdCategory.findOneAndRemove({ slug: req.params.slug }, (err, doc) => {
+  AdCategory.findOneAndRemove({ slug: req.params.slug }, (err) => {
     if (err) {
       return res.status(500)
         .send({ error: err });

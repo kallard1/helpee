@@ -1,0 +1,112 @@
+<%- include('../layouts/header'); -%>
+<%- stylesheetTag('new_ad.css'); -%>
+<%- include('../layouts/menuburger'); -%>
+
+<div class="container">
+    <div class="btn-container">
+        <a class="btn btn-fit btn-propose active" href="/ad/new">je propose</a>
+        <a class="btn btn-fit btn-search" href="/">je recherche</a>
+    </div>
+    <form method="POST" action="/ad/new">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="input-field col s12">
+            <% if(communities.length === 1) { %>
+                <input type="hidden" name="community" value="<%= communities[0]._id %>">
+            <% } else { %>
+                <select class="select-button" id="community" name="community" size="1">
+                    <option disabled selected>Sélectionnez une communauté</option>
+                    <% communities.forEach((community) => { %>
+                        <option value="<%= community._id %>"><%= community.name %></option>
+                    <% }); %>
+                </select>
+                <label for="community" class="active">Communautés</label>
+            <% } %>
+        </div>
+
+        <div class="input-field col s12">
+            <input type="text" id="title" name="title" />
+            <label for="title" class="active">Titre</label>
+
+            <div class="alert alert-info" data-for="title">
+                Info message
+            </div>
+        </div>
+
+        <div class="input-field col s12">
+            <select id="categories" name="category" size="1">
+                <option disabled selected>Sélectionnez une catégorie</option>
+                <% categories.forEach((category) => { %>
+                    <% if (category.slug != 'autres') { %>
+                        <option disabled>[<%= category.label %>]</option>
+                        <% if(category.categories.length > 0) { %>
+                            <% category.categories.forEach(category => { %>
+                                <option value="<%= category.slug %>"><%= category.label %></option>
+                            <% }); %>
+                        <% } %>
+                    <% } else { %>
+                        <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% } %>
+                <% }); %>
+            </select>
+            <label for="categories" class="active">Catégories</label>
+        </div>
+
+        <div class="input-field col s12">
+            <select id="departments" size="1">
+                <option disabled selected>Sélectionnez un département...</option>
+                <% departments.forEach((department) => { %>
+                    <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
+                <% }); %>
+            </select>
+            <label for="departments" class="active">Départements</label>
+        </div>
+
+        <div class="input-field col s12">
+            <select disabled id="cities" name="city" size="1">
+                <option disabled selected>Sélectionnez un département...</option>
+            </select>
+            <label for="cities" class="active">Villes</label>
+        </div>
+
+        <div class="input-field col s12">
+            <textarea id="description" name="description" rows="2" cols="20"></textarea>
+            <label for="description" class="active">Description</label>
+            <div class="alert alert-info" data-for="description">
+                description
+            </div>
+        </div>
+
+        <div class="input-field col s12 picture-field">
+            <% for (let i = 0; i < 3; i++) { %>
+                <div class="picture-container mr-10" id="upload-photo-<%= i %>" data-id="<%= i %>">
+                    <input type="file" name="pictures" class="picture"
+                           accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture-<%= i %>">
+                    <% if (i == 0) { %>
+                        <p class="uppercase">Photo principale</p>
+                    <% } else { %>
+                        <p class="uppercase">Photo <%= i %></p>
+                    <% } %>
+                    <i class="mdi mdi-camera mdi-36px"></i>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="input-field col s12">
+            <input type="text" id="uev" name="uev" />
+            <label for="uev" class="active">UEV</label>
+
+            <div class="alert alert-info" data-for="uev">
+                uev description
+            </div>
+        </div>
+
+        <div class="btn-container no-padding">
+            <button type="submit" class="btn btn-fit btn-publish">Publier</button>
+        </div>
+    </form>
+</div>
+
+<%- include('../layouts/js_imports'); %>
+<%- javascriptTag('new_ad.js') -%>
+<%- include('../layouts/footer'); -%>
