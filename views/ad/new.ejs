@@ -53,7 +53,7 @@
         </div>
 
         <div class="input-field col s12">
-            <select id="departments" name="departments" size="1">
+            <select id="departments" size="1">
                 <option disabled selected>Sélectionnez un département...</option>
                 <% departments.forEach((department) => { %>
                     <option value="<%= department.code %>"><%= department.code %> - <%= department.name %></option>
@@ -80,7 +80,7 @@
         <div class="input-field col s12 picture-field">
             <% for (let i = 0; i < 3; i++) { %>
                 <div class="picture-container mr-10" id="upload-photo-<%= i %>" data-id="<%= i %>">
-                    <input type="file" class="picture"
+                    <input type="file" name="pictures" class="picture"
                            accept="image/bmp,image/gif,image/jpeg,image/png,image/x-ms-bmp" id="picture-<%= i %>">
                     <% if (i == 0) { %>
                         <p class="uppercase">Photo principale</p>
