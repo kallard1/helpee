@@ -4,8 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
 const os = require('os');
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -32,7 +30,7 @@ module.exports = {
   devtool: 'sourceMap',
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss'), path.join(__dirname, '/assets/js/app.js')],
-    community: [path.join(__dirname, '/assets/js/community/new.js')],
+    community: [path.join(__dirname, '/assets/scss/community/new.scss'), path.join(__dirname, '/assets/js/community/new.js')],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
     login: [path.join(__dirname, '/assets/scss/login.scss')],
     new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
@@ -115,12 +113,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss']
   },
   plugins: [
-    new WebpackNotifierPlugin(),
-    // new CleanWebpackPlugin({
-    //   root: path.resolve('./public'),
-    //   verbose: true,
-    //   dry: false
-    // }),
+    new CleanWebpackPlugin(),
     new UglifyJsPlugin({
       cache: true,
       extractComments: !devMode,
@@ -140,13 +133,6 @@ module.exports = {
     }),
     new ManifestPlugin({
       publicPath: '/'
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: 'assets/images',
-        to: devMode ? 'images/[name].[ext]' : 'images/[name].[hash].[ext]',
-        ignore: ['.DS_Store']
-      }
-    ])
+    })
   ]
 };
