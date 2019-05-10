@@ -9,21 +9,33 @@
     </div>
 
     <form action="">
-        <div class="input-field">
-            <select name="category" size="1">
-                <option>Catégorie</option>
+        <div class="input-field col s12">
+            <select id="categories" name="category" size="1">
+                <option disabled selected>Sélectionnez une catégorie</option>
                 <% categories.forEach((category) => { %>
-                    <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% if (category.slug != 'autres') { %>
+                        <option disabled>[<%= category.label %>]</option>
+                        <% if(category.categories.length > 0) { %>
+                            <% category.categories.forEach(category => { %>
+                                <option value="<%= category.slug %>"><%= category.label %></option>
+                            <% }); %>
+                        <% } %>
+                    <% } else { %>
+                        <option value="<%= category.slug %>"><%= category.label %></option>
+                    <% } %>
                 <% }); %>
             </select>
+            <label for="categories" class="active">Catégories</label>
         </div>
 
-        <div class="input-field">
-            <input type="text" name="name" placeholder="Mot(s)-clé(s)">
+        <div class="input-field col s12">
+            <input type="text" id="keywords" name="name" />
+            <label for="keywords" class="active">Mot(s)-clé(s)</label>
         </div>
 
-        <div class="input-field">
-            <input type="text" name="name" placeholder="Ville">
+        <div class="input-field col s12">
+            <input type="text" name="city" id="city">
+            <label for="city" class="active">Ville</label>
         </div>
 
         <div class="btn-container">
