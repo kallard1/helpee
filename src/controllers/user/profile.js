@@ -24,7 +24,7 @@ exports.upload = async(req, res) => {
     req.flash('warning', `File ${image.name} is not a supported image. Please upload image with .png, .jpg, .jpeg or .gif extension`);
     res.redirect('/user/avatar-upload');
   } else {
-    image.mv(`${path.resolve(process.env.UPLOAD_PATH || '/upload')}/${image.name}`, (err) => {
+    image.mv(`${path.resolve('uploads/avatars')}/${image.name}`, (err) => {
       if (err) {
         return res.status(500)
           .send({ err });

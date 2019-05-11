@@ -4,7 +4,11 @@
         <div class="container-profil">
             <% if (locals.user) { %>
                 <div id="img-profil">
-                    <img src="/images/img-profile.png" width="84" height="84" alt="image de profil de <%= user.firstname%> <%= user.lastname %>" />
+                    <% if (user.imageName !== 'none') { %>
+                        <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil"/>
+                    <% } else { %>
+                        <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
+                    <% } %>
                 </div>
                 <div class="user"><%= user.firstname %></div>
                 <div class="user userlast"><%= user.lastname %></div>

@@ -104,7 +104,7 @@ app.use('*', (req, res, next) => {
 });
 
 app.use(express.static(join(__dirname, '../public')));
-app.use('/uploads', express.static(resolve(process.env.UPLOAD_PATH || '/uploads')));
+app.use('/uploads', express.static(join(__dirname, '../uploads')));
 
 /**
  * Routes.

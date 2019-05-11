@@ -1,7 +1,17 @@
 <%- include('../layouts/header') -%>
-Espace personnel
+<%- include('../layouts/menuburger') -%>
 
-<img src="/uploads/<%= user.imageName %>" />
+<div class="container">
+    Espace personnel
+    <div id="img-profil">
+        <% if (user.imageName !== 'none') { %>
+            <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil" />
+        <% } else { %>
+            <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
+        <% } %>
+    </div>
+</div>
+
 
 <%- include('../layouts/js_imports') -%>
 <%- include('../layouts/footer') -%>
