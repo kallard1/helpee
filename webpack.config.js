@@ -27,7 +27,7 @@ if (!devMode) {
 module.exports = {
   target: 'web',
   mode: process.env.NODE_ENV || 'production',
-  devtool: 'sourceMap',
+  // devtool: 'sourceMap',
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss'), path.join(__dirname, '/assets/js/app.js')],
     community: [path.join(__dirname, '/assets/scss/community/new.scss'), path.join(__dirname, '/assets/js/community/new.js')],
@@ -67,6 +67,7 @@ module.exports = {
             loader: 'resolve-url-loader',
             options: {
               sourceMap: true,
+              engine: 'rework',
               root: path.resolve(__dirname)
             }
           },
