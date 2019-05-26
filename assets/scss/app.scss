@@ -42,11 +42,17 @@ body {
   margin-right: 10px;
 }
 
-.container {
+div.container > .container {
+  &:first-child {
+    margin-top: 0;
+  }
+
   background-color: #FFFFFF;
-  width:            90%;
+  margin-top:       5px;
+  width:            100%;
   padding-bottom:   30px;
   font-family:      Montserrat-Regular, sans-serif;
+  border-radius:    5px;
 }
 
 div.input-field {
