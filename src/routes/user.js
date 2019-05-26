@@ -20,4 +20,6 @@ router.post('/edit-avatar', isLoggedIn, profileController.upload);
 router.get('/edit-description', isLoggedIn, (req, res) => res.render('user/edit-description'));
 router.post('/edit-description', isLoggedIn, profileController.editDescription);
 
+router.post('/delete-account', isLoggedIn, profileController.deleteAccount);
+
 module.exports = router;
