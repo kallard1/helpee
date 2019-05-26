@@ -12,8 +12,8 @@ import User from '../models/user';
  */
 exports.index = async(req, res) => {
   res.render('homepage', {
-    communityCount: await Community.estimatedDocumentCount(),
-    userCount: await User.estimatedDocumentCount(),
+    communityCount: await Community.find({ is_enabled: true }).count(),
+    userCount: await User.find({ is_enabled: true }).count(),
     categories: await AdsCategories.find()
   });
 };
