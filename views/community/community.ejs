@@ -1,0 +1,35 @@
+<%- include('../layouts/header') -%>
+
+<div class="container">
+    <h2 class="title"><%= community.name %></h2>
+
+
+    <!--
+    { members:
+        [ {
+            _id,
+            imageName,
+            firstname,
+            lastname,
+             } ],
+       is_enabled,
+       name,
+       slug,
+       description,
+       location:
+        { _id,
+          zip_code,
+          name,
+          slug
+        },
+       user:
+        {
+          imageName,
+          _id,
+          firstname,
+          lastname
+           }
+        }-->
+</div>
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>

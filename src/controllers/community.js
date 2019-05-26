@@ -17,6 +17,28 @@ exports.new = async(req, res) => {
 };
 
 /**
+ * @route GET /community/:slug
+ * @desc Get community by slug
+ * @access public
+ */
+exports.getBySlug = async(req, res) => {
+  const { slug } = req.params;
+
+  Community
+    .findOne({
+      slug,
+      is_enabled: true
+    })
+    .populate('location user members')
+    .then(community => {
+      console.debug(community);
+      res.render('community/community', {
+        community
+      });
+    });
+};
+
+/**
  * Permet d'enregistrer une nouvelle communauté.
  * POST /community/save
  * @param req
@@ -29,9 +51,7 @@ exports.save = async(req, res) => {
     req.flash('warning', errors.array());
     return res.redirect('/community/new');
   }
-  const {
-    name, city, description
-  } = req.body;
+  const { name, city, description } = req.body;
 
   const community = new Community({
     name,
@@ -42,11 +62,14 @@ exports.save = async(req, res) => {
     members: [req.user]
   });
 
-  community.save().then(() => {
-    req.flash('success', `Congratulation, you're community was created with success!`);
-    // TODO: rediriger vers la page de la communauté
-    res.redirect('/');
-  }).catch((err) => {
-    console.error(err);
-  });
+  community
+    .save()
+    .then(() => {
+      req.flash('success', `Congratulation, you're community was created with success!`);
+      // TODO: rediriger vers la page de la communauté
+      res.redirect('/');
+    })
+    .catch(err => {
+      console.error(err);
+    });
 };
