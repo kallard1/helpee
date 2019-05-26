@@ -166,3 +166,25 @@ exports.upload = async(req, res) => {
     });
   }
 };
+
+/**
+ * @route POST /user/delete-account
+ * @desc Delete account
+ * @access private
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+exports.deleteAccount = async(req, res) => {
+  User.findById(req.user._id)
+    .then((user) => {
+      user.is_enabled = false;
+
+      user.save()
+        .then(() => {
+          req.flash('success', 'Account deleted!');
+          req.logout();
+          res.redirect('/');
+        });
+    });
+};

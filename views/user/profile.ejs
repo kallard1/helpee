@@ -42,6 +42,12 @@
           -->
     <% }); %>
 
+    <form action="/user/delete-account" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="btn btn-fit btn-submit active" type="submit">
+            Delete account
+        </button>
+    </form>
 </div>
 
 
