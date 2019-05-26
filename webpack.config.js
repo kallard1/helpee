@@ -36,6 +36,7 @@ module.exports = {
     new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
     register: [path.join(__dirname, '/assets/scss/register.scss'), path.join(__dirname, '/assets/js/auth/register.js')],
     search: [path.join(__dirname, '/assets/scss/search.scss')],
+    profile: [path.join(__dirname, '/assets/scss/profile.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
   output: {

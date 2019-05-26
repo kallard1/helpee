@@ -1,0 +1,5 @@
+div#profile-image {
+  & > img {
+    border-radius: 50%;
+  }
+}

@@ -1,15 +1,40 @@
 <%- include('../layouts/header') -%>
 <%- include('../layouts/menuburger') -%>
+<%- stylesheetTag('profile.css') -%>
 
 <div class="container">
-    Espace personnel
-    <div id="img-profil">
+    <h2 class="title">Espace personnel</h2>
+    <div id="profile-image">
         <% if (user.imageName !== 'none') { %>
             <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil" />
         <% } else { %>
             <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
         <% } %>
     </div>
+
+    <% userMemberCommunities.forEach((community) => { %>
+        <%= community.name %>
+        <%= community.location.name %>
+        <%= community.user.firstname %>
+
+        <!--
+        Liste des variables disponibles :
+        Les exemples ci-dessus permettent d'obtenir l'une des informations présentes ci-dessous :
+
+        _id
+        name
+        slug
+        description
+        location {
+            name
+            zip_code
+        }
+        user {
+            firstname
+            lastname
+        }
+        -->
+    <% }); %>
 </div>
 
 

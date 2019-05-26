@@ -1,0 +1,22 @@
+<%- include('../layouts/header') -%>
+<%- include('../layouts/menuburger') -%>
+
+<div class="container">
+    <h2 class="title">Modification de l'email</h2>
+    <form action="/user/edit-email" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="input-field col s12">
+            <input type="email" id="email" name="email" />
+            <label for="email" class="active">E-mail</label>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn btn-fit btn-submit active">Modifier</button>
+        </div>
+    </form>
+
+</div>
+
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>
