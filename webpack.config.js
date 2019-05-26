@@ -30,11 +30,10 @@ module.exports = {
   // devtool: 'sourceMap',
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss'), path.join(__dirname, '/assets/js/app.js')],
-    community: [path.join(__dirname, '/assets/scss/community/new.scss'), path.join(__dirname, '/assets/js/community/new.js')],
+    community: [path.join(__dirname, '/assets/js/community/new.js')],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
-    login: [path.join(__dirname, '/assets/scss/login.scss')],
     new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
-    register: [path.join(__dirname, '/assets/scss/register.scss'), path.join(__dirname, '/assets/js/auth/register.js')],
+    register: [path.join(__dirname, '/assets/js/auth/register.js')],
     search: [path.join(__dirname, '/assets/scss/search.scss')],
     profile: [path.join(__dirname, '/assets/scss/profile.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
