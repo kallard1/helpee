@@ -42,7 +42,7 @@ router.post('/register', isNotLoggedIn,
       }),
     check('email')
       .isEmail()
-      .custom(email => User.findOne({ email })
+      .custom(email => User.findOne({ email, is_enabled: true })
         .then((user) => {
           if (user) {
             return Promise.reject(new Error('E-mail already in use'));
