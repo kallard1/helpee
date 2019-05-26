@@ -28,8 +28,24 @@ exports.profile = async(req, res) => {
       }
     ]);
 
+  const otherCommunities = await Community
+    .find({
+      members: { $ne: req.user._id }
+    })
+    .populate([
+      {
+        path: 'location',
+        select: 'name zip_code'
+      },
+      {
+        path: 'user',
+        select: 'firstname lastname'
+      }
+    ]);
+
   res.render('user/profile', {
-    userMemberCommunities
+    userMemberCommunities,
+    otherCommunities
   });
 };
 
