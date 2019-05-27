@@ -32,7 +32,6 @@ exports.getBySlug = async(req, res) => {
     })
     .populate('location user members')
     .then(community => {
-      console.debug(community);
       res.render('community/community', {
         community
       });
