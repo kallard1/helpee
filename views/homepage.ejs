@@ -49,7 +49,7 @@
     <div class="count-container">
         <div class="count-container-group">
             <i class="count-icon icon-communities"></i>
-            <p class="common-count purple-text"><%= communityCount %></p>
+            <p class="common-count purple-text"><%= (communityCount > 0 ? communityCount : 0) %></p>
             <p class="common-count text purple-text">Communautés</p>
         </div>
         <div class="count-container-group">
