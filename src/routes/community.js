@@ -26,6 +26,6 @@ router.post(
   communityController.save
 );
 
-router.get('/:slug', communityController.getBySlug);
+router.get('/:slug', isLoggedIn, communityController.getBySlug);
 
 module.exports = router;
