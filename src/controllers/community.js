@@ -1,4 +1,5 @@
 import { validationResult } from 'express-validator/check';
+import _ from 'lodash';
 
 import Community from '../models/community';
 import Departments from '../models/department';
@@ -33,7 +34,9 @@ exports.getBySlug = async(req, res) => {
     .populate('location user members')
     .then(community => {
       res.render('community/community', {
-        community
+        community,
+        isAdmin: community.user._id.equals(req.user._id),
+        isInCommunity: _.filter(community.members, m => m._id.equals(req.user._id))
       });
     });
 };
