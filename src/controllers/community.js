@@ -59,7 +59,6 @@ exports.save = async(req, res) => {
 
   const community = new Community({
     name,
-    slug: 'test-test',
     description,
     location: city,
     user: req.user,
