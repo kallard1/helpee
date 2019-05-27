@@ -4,8 +4,9 @@ import Community from '../models/community';
 import Departments from '../models/department';
 
 /**
- * Affiche le formulaire de création d'une communauté
- * GET /community/new
+ * @route GET /community/new
+ * @desc Show create community form
+ * @access private
  * @param req
  * @param res
  * @returns {Promise<void>}
@@ -19,7 +20,7 @@ exports.new = async(req, res) => {
 /**
  * @route GET /community/:slug
  * @desc Get community by slug
- * @access public
+ * @access private
  */
 exports.getBySlug = async(req, res) => {
   const { slug } = req.params;
@@ -39,8 +40,9 @@ exports.getBySlug = async(req, res) => {
 };
 
 /**
- * Permet d'enregistrer une nouvelle communauté.
- * POST /community/save
+ * @route POST /community/save
+ * @desc Add new community
+ * @access private
  * @param req
  * @param res
  * @returns {Promise<void>}
