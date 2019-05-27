@@ -3,9 +3,9 @@ import Community from '../models/community';
 import User from '../models/user';
 
 /**
- * GET /
- * Home page.
- *
+ * @route GET /
+ * @desc get homepage.
+ * @access public
  * @param req
  * @param res
  * @returns {Promise<void>}
