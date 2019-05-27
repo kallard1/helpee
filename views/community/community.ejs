@@ -3,7 +3,19 @@
 <div class="container">
     <h2 class="title"><%= community.name %></h2>
 
+<!--
+  -- isAdmin permet de verifier que l'utilisateur est l'admin de la communauté
+  -- isInCommunity permet de vérifier que l'utilisateur est dans la communauté et d'afficher les informations relatives
+  --               à son appartenance ou non à celle-ci
+  -->
 
+    <% if (isAdmin) { %>
+        <i class="mdi mdi-crown mdi-24px"></i>
+    <% } %>
+
+    <% if (!isInCommunity) { %>
+    <button class="btn btn-submit active btn-fit">Join</button>
+    <% } %>
     <!--
     { members:
         [ {
