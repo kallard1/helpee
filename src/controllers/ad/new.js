@@ -5,18 +5,26 @@ import Cities from '../../models/cities';
 import Community from '../../models/community';
 import Departments from '../../models/department';
 /**
- * GET /ad/new
+ * @route GET /ad/new
+ * @desc Create new ad
  * @param req
  * @param res
  * @returns {Promise<*>}
  */
 exports.index = async(req, res) => {
-  res.render('ad/new', {
-    categories: await AdsCategories.find(),
-    departments: await Departments.find(),
-    // eslint-disable-next-line no-underscore-dangle
-    communities: await Community.find({ members: req.user._id })
-  });
+  const userCommunities = await Community.find({ members: req.user._id, is_enabled: true });
+
+  if (userCommunities.count() > 0) {
+    res.render('ad/new', {
+      categories: await AdsCategories.find(),
+      departments: await Departments.find(),
+      // eslint-disable-next-line no-underscore-dangle
+      communities: await Community.find({ members: req.user._id })
+    });
+  } else {
+    req.flash('warning', `You're not a member of any communities`);
+    res.redirect('/community/new');
+  }
 };
 
 exports.new = async(req, res) => {
