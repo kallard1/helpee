@@ -67,10 +67,9 @@ exports.save = async(req, res) => {
 
   community
     .save()
-    .then(() => {
+    .then(community => {
       req.flash('success', `Congratulation, you're community was created with success!`);
-      // TODO: rediriger vers la page de la communauté
-      res.redirect('/');
+      res.redirect(`/community/${community.slug}`);
     })
     .catch(err => {
       console.error(err);
