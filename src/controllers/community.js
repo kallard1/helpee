@@ -57,7 +57,7 @@ exports.save = async(req, res) => {
   }
   const { name, city, description } = req.body;
 
-  const community = new Community({
+  const newCommunity = new Community({
     name,
     description,
     location: city,
@@ -65,7 +65,7 @@ exports.save = async(req, res) => {
     members: [req.user]
   });
 
-  community
+  newCommunity
     .save()
     .then(community => {
       req.flash('success', `Congratulation, you're community was created with success!`);
