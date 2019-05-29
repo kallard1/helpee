@@ -3,3 +3,86 @@ div#profile-image {
     border-radius: 50%;
   }
 }
+.container-profile{
+  .button{
+    display: flex;
+    justify-content:flex-end;
+    width: 99%;
+    padding-top: 1%;  
+  }
+  .btn-fit{
+    width: 17%;
+    font-size: 14px;
+    
+  }
+  #profile-image{
+    display: flex;
+    justify-content: center;
+  }
+  img{
+    width: 25%;
+    height: 25%;
+    margin-top: -15px;
+  }
+  .display-name{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    h2{
+      margin: 10px 0 0 0;
+      font-family: 'Montserrat';
+      font-size: 20px;
+    }
+    h3{
+      margin: 0;
+      color:#616161;
+      font-family: 'Montserrat';
+      font-size: 13px;
+    }
+  }
+    .container-flex{
+      display: flex;
+      justify-content:flex-start;
+      margin-top: 20px;
+      margin-left: 20px;
+
+      p{
+        margin: 7px 0;
+      }
+      .bold{
+        font-weight: 700;
+      }
+    }
+
+    .btn-circle{
+      display:         flex;
+      justify-content: center;
+      width:           40px;
+      height:          40px;
+      background-color: #e93959;
+      border-radius:   50%;
+      line-height:     50px;
+      border:          none;
+      margin-top: -20px;
+    }
+    .icon-edit::before {
+      content: url('../icons/icon-edit.svg');
+    }
+    .display-description{
+      margin-left: 20px;
+      width: 90%;
+    }
+
+    .div-after::before{
+      content: "";
+        display: block;
+        height: 2px;
+        width: 60%;
+        background-color: #e93959;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+  
+}
