@@ -75,10 +75,10 @@ app.use(session({
   secret: process.env.SECRET_KEY || '',
   name: '_helpee_session',
   cookie: {
-    expires: new Date(Date.now() + 604800000),
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: process.env.NODE_ENV === 'production',
-    domain: process.env.NODE_ENV === 'production' ? 'helpee.fr' : ''
+    expires: new Date(Date.now() + 604800000)
+    // secure: process.env.NODE_ENV === 'production',
+    // httpOnly: process.env.NODE_ENV === 'production',
+    // domain: process.env.NODE_ENV === 'production' ? 'helpee.fr' : ''
   },
   resave: false,
   saveUninitialized: true
