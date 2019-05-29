@@ -1,14 +1,17 @@
 language: node.js
 node_js:
   - "10"
+
+services:
+  - docker
+
 before_script:
   - npm i -g npm@6.9.0
   - npm install
-  - npm run build
 script:
-  - npm run webpack:prod
   - npm run sonar
   - npm run lint
+  - make
 cache:
   directories:
     - "node_modules"
