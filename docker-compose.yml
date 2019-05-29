@@ -13,3 +13,15 @@ services:
       - ./docker/mongodb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - 27017:27017
+  node:
+    image: selmac/helpee:0.0.0-20190528
+    container_name: helpee
+    environment:
+      DATABASE_URL: "mongodb://helpee:b4qWeUjbWuN7XBhV7cGaYCtajm6eJb@sql.area42.fr:27017/helpee_develop"
+      PORT: 3000
+      SECRET_KEY: xf9xebKx8bxb2xc2xc6xa4*Gx7fx95x0fxe0oxbbHx17x06]rKxbcx18
+    volumes:
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    ports:
+      - 3009:3000
