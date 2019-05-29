@@ -2,18 +2,12 @@ language: node.js
 node_js:
   - "10"
 
-services:
-  - docker
-
 before_script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - npm i -g npm@6.9.0
   - npm install
 script:
   - npm run sonar
   - npm run lint
-after_script:
-  - make release
 cache:
   directories:
     - "node_modules"
