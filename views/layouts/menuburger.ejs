@@ -2,16 +2,18 @@
     <div class="block-nav">
 
         <div class="container-profil">
-            <% if (locals.user) { %>
-                <div id="img-profil">
-                    <% if (user.imageName !== 'none') { %>
-                        <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil"/>
-                    <% } else { %>
-                        <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
-                    <% } %>
-                </div>
-                <div class="user"><%= user.firstname %></div>
-                <div class="user userlast"><%= user.lastname %></div>
+            <a href="/user/profile">
+                <% if (locals.user) { %>
+                    <div id="img-profil">
+                        <% if (user.imageName !== 'none') { %>
+                            <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil"/>
+                        <% } else { %>
+                            <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
+                        <% } %>
+                    </div>
+                    <div class="user"><%= user.firstname %></div>
+                    <div class="user userlast"><%= user.lastname %></div>
+            </a>
         </div>
         <% } else { %>
             <div class="log"><a href="/auth/login">Se connecter</a></div>
