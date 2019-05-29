@@ -37,6 +37,8 @@
         <p><%= user.informations.description %></p>
     </div>
 
+
+
     <% userMemberCommunities.forEach((community) => { %>
         <%= community.name %>
         <%= community.location.name %>
@@ -73,6 +75,15 @@
             Delete account
         </button>
     </form>
+</div>
+
+<div class="container container-commu">
+    <h2>Mes Communautés</h2>
+    <p>Vous n'avez encore créer aucune communautés cliquez ci-dessous pour créer votre première communauté </p>
+     
+     <div class="btn-container">
+            <button type="submit" class="btn btn-fit btn-search active" href="">Creer une communauté</button>
+    </div>
 </div>
 
 
