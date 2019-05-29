@@ -16,15 +16,15 @@
         <% } %>
     </div>
     <div class="display-name">
-        <h2>Jean L'admin Admin</h2>
-        <h3>admin@admin.fr</h3>
+        <h2><%= user.firstname %> <%= user.lastname %></h2>
+        <h3><%= user.email %></h3>
     </div>
     <div class="container-flex">
         <div class="display-address">
-            <p><span class="bold"> Adresse :</span> 42 rue de L'admin</p>
-            <p><span class="bold"> Code postal :</span> 59910</p>
-            <p><span class="bold"> Ville :</span> Bondues</p>
-            <p><span class="bold"> Numero de téléphone :</span> 0642424242</p>
+            <p><span class="bold"> Adresse :</span> <%= user.informations.address %></p>
+            <p><span class="bold"> Code postal :</span> <%= user.informations.zip_code %></p>
+            <p><span class="bold"> Ville :</span> <%= user.informations.city %></p>
+            <p><span class="bold"> Numero de téléphone :</span> <%= user.informations.phone %></p>
         </div>
     </div>
     <div class="div-after"></div>
@@ -34,8 +34,7 @@
         </button>
     </div> 
     <div class="display-description">
-        <p>Bonjour je suis Albert Dupont, développeur informatique , 
-Et pendant mon temps libre, j'aime bricoler, faire du jardinage. Je me suis inscrit sur Helpee, car j'aimerais proposer mes services en tant que bricolo amateur pour de temps en temps faire garder mon enfant. </p>
+        <p><% user.informations.description %></p>
     </div>
 
     <% userMemberCommunities.forEach((community) => { %>
