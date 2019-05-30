@@ -38,7 +38,11 @@ exports.getBySlug = async(req, res) => {
         isAdmin: community.user._id.equals(req.user._id),
         isInCommunity: _.filter(community.members, m => m._id.equals(req.user._id))
       });
-    });
+    })
+    .catch(() => res.status(404).render('error', {
+      message: '404 - Page not found',
+      error: {}
+    }));
 };
 
 /**
