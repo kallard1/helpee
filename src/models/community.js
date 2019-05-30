@@ -14,7 +14,6 @@ const schema = new mongoose.Schema(
     slug: {
       type: String,
       slug: 'name',
-      required: true,
       maxlength: 100,
       trim: true,
       unique: true
