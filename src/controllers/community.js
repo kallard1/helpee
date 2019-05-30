@@ -1,5 +1,6 @@
 import { validationResult } from 'express-validator/check';
 import _ from 'lodash';
+import Ad from '../models/ad/ad';
 
 import Community from '../models/community';
 import Departments from '../models/department';
@@ -32,11 +33,30 @@ exports.getBySlug = async(req, res) => {
       is_enabled: true
     })
     .populate('location user members')
-    .then(community => {
+    .then(async community => {
+      console.info(await Ad.find({ community: community._id, is_enabled: true }, { community: 0 })
+        .populate({
+          path: 'user',
+          select: 'firstname lastname'
+        })
+        .populate({
+          path: 'category',
+          select: 'label slug'
+        }));
+
       res.render('community/community', {
         community,
         isAdmin: community.user._id.equals(req.user._id),
-        isInCommunity: _.filter(community.members, m => m._id.equals(req.user._id))
+        isInCommunity: _.filter(community.members, m => m._id.equals(req.user._id)),
+        ads: await Ad.find({ community: community._id, is_enabled: true }, { community: 0 })
+          .populate({
+            path: 'user',
+            select: 'firstname lastname'
+          })
+          .populate({
+            path: 'category',
+            select: 'label slug'
+          })
       });
     })
     .catch(() => res.status(404).render('error', {
