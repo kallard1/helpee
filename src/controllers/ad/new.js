@@ -26,6 +26,13 @@ exports.index = async(req, res) => {
   }
 };
 
+/**
+ * @route POST /ad/new
+ * @desc Create new ad
+ * @param req
+ * @param res
+ * @returns {Promise<*>}
+ */
 exports.new = async(req, res) => {
   const {
     community, title, category, city, description, pictures, uev
