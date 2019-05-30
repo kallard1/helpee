@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import slug from 'mongoose-slug-updater';
+
+mongoose.plugin(slug);
 
 const schema = new mongoose.Schema(
   {
@@ -12,6 +15,7 @@ const schema = new mongoose.Schema(
     },
     title: {
       type: String,
+      trim: true,
       required: true,
       maxlength: 150,
       index: {
@@ -21,12 +25,10 @@ const schema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: true,
+      slug: 'title',
+      trim: true,
       maxlength: 255,
-      index: {
-        unique: true,
-        dropDups: true
-      }
+      unique: true
     },
     description: {
       type: String,
