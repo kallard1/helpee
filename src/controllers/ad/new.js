@@ -36,11 +36,10 @@ exports.new = async(req, res) => {
   const cityId = await Cities.findOne({ slug: city })
     .select({ _id: 1 });
 
-  const ad = new Ad({
+  const newAd = new Ad({
     user: req.user._id,
     category: categoryId,
     title,
-    slug: title, // TODO: convertir le titre en slug
     description,
     uev,
     community,
@@ -48,12 +47,12 @@ exports.new = async(req, res) => {
     images: _.filter(pictures, el => el !== '')
   });
 
-  ad.save()
-    .then(() => {
+  newAd.save()
+    .then(ad => {
       req.flash('success', 'Ad created!');
-      res.redirect('/'); // TODO: Rediriger vers la page de l'annonce (quand elle sera créée)
+      res.redirect(`/ad/${ad.slug}`);
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err);
     });
 };
