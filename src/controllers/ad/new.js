@@ -14,11 +14,10 @@ import Departments from '../../models/department';
 exports.index = async(req, res) => {
   const userCommunities = await Community.find({ members: req.user._id, is_enabled: true });
 
-  if (userCommunities.count() > 0) {
+  if (userCommunities.length > 0) {
     res.render('ad/new', {
       categories: await AdsCategories.find(),
       departments: await Departments.find(),
-      // eslint-disable-next-line no-underscore-dangle
       communities: await Community.find({ members: req.user._id })
     });
   } else {
