@@ -1,4 +1,6 @@
 const firstnameInput = document.getElementById('firstname');
+const lastnameInput = document.getElementById('lastname');
+const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const passwordConfirmationInput = document.getElementById('password-confirmation');
 const passwordVisibility = document.getElementById('password-visibility');
@@ -17,6 +19,33 @@ firstnameInput.addEventListener('keyup', () => {
   }
 });
 
+/**
+ * Check if lastname is not empty or not or does not exceed 75 chars.
+ */
+lastnameInput.addEventListener('keyup', () => {
+  const classes = lastnameInput.classList;
+  if (lastnameInput.value.length === 0 || lastnameInput.value.length > 75) {
+    classes.add('invalid');
+    classes.remove('valid');
+  } else {
+    classes.add('valid');
+    classes.remove('invalid');
+  }
+});
+
+emailInput.addEventListener('keyup', () => {
+  const classes = emailInput.classList;
+  const emailValue = emailInput.value;
+  const regexP = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (regexP.test(emailValue)) {
+    classes.add('valid');
+    classes.remove('invalid');
+  } else {
+    classes.add('invalid');
+    classes.remove('valid');
+  }
+});
 /**
  * Check password strength
  */
