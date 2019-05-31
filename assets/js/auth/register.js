@@ -8,10 +8,7 @@ const passwordVisibility = document.getElementById('password-visibility');
  */
 firstnameInput.addEventListener('keyup', () => {
   const classes = firstnameInput.classList;
-  if (firstnameInput.value.length === 0) {
-    classes.add('invalid');
-    classes.remove('valid');
-  } else if (firstnameInput.value.length > 75) {
+  if (firstnameInput.value.length === 0 || firstnameInput.value.length > 75) {
     classes.add('invalid');
     classes.remove('valid');
   } else {
