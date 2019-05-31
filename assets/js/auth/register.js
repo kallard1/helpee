@@ -33,6 +33,9 @@ lastnameInput.addEventListener('keyup', () => {
   }
 });
 
+/**
+ * Check email validity
+ */
 emailInput.addEventListener('keyup', () => {
   const classes = emailInput.classList;
   const emailValue = emailInput.value;
