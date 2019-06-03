@@ -6,6 +6,7 @@ import { isLoggedIn } from '../middlewares/isLoggedIn';
 
 const router = express.Router();
 
+router.get('/', isLoggedIn, communityController.index);
 router.get('/new', isLoggedIn, communityController.new);
 router.post(
   '/save',

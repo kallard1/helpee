@@ -6,6 +6,20 @@ import Community from '../models/community';
 import Departments from '../models/department';
 
 /**
+ * @route GET /
+ * @desc List all communities
+ * @access private
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+exports.index = async(req, res) => {
+  res.render('community/list', {
+    communities: await Community.find({})
+  });
+};
+
+/**
  * @route GET /community/new
  * @desc Show create community form
  * @access private
