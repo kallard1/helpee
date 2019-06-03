@@ -1,6 +1,7 @@
 <%- include('../layouts/header') -%>
 <%- include('../layouts/menuburger') -%>
 
+
 <div class="container">
     <h2 class="title">Modification de l'email</h2>
     <form action="/user/edit-email" method="POST">
@@ -17,6 +18,16 @@
     </form>
 
 </div>
+<%- include('../user/edit-password') -%>
 
+<div class="container">
+    <h2 class="title">Supprimer le compte</h2>
+    <form action="/user/delete-account" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="btn-container">
+            <button type="submit" class="btn btn-fit btn-submit active">Supprimer</button>
+        </div>
+    </form>
+</div>
 <%- include('../layouts/js_imports') -%>
 <%- include('../layouts/footer') -%>
