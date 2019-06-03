@@ -49,6 +49,7 @@ emailInput.addEventListener('keyup', () => {
     classes.remove('valid');
   }
 });
+
 /**
  * Check password strength
  */
