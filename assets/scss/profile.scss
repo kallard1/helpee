@@ -53,6 +53,7 @@ div#profile-image {
 
       p{
         margin: 7px 0;
+        text-decoration: none;
       }
       .bold{
         font-weight: 700;
@@ -90,6 +91,14 @@ div#profile-image {
     }
   
 }
+.display-address{
+  p{
+    color:black;
+  }
+  p:hover{
+    color:black;
+  }
+}
 
 .container-commu{
   margin-bottom: 40px;
@@ -103,4 +112,12 @@ div#profile-image {
   p{
     padding-left: 20px;
   }
+
+  .btn{
+    width: 80%;
+  }
+}
+
+#container-supp{
+height: 180px;
 }

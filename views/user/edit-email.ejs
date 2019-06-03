@@ -1,5 +1,6 @@
 <%- include('../layouts/header') -%>
 <%- include('../layouts/menuburger') -%>
+<%- stylesheetTag('profile.css') -%>
 
 
 <div class="container">
@@ -20,7 +21,7 @@
 </div>
 <%- include('../user/edit-password') -%>
 
-<div class="container">
+<div class="container" id="container-supp">
     <h2 class="title">Supprimer le compte</h2>
     <form action="/user/delete-account" method="POST">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
