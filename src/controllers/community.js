@@ -15,7 +15,7 @@ import Departments from '../models/department';
  */
 exports.index = async(req, res) => {
   res.render('community/list', {
-    communities: await Community.find({})
+    communities: await Community.find({ is_enabled: true })
   });
 };
 
