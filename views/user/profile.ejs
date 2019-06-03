@@ -71,12 +71,23 @@
 
 </div>
 
-<div class="container container-commu">
+<div class="container container-commu row">
     <h2>Mes Communautés</h2>
-    <p>Vous n'avez encore créer aucune communautés cliquez ci-dessous pour créer votre première communauté </p>
+    <% userMemberCommunities.forEach((community) => { %>
+    <% if (userMemberCommunities == 0 ) { %>
+            <div><p>"Vous n'avez encore créé aucune communauté cliquez ci-dessous pour créer votre première communauté" </p></div>
+        <% } else { %>
+            <div class="col s12">
+                <%= community.name %>
+                <%= community.location.name %>
+                <%= community.user.firstname %>
+            </div>
+        <% } %>
+        <% }); %>
+    
      
      <div class="btn-container">
-            <button type="submit" class="btn btn-fit btn-search active" href="">Creer une communauté</button>
+            <button type="submit" class="btn btn-fit btn-search active" href="/community/new">Creer une communauté</button>
     </div>
 </div>
 
