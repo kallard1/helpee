@@ -127,20 +127,24 @@ h3 {
   z-index:         2;
   opacity:         1;
   background:      url('../images/slide1.png');
-  background-size: 100% auto;
   background-repeat: no-repeat;
+  background-size: 85% auto;
+  background-position: center top;
 }
 
 .item-2 {
   background:      url('../images/slide2.png');
-  background-size: 100% auto;
   background-repeat: no-repeat;
+  background-size: 85% auto;
+  background-position: center top;
 }
 
 .item-3 {
   background:      url('../images/slide3.png');
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-size: 85% auto;
+  background-position: center top;
 }
 
 *:target ~ .item-1 {

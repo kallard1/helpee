@@ -100,6 +100,12 @@ div#profile-image {
   }
 }
 
+.btn-container {
+  a {
+    text-decoration:none;
+  }
+}
+
 .container-commu{
   margin-bottom: 40px;
   h2{
@@ -114,10 +120,37 @@ div#profile-image {
   }
 
   .btn{
-    width: 80%;
+    width: 100%;
   }
+}
+
+.community-details {
+  margin-left:20px;
+  width:90%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color:#ececec;
+  border-radius: 5px;
+}
+
+.community-name {
+  font-weight:700;
 }
 
 #container-supp{
 height: 180px;
+}
+
+.arrow {
+  border:       solid #e93959;
+  border-width: 0 3px 3px 0;
+  padding:      12px;
+  float: right;
+}
+
+.arrow-next {
+  right:     10px;
+  position:  relative;
+  transform: translateY(-150%) rotate(-45deg);
+  margin-right:5%;
 }

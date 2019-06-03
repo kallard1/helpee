@@ -37,13 +37,13 @@
         <p><%= user.informations.description %></p>
     </div>
 
+<!--
 
-
-    <% userMemberCommunities.forEach((community) => { %>
+   <% userMemberCommunities.forEach((community) => { %>
         <%= community.name %>
         <%= community.location.name %>
         <%= community.user.firstname %>
-
+-->
         <!--
         Liste des variables disponibles :
         Les exemples ci-dessus permettent d'obtenir l'une des informations présentes ci-dessous :
@@ -71,23 +71,29 @@
 
 </div>
 
-<div class="container container-commu row">
+<div class="container container-commu">
     <h2>Mes Communautés</h2>
     <% userMemberCommunities.forEach((community) => { %>
     <% if (userMemberCommunities == 0 ) { %>
-            <div><p>"Vous n'avez encore créé aucune communauté cliquez ci-dessous pour créer votre première communauté" </p></div>
+            <div><p>"Vous n'avez pas encore créé de communauté, cliquez ci-dessous pour créer votre première communauté" </p></div>
         <% } else { %>
-            <div class="col s12">
-                <%= community.name %>
-                <%= community.location.name %>
-                <%= community.user.firstname %>
+            <div class="col s12 community-details">
+                <p class="community-name"><%= community.name %></p>
+                <p class="community-city"><%= community.location.name %></p>
+                <a class="arrow arrow-next" href='/community/<%=community.slug %>'></a>
+                <p class="community-members"><%= community.members.length %> 
+                    <% if(community.members.length == 1 ) { %>
+                    <span>membre</span><% }else{ %>
+                    <span>membres</span>
+                    <% };%>
+                </p>
             </div>
         <% } %>
         <% }); %>
     
      
      <div class="btn-container">
-            <button type="submit" class="btn btn-fit btn-search active" href="/community/new">Creer une communauté</button>
+            <a href="/community/new/"><button type="submit" class="btn btn-fit btn-search active">Creer une communauté</button></a>
     </div>
 </div>
 
