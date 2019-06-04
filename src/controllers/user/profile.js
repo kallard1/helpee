@@ -61,7 +61,7 @@ exports.editPassword = async(req, res) => {
   const { password: oldPassword, newPassword } = req.body;
 
   User.findById(req.user._id)
-    .then((user) => {
+    .then(user => {
       user.comparePassword(oldPassword, (err, isMatch) => {
         if (err) return console.error(err);
 
@@ -93,7 +93,7 @@ exports.editEmail = async(req, res) => {
   const { email } = req.body;
 
   User.findById(req.user._id)
-    .then((user) => {
+    .then(user => {
       user.email = email;
 
       user.save()
@@ -116,7 +116,7 @@ exports.editDescription = async(req, res) => {
   const { description } = req.body;
 
   User.findById(req.user._id)
-    .then((user) => {
+    .then(user => {
       user.informations.description = description;
 
       user.save()
@@ -142,7 +142,7 @@ exports.upload = async(req, res) => {
     req.flash('warning', `File ${image.name} is not a supported image. Please upload image with .png, .jpg, .jpeg or .gif extension`);
     res.redirect('/user/avatar-upload');
   } else {
-    image.mv(`${path.resolve('uploads/avatars')}/${image.name}`, (err) => {
+    image.mv(`${path.resolve('uploads/avatars')}/${image.name}`, err => {
       if (err) {
         return res.status(500)
           .send({ err });
@@ -177,7 +177,7 @@ exports.upload = async(req, res) => {
  */
 exports.deleteAccount = async(req, res) => {
   User.findById(req.user._id)
-    .then((user) => {
+    .then(user => {
       user.is_enabled = false;
 
       user.save()

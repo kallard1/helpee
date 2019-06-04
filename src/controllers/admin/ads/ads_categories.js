@@ -34,7 +34,7 @@ exports.save = async(req, res) => {
       slug
     });
 
-    AdCategory.create(category, (err) => {
+    AdCategory.create(category, err => {
       if (err) {
         return res.status(500)
           .send({ error: err });
@@ -56,7 +56,7 @@ exports.save = async(req, res) => {
         upsert: true,
         setDefaultsOnInsert: true
       },
-      (err) => {
+      err => {
         if (err) {
           return res.status(500)
             .send({ error: err });
@@ -70,7 +70,7 @@ exports.save = async(req, res) => {
 };
 
 exports.delete = async(req, res) => {
-  AdCategory.findOneAndRemove({ slug: req.params.slug }, (err) => {
+  AdCategory.findOneAndRemove({ slug: req.params.slug }, err => {
     if (err) {
       return res.status(500)
         .send({ error: err });

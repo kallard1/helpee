@@ -46,7 +46,7 @@ router.post('/register', isNotLoggedIn,
         email,
         is_enabled: true
       })
-        .then((user) => {
+        .then(user => {
           if (user) {
             return Promise.reject(new Error('E-mail already in use'));
           }
