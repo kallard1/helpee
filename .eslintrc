@@ -19,7 +19,6 @@
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "eslint-config-airbnb-base"
   ],
   "globals": {

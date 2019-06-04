@@ -31,7 +31,7 @@ module.exports = {
   entry: {
     app: [path.join(__dirname, '/assets/scss/app.scss'), path.join(__dirname, '/assets/js/app.js')],
     community: [
-      path.join(__dirname, '/assets/scss/community/new.scss'),
+      path.join(__dirname, '/assets/scss/community.scss'),
       path.join(__dirname, '/assets/js/community/new.js')
     ],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
