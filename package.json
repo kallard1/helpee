@@ -19,6 +19,12 @@
     "webpack:dev": "cross-env NODE_ENV=development webpack --progress",
     "webpack:watch": "cross-env NODE_ENV=development webpack --watch --progress"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run sonar"
+    }
+  },
   "engines": {
     "node": ">=10",
     "npm": ">=6"
@@ -93,6 +99,7 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^3.0.1",
+    "husky": "^2.3.0",
     "img-loader": "^3.0.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
@@ -101,6 +108,7 @@
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
+    "prettier": "1.17.1",
     "resolve-url-loader": "3.0.1",
     "sass-loader": "^7.1.0",
     "shelljs": "^0.8.3",

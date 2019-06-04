@@ -97,14 +97,14 @@ h3 {
   left:      10px;
   position:  absolute;
   top:       50%;
-  transform: translateY(-50%) rotate(135deg);
+  transform: translateY(-150%) rotate(135deg);
 }
 
 .arrow-next {
   right:     10px;
   position:  absolute;
   top:       50%;
-  transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-150%) rotate(-45deg);
 }
 
 .light {
@@ -126,18 +126,24 @@ h3 {
 .item-1 {
   z-index:         2;
   opacity:         1;
-  background:      url('../images/comment-ca-marche-1.png');
-  background-size: 100% auto;
+  background:      url('../images/slide1.png');
+  background-repeat: no-repeat;
+  background-size: 73% auto;
+  background-position: center top;
 }
 
 .item-2 {
-  background:      url('../images/comment-ca-marche-2.png');
-  background-size: 100% auto;
+  background:      url('../images/slide2.png');
+  background-repeat: no-repeat;
+  background-size: 73% auto;
+  background-position: center top;
 }
 
 .item-3 {
-  background:      url('../images/comment-ca-marche-3.png');
-  background-size: 100% auto;
+  background:      url('../images/slide3.png');
+  background-repeat: no-repeat;
+  background-size: 73% auto;
+  background-position: center top;
 }
 
 *:target ~ .item-1 {
