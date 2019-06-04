@@ -1,5 +1,7 @@
 # HELPEE
 
+[![Build Status](https://travis-ci.com/kallard1/helpee.svg?token=oeD5UJGg9PYYJsvqbhNv&branch=master)](https://travis-ci.com/kallard1/helpee)
+
 ## Pré-requis
 - Savoir lire
 - Savoir chercher sur google

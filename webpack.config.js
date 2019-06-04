@@ -35,10 +35,10 @@ module.exports = {
       path.join(__dirname, '/assets/js/community/new.js')
     ],
     homepage: [path.join(__dirname, '/assets/scss/homepage.scss')],
-    login: [path.join(__dirname, '/assets/scss/login.scss')],
     new_ad: [path.join(__dirname, '/assets/scss/new.scss'), path.join(__dirname, '/assets/js/ad/new.js')],
-    register: [path.join(__dirname, '/assets/scss/register.scss'), path.join(__dirname, '/assets/js/auth/register.js')],
+    register: [path.join(__dirname, '/assets/js/auth/register.js')],
     search: [path.join(__dirname, '/assets/scss/search.scss')],
+    profile: [path.join(__dirname, '/assets/scss/profile.scss')],
     'admin/ads/categories': [path.join(__dirname, '/assets/js/admin/ads/categories.js')]
   },
   output: {
@@ -91,8 +91,7 @@ module.exports = {
               name: '[name].[hash:10].[ext]',
               outputPath: 'fonts/'
             }
-          }
-        ]
+          }]
       },
       {
         test: /\.(png|jpe?g|gif|svg)?$/i,

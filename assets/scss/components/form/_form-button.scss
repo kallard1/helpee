@@ -5,6 +5,10 @@
   justify-content: space-evenly;
   padding-top:     10px;
   margin-bottom:   20px;
+
+  #container-button-mobile{
+    width:75%;
+  }
 }
 
 .btn {
@@ -27,6 +31,8 @@
       font-style: normal;
     }
   }
+  
+
 
   &.btn-propose {
     background-color: rgba(#a3418f, 0.5);

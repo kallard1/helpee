@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { validationResult } from 'express-validator/check';
 
 import { newUserEmail } from '../../config/email';

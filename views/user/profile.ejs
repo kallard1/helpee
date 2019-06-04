@@ -1,14 +1,99 @@
 <%- include('../layouts/header') -%>
 <%- include('../layouts/menuburger') -%>
+<%- stylesheetTag('profile.css') -%>
 
-<div class="container">
-    Espace personnel
-    <div id="img-profil">
+<div class="container container-profile">
+    <div class="button">
+        <button class="btn btn-fit btn-submit active" type="submit">
+           <a href="edit-email">Editer</a>
+        </button>
+    </div> 
+    <div id="profile-image">
         <% if (user.imageName !== 'none') { %>
             <img src="/uploads/avatars/<%= user.imageName %>" width="84" height="84" alt="Votre image de profil" />
         <% } else { %>
             <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
         <% } %>
+    </div>
+    <div class="display-name">
+        <h2><%= user.firstname %> <%= user.lastname %></h2>
+        <h3><%= user.email %></h3>
+    </div>
+    <div class="container-flex">
+        <div class="display-address">
+            <p><span class="bold"> Adresse :</span> <%= user.informations.address %></p>
+            <p><span class="bold"> Code postal :</span> <%= user.informations.zip_code %></p>
+            <p><span class="bold"> Ville :</span> <%= user.informations.city %></p>
+            <p><span class="bold"> Numero de téléphone :</span><meta name="format-detection" content="telephone=no"> <%= user.informations.phone %></p>
+        </div>
+    </div>
+    <div class="div-after"></div>
+    <div class="button">
+        <button class="btn-circle" type="submit">
+          <a href="edit-description"><i class="icon-edit"></i></a>
+        </button>
+    </div> 
+    <div class="display-description">
+        <p><%= user.informations.description %></p>
+    </div>
+
+<!--
+
+   <% userMemberCommunities.forEach((community) => { %>
+        <%= community.name %>
+        <%= community.location.name %>
+        <%= community.user.firstname %>
+-->
+        <!--
+        Liste des variables disponibles :
+        Les exemples ci-dessus permettent d'obtenir l'une des informations présentes ci-dessous :
+
+        _id
+        name
+        slug
+        description
+        location {
+            name
+            zip_code
+        }
+        user {
+            firstname
+            lastname
+        }
+        -->
+    <% }); %>
+
+    <% otherCommunities.forEach((community) => { %>
+        <!--
+            Les variables disponibles sont les mêmes que dans la boucle précédente
+          -->
+    <% }); %>
+
+</div>
+
+<div class="container container-commu">
+    <h2>Mes Communautés</h2>
+    <% userMemberCommunities.forEach((community) => { %>
+    <% if (userMemberCommunities == 0 ) { %>
+            <div><p>"Vous n'avez pas encore créé de communauté, cliquez ci-dessous pour créer votre première communauté" </p></div>
+        <% } else { %>
+            <div class="col s12 community-details">
+                <p class="community-name"><%= community.name %></p>
+                <p class="community-city"><%= community.location.name %></p>
+                <a class="arrow arrow-next" href='/community/<%=community.slug %>'></a>
+                <p class="community-members"><%= community.members.length %> 
+                    <% if(community.members.length == 1 ) { %>
+                    <span>membre</span><% }else{ %>
+                    <span>membres</span>
+                    <% };%>
+                </p>
+            </div>
+        <% } %>
+        <% }); %>
+    
+     
+     <div class="btn-container">
+            <a href="/community/new/"><button type="submit" class="btn btn-fit btn-search active">Creer une communauté</button></a>
     </div>
 </div>
 

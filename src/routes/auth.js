@@ -1,10 +1,10 @@
-import { check } from 'express-validator/check';
 import express from 'express';
+import { check } from 'express-validator/check';
 
 import * as registerController from '../controllers/auth/register';
 import * as securityController from '../controllers/auth/security';
 
-import { isNotLoggedIn, isLoggedIn } from '../middlewares/isLoggedIn';
+import { isLoggedIn, isNotLoggedIn } from '../middlewares/isLoggedIn';
 
 import User from '../models/user';
 
@@ -42,7 +42,10 @@ router.post('/register', isNotLoggedIn,
       }),
     check('email')
       .isEmail()
-      .custom(email => User.findOne({ email })
+      .custom(email => User.findOne({
+        email,
+        is_enabled: true
+      })
         .then((user) => {
           if (user) {
             return Promise.reject(new Error('E-mail already in use'));
@@ -72,30 +75,40 @@ router.post('/register', isNotLoggedIn,
 router.get('/login', isNotLoggedIn, securityController.index);
 router.post('/login', isNotLoggedIn, securityController.login);
 
-router.get("/forgot-password", isNotLoggedIn, securityController.forgot);
-router.post("/forgot-password", isNotLoggedIn, securityController.generateToken);
+router.get('/forgot-password', isNotLoggedIn, securityController.forgot);
+router.post('/forgot-password', isNotLoggedIn, securityController.generateToken);
 
-router.get("/reset-password/:token", isNotLoggedIn, securityController.resetPassword);
-router.post("/reset-password/:token", [
-  check("password")
-    .exists().withMessage("Password is required")
-    .isLength({ min: 8 }).withMessage("Password must need 8 characters min.")
-    .matches(/[0-9]/).withMessage("Password must contain at least 1 number.")
-    .matches(/[a-z]/).withMessage("Password must contain at least 1 lowercase letter.")
-    .matches(/[A-Z]/).withMessage("Password must contain at least 1 uppercase letter."),
-  check("passwordConfirmation")
-    .exists().withMessage("Password confirmation is required")
-    .isLength({ min: 8 }).withMessage("Password must need 8 characters min.")
-    .matches(/[0-9]/).withMessage("Password must contain at least 1 number.")
-    .matches(/[a-z]/).withMessage("Password must contain at least 1 lowercase letter.")
-    .matches(/[A-Z]/).withMessage("Password must contain at least 1 uppercase letter.")
+router.get('/reset-password/:token', isNotLoggedIn, securityController.resetPassword);
+router.post('/reset-password/:token', [
+  check('password')
+    .exists()
+    .withMessage('Password is required')
+    .isLength({ min: 8 })
+    .withMessage('Password must need 8 characters min.')
+    .matches(/[0-9]/)
+    .withMessage('Password must contain at least 1 number.')
+    .matches(/[a-z]/)
+    .withMessage('Password must contain at least 1 lowercase letter.')
+    .matches(/[A-Z]/)
+    .withMessage('Password must contain at least 1 uppercase letter.'),
+  check('passwordConfirmation')
+    .exists()
+    .withMessage('Password confirmation is required')
+    .isLength({ min: 8 })
+    .withMessage('Password must need 8 characters min.')
+    .matches(/[0-9]/)
+    .withMessage('Password must contain at least 1 number.')
+    .matches(/[a-z]/)
+    .withMessage('Password must contain at least 1 lowercase letter.')
+    .matches(/[A-Z]/)
+    .withMessage('Password must contain at least 1 uppercase letter.')
     .custom((value, { req }) => {
       if (value !== req.body.password) {
-        throw new Error("Password confirmation does not match password");
+        throw new Error('Password confirmation does not match password');
       }
 
       return true;
-    }),
+    })
 ], securityController.resetingPassword);
 
 router.get('/logout', isLoggedIn, securityController.logout);
