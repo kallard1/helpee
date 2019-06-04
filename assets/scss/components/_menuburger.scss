@@ -34,14 +34,30 @@
     a {
       text-decoration:none;
       color:#fff;
+      font-weight: 700;
     }
   }
 
 }
 
 .container-profil {
+  display: flex;
   margin-top:   90px;
   padding-left: 40px;
+}
+
+#display-name{
+  margin-left: 10px;
+
+  a{
+    font-family:     Montserrat-SemiBold, sans-serif;
+    color: #FFFFFF;
+  }
+
+  .underline-mb{
+    text-decoration: underline;
+    font-size: 11px;
+  }
 }
 
 .user {
@@ -50,6 +66,9 @@
   font-size:   20px;
   display:     block;
   padding-top: 10px;
+}
+.userlast{
+  padding-top: 0px;
 }
 
 .log {

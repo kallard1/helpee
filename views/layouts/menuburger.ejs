@@ -11,8 +11,11 @@
                             <img src="/uploads/default/img-profile.png" width="84" height="84" alt="Votre image de profil temporaire" />
                         <% } %>
                     </div>
-                    <div class="user"><%= user.firstname %></div>
-                    <div class="user userlast"><%= user.lastname %></div>
+                        <div id="display-name">
+                        <div class="user"><%= user.firstname %></div>
+                        <div class="user userlast"><%= user.lastname %></div>
+                        <a class="underline-mb">Mon profil</a>
+                    </div>
             </a>
         </div>
         <% } else { %>
