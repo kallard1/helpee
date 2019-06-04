@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import expressValidator from 'express-validator';
 import fileUpload from 'express-fileupload';
-import { join, resolve } from 'path';
+import { join } from 'path';
 import logger from 'morgan';
 import lusca from 'lusca';
 import manifestHelpers from 'express-manifest-helpers';
@@ -29,12 +29,12 @@ import citiesRouter from './routes/cities';
 import rootRouter from './routes/root';
 import userRouter from './routes/user';
 
+import './config/moment.locale';
 import config from './config/passport';
 
 dotenv.config({ path: '.env' });
-
 config(passport);
-import './config/moment.locale';
+
 const app = express();
 const RedisStore = redisStore(session);
 const redis = Redis.createClient({
@@ -145,22 +145,22 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use((err, req, res, next) => {
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
   winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
 
-  const error = req.app.get('env') === 'development' ? err : {}
+  const error = req.app.get('env') === 'development' ? err : {};
 
   // handle CSRF token errors here
-  res.status(403)
+  res.status(403);
   res.render('error', {
     message: err.message,
     error
   });
 });
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

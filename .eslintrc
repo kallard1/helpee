@@ -466,9 +466,27 @@
       "error",
       "either"
     ],
-    "ordered-imports": [true, {
-      "import-sources-order": "any",
-      "named-imports-order": "case-insensitive"
-    }]
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "func-names": ["error", "as-needed"]
   }
 }

@@ -1,0 +1,22 @@
+<%- include('../layouts/header') -%>
+<%- include('../layouts/menuburger') -%>
+
+<div class="container">
+    <h2 class="title">Modification de la description</h2>
+    <form action="/user/edit-description" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="input-field col s12">
+            <textarea type="description" id="description" name="description"></textarea>
+            <label for="description" class="active">Description</label>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn btn-fit btn-submit active">Modifier</button>
+        </div>
+    </form>
+
+</div>
+
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>
