@@ -1,8 +1,14 @@
 <%- include('../layouts/header') -%>
+<%- include('../layouts/menuburger') -%>
 
 <div class="container">
     <h2 class="title"><%= community.name %></h2>
-
+    <p class="community-members"><%= community.members.length %> 
+      <% if(community.members.length == 1 ) { %>
+      <span>membre</span><% }else{ %>
+      <span>membres</span>
+    </p>
+    <% } %>
     <!--
       -- isAdmin permet de verifier que l'utilisateur est l'admin de la communauté
       -- isInCommunity permet de vérifier que l'utilisateur est dans la communauté et d'afficher les informations relatives
@@ -14,7 +20,7 @@
     <% } %>
 
     <% if (!isInCommunity) { %>
-        <button class="btn btn-submit active btn-fit">Join</button>
+        <button class="btn btn-submit active btn-fit">Rejoindre</button>
     <% } else { %>
         <% ads.forEach(ad => { %>
             <%= ad.title %>
