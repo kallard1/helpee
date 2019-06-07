@@ -26,7 +26,6 @@ const schema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
       trim: true
     },
     is_verified: {
@@ -107,24 +106,6 @@ const schema = new mongoose.Schema(
     timestamps: true
   }
 );
-
-schema.virtual('community_user', {
-  ref: 'Community',
-  localField: '_id',
-  foreignField: 'user'
-});
-
-schema.virtual('community_members', {
-  ref: 'Community',
-  localField: '_id',
-  foreignField: 'members'
-});
-
-schema.virtual('ad_user', {
-  ref: 'Ad',
-  localField: '_id',
-  foreignField: 'user'
-});
 
 // eslint-disable-next-line func-names
 schema.pre('save', function(next) {

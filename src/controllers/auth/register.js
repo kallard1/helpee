@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { validationResult } from 'express-validator/check';
 
 import { newUserEmail } from '../../config/email';
@@ -54,7 +53,7 @@ exports.registration = async(req, res) => {
     }
     req.flash('success', 'Congratulation, your account was created with success. We sent a confirmation email.');
     res.redirect('/');
-  }).catch((err) => {
+  }).catch(err => {
     console.error(err);
   });
 };

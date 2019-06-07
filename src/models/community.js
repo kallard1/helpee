@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import slug from 'mongoose-slug-updater';
+
+mongoose.plugin(slug);
 
 const schema = new mongoose.Schema(
   {
@@ -10,9 +13,10 @@ const schema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: true,
+      slug: 'name',
       maxlength: 100,
-      trim: true
+      trim: true,
+      unique: true
     },
     description: {
       type: String,

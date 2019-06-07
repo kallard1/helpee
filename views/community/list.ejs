@@ -1,0 +1,28 @@
+<%- include('../layouts/header') -%>
+<%- include('../layouts/menuburger') -%>
+<%- stylesheetTag('profile.css') -%>
+
+<!-- Les infos sont identiques que dans community/community.ejs -->
+<div class="container container-commu">
+    <h2>Toutes les Communautés</h2>
+   
+<% communities.forEach(community => { %>
+            <div class="col s12 community-details">
+                <p class="community-name"><%= community.name %></p>
+                <p class="community-city"><%= community.location.name %></p>
+                <a class="arrow arrow-next" href='/community/<%=community.slug %>'></a>
+                <p class="community-members"><%= community.members.length %> 
+                    <% if(community.members.length == 1 ) { %>
+                    <span>membre</span><% }else{ %>
+                    <span>membres</span>
+                    <% };%>
+                </p>
+            </div>
+<% }); %>
+    
+     <div class="btn-container">
+            <a href="/community/new/"><button type="submit" class="btn btn-fit btn-search active">Créer une communauté</button></a>
+    </div>
+</div>  
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>

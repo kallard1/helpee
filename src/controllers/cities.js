@@ -8,7 +8,7 @@ import Cities from '../models/cities';
  */
 exports.getByDepartments = async(req, res) => {
   Cities.find({ 'department.code': req.query.department })
-    .then((response) => {
+    .then(response => {
       res.json(response);
     });
 };

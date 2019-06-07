@@ -1,0 +1,72 @@
+<%- include('../layouts/header') -%>
+<%- include('../layouts/menuburger') -%>
+
+<div class="container">
+    <h2 class="title"><%= community.name %></h2>
+    <p class="community-members"><%= community.members.length %> 
+      <% if(community.members.length == 1 ) { %>
+      <span>membre</span><% }else{ %>
+      <span>membres</span>
+    </p>
+    <% } %>
+    <!--
+      -- isAdmin permet de verifier que l'utilisateur est l'admin de la communauté
+      -- isInCommunity permet de vérifier que l'utilisateur est dans la communauté et d'afficher les informations relatives
+      --               à son appartenance ou non à celle-ci
+      -->
+
+    <% if (isAdmin) { %>
+        <i class="mdi mdi-crown mdi-24px"></i>
+    <% } %>
+
+    <% if (!isInCommunity) { %>
+        <button class="btn btn-submit active btn-fit">Rejoindre</button>
+    <% } else { %>
+        <% ads.forEach(ad => { %>
+            <%= ad.title %>
+            <%#--
+               -- {
+               --  images: array,
+               --  user:
+               --   { firstname: string,
+               --     lastname: string },
+               --  category:
+               --   { label: string,
+               --     slug: string },
+               --  title: string,
+               --  slug: string,
+               --  description: string,
+               --  uev: number
+               -- }
+              --#%>
+        <% }); %>
+    <% } %>
+    <!--
+    { members:
+        [ {
+            _id,
+            imageName,
+            firstname,
+            lastname,
+             } ],
+       is_enabled,
+       name,
+       slug,
+       description,
+       location:
+        { _id,
+          zip_code,
+          name,
+          slug
+        },
+       user:
+        {
+          imageName,
+          _id,
+          firstname,
+          lastname
+           }
+        }-->
+</div>
+<%- include('../layouts/js_imports') -%>
+<%- include('../layouts/footer') -%>

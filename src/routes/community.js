@@ -6,19 +6,27 @@ import { isLoggedIn } from '../middlewares/isLoggedIn';
 
 const router = express.Router();
 
+router.get('/', isLoggedIn, communityController.index);
 router.get('/new', isLoggedIn, communityController.new);
-router.post('/save', isLoggedIn, [
-  check('name')
-    .isLength({ max: 75 })
-    .withMessage('Name is too long')
-    .exists()
-    .withMessage('Name is required'),
-  check('city')
-    .exists()
-    .withMessage('City is required'),
-  check('description')
-    .exists()
-    .withMessage('Description is required')
-], communityController.save);
+router.post(
+  '/save',
+  isLoggedIn,
+  [
+    check('name')
+      .isLength({ max: 75 })
+      .withMessage('Name is too long')
+      .exists()
+      .withMessage('Name is required'),
+    check('city')
+      .exists()
+      .withMessage('City is required'),
+    check('description')
+      .exists()
+      .withMessage('Description is required')
+  ],
+  communityController.save
+);
+
+router.get('/:slug', isLoggedIn, communityController.getBySlug);
 
 module.exports = router;

@@ -57,40 +57,43 @@ exports.forgot = async(req, res) => {
  * @returns {Promise<void>}
  */
 exports.generateToken = async(req, res, next) => {
-  async.waterfall([
-    (done) => {
-      const token = uuid();
+  async.waterfall(
+    [
+      done => {
+        const token = uuid();
 
-      done(null, token);
-    },
-    (token, done) => {
-      User.findOne({ email: req.body.email }, (err, user) => {
-        const u = user;
-        if (!user) {
-          req.flash('warning', 'No account found with this email.');
-          return res.redirect('/auth/forgot-password');
-        }
+        done(null, token);
+      },
+      (token, done) => {
+        User.findOne({ email: req.body.email }, (err, user) => {
+          const u = user;
+          if (!user) {
+            req.flash('warning', 'No account found with this email.');
+            return res.redirect('/auth/forgot-password');
+          }
 
-        if (err) {
-          console.error(err);
-        }
+          if (err) {
+            console.error(err);
+          }
 
-        u.resetPasswordToken = token;
-        u.resetPasswordExpires = Date.now() + 3600000;
+          u.resetPasswordToken = token;
+          u.resetPasswordExpires = Date.now() + 3600000;
 
-        u.save((error) => {
-          done(error, u);
+          u.save(error => {
+            done(error, u);
+          });
         });
-      });
-    },
-    (user, done) => {
-      forgotPassword(user, done);
+      },
+      (user, done) => {
+        forgotPassword(user, done);
+      }
+    ],
+    err => {
+      if (err) return next(err);
+      req.flash('info', 'An e-mail has been sent with further instructions.');
+      return res.redirect('/auth/forgot-password');
     }
-  ], (err) => {
-    if (err) return next(err);
-    req.flash('info', 'An e-mail has been sent with further instructions.');
-    return res.redirect('/auth/forgot-password');
-  });
+  );
 };
 
 /**
@@ -100,21 +103,24 @@ exports.generateToken = async(req, res, next) => {
  * @returns {Promise<void>}
  */
 exports.resetPassword = async(req, res) => {
-  User.findOne({
-    resetPasswordToken: req.params.token,
-    resetPasswordExpires: { $gt: Date.now() }
-  }, (err, user) => {
-    if (!user) {
-      req.flash('danger', 'Password reset token is invalid or has expired');
-      return res.redirect('/auth/forgot-password');
-    }
+  User.findOne(
+    {
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() }
+    },
+    (err, user) => {
+      if (!user) {
+        req.flash('danger', 'Password reset token is invalid or has expired');
+        return res.redirect('/auth/forgot-password');
+      }
 
-    if (err) {
-      console.error(err);
-    }
+      if (err) {
+        console.error(err);
+      }
 
-    res.render('auth/forgot/reset');
-  });
+      res.render('auth/forgot/reset');
+    }
+  );
 };
 
 /**
@@ -128,37 +134,45 @@ exports.resetingPassword = async(req, res, next) => {
     return res.redirect(`/auth/forgot-password/${req.params.token}`);
   }
 
-  async.waterfall([
-    (done) => {
-      User.findOne({
-        resetPasswordToken: req.params.token,
-        resetPasswordExpires: { $gt: Date.now() }
-      }, (err, user) => {
-        const u = user;
+  async.waterfall(
+    [
+      done => {
+        User.findOne(
+          {
+            resetPasswordToken: req.params.token,
+            resetPasswordExpires: { $gt: Date.now() }
+          },
+          (err, user) => {
+            const u = user;
 
-        if (!user) {
-          req.flash('danger', 'Password reset token is invalid or has expired');
-          return res.redirect('/auth/forgot-password');
-        }
+            if (!user) {
+              req.flash('danger', 'Password reset token is invalid or has expired');
+              return res.redirect('/auth/forgot-password');
+            }
 
-        if (err) console.error(err);
+            if (err) console.error(err);
 
-        u.password = req.body.password;
-        u.resetPasswordToken = undefined;
-        u.resetPasswordExpires = undefined;
+            u.password = req.body.password;
+            u.resetPasswordToken = undefined;
+            u.resetPasswordExpires = undefined;
 
-        u.save(() => {
-          req.logIn(u, (error) => {
-            done(error, u);
-          });
-        });
-      });
-    }, (user, done) => {
-      forgotPassword(user, done);
-    }], (err) => {
-    if (err) return next(err);
-    res.redirect('/');
-  });
+            u.save(() => {
+              req.logIn(u, error => {
+                done(error, u);
+              });
+            });
+          }
+        );
+      },
+      (user, done) => {
+        forgotPassword(user, done);
+      }
+    ],
+    err => {
+      if (err) return next(err);
+      res.redirect('/');
+    }
+  );
 };
 
 /**

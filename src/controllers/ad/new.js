@@ -5,20 +5,34 @@ import Cities from '../../models/cities';
 import Community from '../../models/community';
 import Departments from '../../models/department';
 /**
- * GET /ad/new
+ * @route GET /ad/new
+ * @desc Create new ad
  * @param req
  * @param res
  * @returns {Promise<*>}
  */
 exports.index = async(req, res) => {
-  res.render('ad/new', {
-    categories: await AdsCategories.find(),
-    departments: await Departments.find(),
-    // eslint-disable-next-line no-underscore-dangle
-    communities: await Community.find({ members: req.user._id })
-  });
+  const userCommunities = await Community.find({ members: req.user._id, is_enabled: true });
+
+  if (userCommunities.length > 0) {
+    res.render('ad/new', {
+      categories: await AdsCategories.find(),
+      departments: await Departments.find(),
+      communities: await Community.find({ members: req.user._id })
+    });
+  } else {
+    req.flash('warning', `You're not a member of any communities`);
+    res.redirect('/community/new');
+  }
 };
 
+/**
+ * @route POST /ad/new
+ * @desc Create new ad
+ * @param req
+ * @param res
+ * @returns {Promise<*>}
+ */
 exports.new = async(req, res) => {
   const {
     community, title, category, city, description, pictures, uev
@@ -29,11 +43,10 @@ exports.new = async(req, res) => {
   const cityId = await Cities.findOne({ slug: city })
     .select({ _id: 1 });
 
-  const ad = new Ad({
+  const newAd = new Ad({
     user: req.user._id,
     category: categoryId,
     title,
-    slug: title, // TODO: convertir le titre en slug
     description,
     uev,
     community,
@@ -41,12 +54,12 @@ exports.new = async(req, res) => {
     images: _.filter(pictures, el => el !== '')
   });
 
-  ad.save()
-    .then(() => {
+  newAd.save()
+    .then(ad => {
       req.flash('success', 'Ad created!');
-      res.redirect('/'); // TODO: Rediriger vers la page de l'annonce (quand elle sera créée)
+      res.redirect(`/ad/${ad.slug}`);
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err);
     });
 };
