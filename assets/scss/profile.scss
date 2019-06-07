@@ -125,7 +125,6 @@ div#profile-image {
 }
 
 .community-details {
-  margin-left:20px;
   width:90%;
   padding-top: 5%;
   padding-bottom: 5%;
@@ -133,6 +132,9 @@ div#profile-image {
   border-radius: 5px;
   margin-top: 2%;
   margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
 }
 
 .community-name {
